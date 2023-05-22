@@ -2,7 +2,7 @@
 
 import { CONTENT, PATHS } from '@/utils/content';
 import React from 'react'
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
