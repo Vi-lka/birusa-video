@@ -70,9 +70,9 @@ function VideoPage({ play, setPlay, urlFull, link }: Props) {
                     buttons.map((value, index) => 
                         <Link 
                             key={index} 
-                            href={value.url} 
+                            href={'start/' + value.url} 
                             className='text-teal-300 bg-zinc-800 p-3 z-50'
-                            style={{display: ended ? 'block' : 'none'}}
+                            style={{display: ended ? 'block' : 'block'}}
                             onClick={() =>  globalAutoplay.click = true} 
                         >
                             {value.name}

@@ -1,23 +1,23 @@
 'use client'
 
-import { CONTENT, PATHS, globalAutoplay } from '@/utils/content';
+import { PATHS, globalAutoplay } from '@/utils/content';
 import React, { Suspense } from 'react'
-import ReactPlayer from 'react-player';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import VideoPage from '@/components/videoPage/VideoPage';
 import dynamic from "next/dynamic";
 import Loading from '@/components/ui/loading';
+import { GetStaticPaths, GetStaticProps } from 'next';
 const SuspenseVideoPage = dynamic(
   () => import('@/components/videoPage/VideoPage'),
-  { suspense: true }
+  { suspense: true, ssr: false }
 );
 
-type Props = {
-    params: { slug: string[] }
+export function generateStaticParams() {
+    return [{ slug: ['video1'] }, { slug: ['video1', 'video2'] }, { slug: ['video1', 'video3'] }]
 }
 
-function Page({ params }: Props) {
+export default function Page({ params }: { params: { slug: string[] } }) {
+
+    console.log(params)
 
     const router = useRouter();
 
@@ -34,7 +34,7 @@ function Page({ params }: Props) {
     let link = '';
 
     params.slug.forEach((slug, index) => {
-        if (index === params.slug.length - 1) {
+        if (index === slug.length - 1) {
             urlFull += slug
         } else urlFull += slug + '/'
     })
@@ -43,7 +43,7 @@ function Page({ params }: Props) {
         if (PATHS.includes(urlFull)) {
             return link = params.slug[params.slug.length - 1]
         } else {
-            return router.push('/404')
+            // return router.push('/404')
         }
     };
 
@@ -69,4 +69,16 @@ function Page({ params }: Props) {
     )
 }
 
-export default Page
+// export function getStaticPaths() {
+//     return {
+//         Paths: [
+//             // See path selection below
+//             { params: { slug: ['video1'] } },
+//             { params: { slug: ['video1', 'video2'] } },
+//             { params: { slug: ['video1', 'video3'] }}
+//         ],
+
+//         // See the fallback section below 
+//         fallback: false
+//     };
+// }

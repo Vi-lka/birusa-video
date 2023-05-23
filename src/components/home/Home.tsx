@@ -5,9 +5,7 @@ import Link from 'next/link';
 import React, { Suspense } from 'react'
 import Loading from '../ui/loading';
 
-type Props = {}
-
-function Home({ }: Props) {
+function Home() {
 
     return (
         <>
@@ -15,7 +13,7 @@ function Home({ }: Props) {
                 <main className="flex min-h-screen max-h-screen flex-col items-center justify-center p-24">
                     <Link 
                         className='text-5xl'
-                        href={CONTENT[0].url} 
+                        href={'start/' + CONTENT[0].url} 
                         onClick={() => globalAutoplay.click = true}
                     >
                         Enter
