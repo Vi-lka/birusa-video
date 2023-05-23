@@ -1,8 +1,22 @@
+'use client'
+
+import React from "react";
+
 export default function Loading() {
-    // You can add any UI inside Loading, including a Skeleton.
+    
+    const [loading, setLoading] = React.useState<boolean>(true);
+
+    React.useEffect(() => {
+        setLoading(false);
+    }, []);
+
     return (
         <>
-            <h1 color="black">Loading...</h1>
+        {
+            !loading && (
+                <h1 color="black">Loading...</h1>
+            )
+        }
         </>
     )
   }
