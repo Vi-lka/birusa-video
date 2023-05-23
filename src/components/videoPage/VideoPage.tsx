@@ -3,7 +3,7 @@
 import { CONTENT } from '@/utils/content';
 import Link from 'next/link';
 import React from 'react'
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 
 type Props = {
     play: boolean,

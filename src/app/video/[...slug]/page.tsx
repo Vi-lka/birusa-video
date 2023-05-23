@@ -1,25 +1,31 @@
 'use client'
 
 import { CONTENT, PATHS } from '@/utils/content';
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactPlayer from 'react-player';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import VideoPage from '@/components/videoPage/VideoPage';
+import dynamic from "next/dynamic";
+import Loading from '@/components/ui/loading';
+const SuspenseVideoPage = dynamic(
+  () => import('@/components/videoPage/VideoPage'),
+  { suspense: true }
+);
 
 type Props = {
     params: { slug: string[] }
 }
 
 function Page({ params }: Props) {
-    
-    const [domLoaded, setDomLoaded] = React.useState(false);
-
-    React.useEffect(() => {
-        setDomLoaded(true);
-    }, []);
 
     const router = useRouter();
+
+    const [loading, setLoading] = React.useState<boolean>(true);
+
+    React.useEffect(() => {
+        setLoading(false);
+    }, []);
 
     let urlFull = '';
     let link = '';
@@ -44,14 +50,20 @@ function Page({ params }: Props) {
 
     return (
         <>
-        {domLoaded && (
-            <VideoPage 
-                play={play}
-                setPlay={setPlay}
-                urlFull={urlFull}
-                link={link}
-            />
-        )}
+        {
+            loading ? (
+                <Loading />
+            ) : (
+                <Suspense fallback={<Loading />}>
+                    <SuspenseVideoPage 
+                        play={play}
+                        setPlay={setPlay}
+                        urlFull={urlFull}
+                        link={link}
+                    />
+                </Suspense>
+            )
+        }
         </>
     )
 }
