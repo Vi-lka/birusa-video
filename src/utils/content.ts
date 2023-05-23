@@ -1,3 +1,13 @@
+export const globalAutoplay = {
+    click: false
+}
+
+export const PATHS = [
+        'video1',
+        'video1/video2',
+        'video1/video3',
+] as string[]
+
 export type ContentType = {
     id: number
     name: string,
@@ -7,12 +17,6 @@ export type ContentType = {
         url: string
     }[]
 }
-
-export const PATHS = [
-        'video1',
-        'video1/video2',
-        'video1/video3',
-] as string[]
 
 export const CONTENT: ContentType[] = [
     {

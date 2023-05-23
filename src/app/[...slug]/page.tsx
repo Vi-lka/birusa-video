@@ -1,6 +1,6 @@
 'use client'
 
-import { CONTENT, PATHS } from '@/utils/content';
+import { CONTENT, PATHS, globalAutoplay } from '@/utils/content';
 import React, { Suspense } from 'react'
 import ReactPlayer from 'react-player';
 import { useRouter } from 'next/navigation';
@@ -26,8 +26,9 @@ function Page({ params }: Props) {
     const [play, setPlay] = React.useState(false);
 
     React.useEffect(() => {
-        setLoading(false);
-    }, []);
+        setLoading(false)
+        globalAutoplay.click && setPlay(true)
+    }, [])
 
     let urlFull = '';
     let link = '';
@@ -36,7 +37,7 @@ function Page({ params }: Props) {
         if (index === params.slug.length - 1) {
             urlFull += slug
         } else urlFull += slug + '/'
-    }) ;
+    })
 
     function checkPath() {
         if (PATHS.includes(urlFull)) {
