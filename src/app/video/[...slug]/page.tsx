@@ -23,6 +23,8 @@ function Page({ params }: Props) {
 
     const [loading, setLoading] = React.useState<boolean>(true);
 
+    const [play, setPlay] = React.useState(false);
+
     React.useEffect(() => {
         setLoading(false);
     }, []);
@@ -45,8 +47,6 @@ function Page({ params }: Props) {
     };
 
     checkPath();
-
-    const [play, setPlay] = React.useState(true);
 
     return (
         <>

@@ -3,7 +3,7 @@
 import { CONTENT } from '@/utils/content';
 import Link from 'next/link';
 import React, { Suspense } from 'react'
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player';
 import Loading from '../ui/loading';
 
 type Props = {
@@ -16,10 +16,6 @@ type Props = {
 function VideoPage({ play, setPlay, urlFull, link }: Props) {
 
     const [loading, setLoading] = React.useState<boolean>(true);
-
-    React.useEffect(() => {
-        setLoading(false);
-    }, []);
 
     let buttons = [] as {
         name: string,
@@ -34,15 +30,13 @@ function VideoPage({ play, setPlay, urlFull, link }: Props) {
 
     return (
         <>
-        {
-            loading ? (
-                <Loading />
-            ) : (
-            <main className="flex min-h-screen max-h-screen flex-col items-center justify-between p-24">
+            {loading ? <Loading/> : null}
+            <main className="min-h-screen max-h-screen flex-col items-center justify-between p-24" style={{display: loading ? 'none' : 'flex'}}>
                 <div onClick={() => setPlay(!play)}>
-                    <Suspense fallback={<Loading/>}>
-                        <ReactPlayer playing={play} url={'/video/' + link + ".mp4"} controls={false} playsinline stopOnUnmount={true} loop={false} preload={'auto'}/>
-                    </Suspense>
+                    <ReactPlayer playing={play} url={'/video/' + link + ".mp4"} controls={false} playsinline stopOnUnmount={true} loop={false} preload={'auto'} onReady={() => {
+                        setPlay(true)
+                        setLoading(false)
+                    }}/>
                 </div>
                 {
                     buttons.map((value, index) => 
@@ -52,8 +46,6 @@ function VideoPage({ play, setPlay, urlFull, link }: Props) {
                     )
                 }
             </main>
-            )
-        }
         </>
     )
 }
