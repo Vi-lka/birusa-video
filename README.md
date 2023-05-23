@@ -1,1 +1,1 @@
-This is a just for fun and help to some TIM Birusa project
+This is just for fun and to help the TIM Birusa project
