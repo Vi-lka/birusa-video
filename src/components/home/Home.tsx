@@ -2,7 +2,8 @@
 
 import { CONTENT } from '@/utils/content';
 import Link from 'next/link';
-import React from 'react'
+import React, { Suspense } from 'react'
+import Loading from '../ui/loading';
 
 type Props = {}
 
@@ -16,9 +17,11 @@ function Home({ }: Props) {
 
     return (
         <>
-            <main className="flex min-h-screen max-h-screen flex-col items-center justify-between p-24">
-                <Link href={'video/' + CONTENT[0].url}>Start</Link>
-            </main>
+            <Suspense fallback={<Loading/>}>
+                <main className="flex min-h-screen max-h-screen flex-col items-center justify-between p-24">
+                    <Link href={'video/' + CONTENT[0].url}>Start</Link>
+                </main>
+            </Suspense>
         </>
     )
 }
