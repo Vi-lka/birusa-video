@@ -20,7 +20,6 @@ function VideoPage({ params }: Props) {
     const [play, setPlay] = React.useState(false);
 
     React.useEffect(() => {
-        setLoading(false)
         globalAutoplay.click && setPlay(true)
     }, [])
 
