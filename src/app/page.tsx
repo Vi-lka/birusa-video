@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import Home from '@/components/home/Home';
-import Loading from '@/components/ui/Loading';
+import Loading from '@/components/ui/loading';
 import dynamic from 'next/dynamic';
 const SuspenseVideoPageReactComp = dynamic(
   () => import('@/components/videoPage/VideoPageReactComp'),

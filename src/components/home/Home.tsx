@@ -3,7 +3,7 @@
 import { globalAutoplay } from '@/utils/content';
 import Link from 'next/link';
 import React, { Suspense } from 'react'
-import Loading from '../ui/Loading';
+import Loading from '../ui/loading';
 
 function Home() {
 

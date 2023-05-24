@@ -1,7 +1,7 @@
 'use client'
 
 import React, { Suspense, useCallback } from 'react'
-import Loading from '@/components/ui/Loading'
+import Loading from '@/components/ui/loading'
 import { CONTENT, globalAutoplay } from '@/utils/content';
 import ReactPlayer from 'react-player';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
