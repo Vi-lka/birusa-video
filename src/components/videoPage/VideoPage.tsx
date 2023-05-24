@@ -1,23 +1,50 @@
 'use client'
 
-import { CONTENT, globalAutoplay } from '@/utils/content';
+import { CONTENT, PATHS, globalAutoplay } from '@/utils/content';
 import Link from 'next/link';
 import React, { Suspense, useEffect } from 'react'
 import ReactPlayer from 'react-player';
 import Loading from '../ui/loading';
+import { useRouter } from 'next/navigation';
 
 type Props = {
-    play: boolean,
-    setPlay: React.Dispatch<React.SetStateAction<boolean>>,
-    urlFull: string,
-    link: string
+    params: { slug: string[] }
 }
 
-function VideoPage({ play, setPlay, urlFull, link }: Props) {
+function VideoPage({ params }: Props) {
 
     const [loading, setLoading] = React.useState<boolean>(true);
 
     const [ended, setEnded] = React.useState<boolean>(false);
+
+    const [play, setPlay] = React.useState(false);
+
+    React.useEffect(() => {
+        setLoading(false)
+        globalAutoplay.click && setPlay(true)
+    }, [])
+
+    const router = useRouter();
+    
+    let urlFull = '';
+    let link = '';
+
+    params.slug.forEach((slug, index) => {
+        if (index === slug.length - 1) {
+            urlFull += slug
+        } else urlFull += slug + '/'
+    })
+
+    function checkPath() {
+        if (PATHS.includes(urlFull)) {
+            return link = params.slug[params.slug.length - 1]
+        } else {
+            // return router.push('/404')
+        }
+    };
+
+    checkPath();
+
 
     let buttons = [] as {
         name: string,
