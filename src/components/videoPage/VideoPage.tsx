@@ -56,9 +56,9 @@ function VideoPage({ params }: Props) {
         }
     });
 
-    console.log('PLAY: ' + play)
-    console.log('globalAutoplay.CLICK: ' + globalAutoplay.click)
-    console.log('ENDED: ' + ended)
+    // console.log('PLAY: ' + play)
+    // console.log('globalAutoplay.CLICK: ' + globalAutoplay.click)
+    // console.log('ENDED: ' + ended)
 
 
     return (
