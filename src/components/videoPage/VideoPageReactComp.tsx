@@ -1,12 +1,16 @@
 'use client'
 
 import React, { Suspense } from 'react'
-import Loading from '@/components/ui/loading'
+import Loading from '@/components/ui/Loading'
 import { CONTENT, globalAutoplay } from '@/utils/content';
 import ReactPlayer from 'react-player';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import StartScreen from '../ui/startScreen';
 
 export default function VideoPageReactComp() {
+
+    const handleFullScreen = useFullScreenHandle();
 
     const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -45,7 +49,8 @@ export default function VideoPageReactComp() {
             {loading ? <Loading/> : null}
             {CONTENT.map(element => (
                 element.id === currentVideo ? (
-                    <div key={element.id} className="relative w-screen h-screen flex-col items-center justify-between" style={{display: loading ? 'none' : 'flex'}}>
+                    <FullScreen key={element.id} handle={handleFullScreen}>
+                    <div className="relative w-screen h-screen flex-col items-center justify-between" style={{display: loading ? 'none' : 'flex'}}>
                         <div 
                             className='w-fit h-fit'
                             onClick={() => {
@@ -96,32 +101,25 @@ export default function VideoPageReactComp() {
 
                         {
                             currentVideo === 0 && (
-                                <div className="absolute top-0 left-0 w-screen h-screen bg-zinc-800 justify-center items-center z-[100]" style={{display: playStart ? 'none' : 'flex'}}>
-                                    <button 
-                                        className='w-fit h-fit text-3xl bg-teal-300 text-zinc-800 px-10 py-3 rounded-full'                     
-                                        onClick={() => {
-                                            setPlay(true)
-                                            setPlayStart(true)
-                                            globalAutoplay.click = true
-                                        }}
-                                    >
-                                       Start
-                                    </button>
-                                </div>
+                                <StartScreen 
+                                    setPlay={setPlay}
+                                    setPlayStart={setPlayStart}
+                                    playStart={playStart}
+                                />
                             )
                         }
 
-                                <div className="absolute inset-y-1/2 left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
-                                    <button 
-                                        className='w-fit h-fit text-3xl text-teal-300 bg-zinc-800 p-3 z-50'                     
-                                        onClick={() => {
-                                            setPlay(!play)
-                                            globalAutoplay.click = !play
-                                        }}
-                                    >
-                                       Click to play
-                                    </button>
-                                </div>
+                        <div className="absolute inset-y-1/2 left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
+                            <button 
+                                className='w-fit h-fit text-3xl text-teal-300 bg-zinc-800 p-3 z-50'                     
+                                onClick={() => {
+                                    setPlay(!play)
+                                    globalAutoplay.click = !play
+                                }}
+                            >
+                               Click to play
+                            </button>
+                        </div>
                             
                         <div className="absolute top-8 left-0 w-full flex justify-center">
                             <button 
@@ -138,6 +136,7 @@ export default function VideoPageReactComp() {
                             </button>
                         </div>
                     </div>
+                    </FullScreen>
                 ) : null
             ))}
         </>

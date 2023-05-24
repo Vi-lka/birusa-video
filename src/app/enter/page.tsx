@@ -1,4 +1,4 @@
-import Loading from '@/components/ui/loading'
+import Loading from '@/components/ui/Loading'
 import dynamic from 'next/dynamic';
 import React, { Suspense } from 'react'
 const SuspenseVideoPageReactComp = dynamic(

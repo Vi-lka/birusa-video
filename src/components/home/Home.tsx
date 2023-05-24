@@ -1,9 +1,9 @@
 'use client'
 
-import { CONTENT, globalAutoplay } from '@/utils/content';
+import { globalAutoplay } from '@/utils/content';
 import Link from 'next/link';
 import React, { Suspense } from 'react'
-import Loading from '../ui/loading';
+import Loading from '../ui/Loading';
 
 function Home() {
 

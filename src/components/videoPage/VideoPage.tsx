@@ -4,7 +4,7 @@ import { CONTENT, PATHS, globalAutoplay } from '@/utils/content';
 import Link from 'next/link';
 import React, { Suspense, useEffect } from 'react'
 import ReactPlayer from 'react-player';
-import Loading from '../ui/loading';
+import Loading from '../ui/Loading';
 import { useRouter } from 'next/navigation';
 
 type Props = {
