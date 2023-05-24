@@ -1,16 +1,18 @@
 'use client'
 
-import React, { Suspense } from 'react'
+import React, { Suspense, useCallback } from 'react'
 import Loading from '@/components/ui/Loading'
 import { CONTENT, globalAutoplay } from '@/utils/content';
 import ReactPlayer from 'react-player';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import StartScreen from '../ui/startScreen';
+import StartScreen from '../ui/StartScreen';
 
 export default function VideoPageReactComp() {
 
     const handleFullScreen = useFullScreenHandle();
+
+    const [fullscreen, setFullscreen] = React.useState<boolean>(false);
 
     const [loading, setLoading] = React.useState<boolean>(true);
 
@@ -44,13 +46,17 @@ export default function VideoPageReactComp() {
         }
     });
 
+    const reportChange = useCallback((state: any) => {
+            setFullscreen(state)
+      }, [])
+
     return (
         <>
             {loading ? <Loading/> : null}
+            <FullScreen handle={handleFullScreen} onChange={reportChange}>
             {CONTENT.map(element => (
                 element.id === currentVideo ? (
-                    <FullScreen key={element.id} handle={handleFullScreen}>
-                    <div className="relative w-screen h-screen flex-col items-center justify-between" style={{display: loading ? 'none' : 'flex'}}>
+                    <div key={element.id} className="relative w-screen h-screen flex-col items-center justify-between" style={{display: loading ? 'none' : 'flex'}}>
                         <div 
                             className='w-fit h-fit'
                             onClick={() => {
@@ -105,9 +111,19 @@ export default function VideoPageReactComp() {
                                     setPlay={setPlay}
                                     setPlayStart={setPlayStart}
                                     playStart={playStart}
+                                    handleFullScreen={handleFullScreen}
                                 />
                             )
                         }
+
+                        <div className="absolute top-5 right-5 w-fit justify-center" style={{display: play ? 'none' : 'flex'}}>
+                            <button 
+                                className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'                     
+                                onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
+                            >
+                                {fullscreen ? "FullScreen on" : "FullScreen off"}
+                            </button>
+                        </div>
 
                         <div className="absolute inset-y-1/2 left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
                             <button 
@@ -121,7 +137,7 @@ export default function VideoPageReactComp() {
                             </button>
                         </div>
                             
-                        <div className="absolute top-8 left-0 w-full flex justify-center">
+                        <div className="absolute top-5 left-5 w-fit flex justify-center">
                             <button 
                                 className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'                     
                                 onClick={() => {
@@ -132,13 +148,13 @@ export default function VideoPageReactComp() {
                                     addCookie(0)
                                 }}
                             >
-                                back to start
+                                Back to start
                             </button>
                         </div>
                     </div>
-                    </FullScreen>
                 ) : null
             ))}
+            </FullScreen>
         </>
     )
 }
