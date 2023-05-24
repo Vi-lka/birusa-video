@@ -13,27 +13,32 @@ export const CONTENT: ContentType[] = [
         id: 0,
         name: 'Start',
         url: 'video1/',
+        filename: 'video1',
         buttons: [
             {
                 name: 'Variant1',
-                url: 'video1/video2/'
+                url: 'video1/video2/',
+                indexUrl: 1,
             },
             {
                 name: 'Variant2' ,
-                url: 'video1/video3/' 
+                url: 'video1/video3/',
+                indexUrl: 2,
             }
         ]
     },
     {
         id: 1,
-        name: 'Step - Start/Variant1' ,
-        url: 'video1/video2/' ,
+        name: 'Step - Start/Variant1',
+        url: 'video1/video2/',
+        filename: 'video2',
         buttons: []
     },
     {
         id: 2,
-        name: 'Step - Start/Variant2' ,
-        url: 'video1/video3/' ,
+        name: 'Step - Start/Variant2',
+        url: 'video1/video3/',
+        filename: 'video3',
         buttons: []
     }
 
