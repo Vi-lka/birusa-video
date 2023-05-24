@@ -14,7 +14,10 @@ function Home() {
                     <Link 
                         className='text-5xl'
                         href={'start/' + CONTENT[0].url} 
-                        onClick={() => globalAutoplay.click = true}
+                        onClick={() => {
+                            globalAutoplay.click = true
+                            document.body.requestFullscreen()
+                        }}
                     >
                         Enter
                     </Link>
