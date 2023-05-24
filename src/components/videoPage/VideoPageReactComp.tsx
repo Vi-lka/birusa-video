@@ -19,7 +19,7 @@ export default function VideoPageReactComp() {
     const [play, setPlay] = React.useState(false);
 
     const addCookie = (current: number) => {
-        setCookie('current-progress', current.toString());
+        setCookie('current-progress', current.toString(), {maxAge: 60 * 60 * 72})
     }
 
     React.useEffect(() => {
