@@ -13,7 +13,10 @@ export default function VideoPageReactComp() {
     
     const [ended, setEnded] = React.useState<boolean>(false);
 
+    const [playStart, setPlayStart] = React.useState(false);
+
     const [play, setPlay] = React.useState(false);
+    
 
     React.useEffect(() => {
         globalAutoplay.click && setPlay(true)
@@ -47,24 +50,26 @@ export default function VideoPageReactComp() {
                                 globalAutoplay.click = !play
                             }}
                         >
-                                    <ReactPlayer 
-                                        style={{zIndex: 1}}
-                                        width={'100vw'}
-                                        height={'100vh'}
-                                        playing={play} 
-                                        url={"../video/" + element.filename + ".mp4"} 
-                                        controls={false} 
-                                        playsinline 
-                                        stopOnUnmount={true} 
-                                        loop={false} 
-                                        preload={'auto'} 
-                                        onReady={() => {
-                                            setLoading(false)
-                                        }}
-                                        onEnded={() => {
-                                            setEnded(true)
-                                        }}
-                                    />
+                            <Suspense fallback={<Loading />}>
+                                <ReactPlayer 
+                                    style={{zIndex: 1}}
+                                    width={'100vw'}
+                                    height={'100vh'}
+                                    playing={play} 
+                                    url={"../video/" + element.filename + ".mp4"} 
+                                    controls={false} 
+                                    playsinline 
+                                    stopOnUnmount={true} 
+                                    loop={false} 
+                                    preload={'auto'} 
+                                    onReady={() => {
+                                        setLoading(false)
+                                    }}
+                                    onEnded={() => {
+                                        setEnded(true)
+                                    }}
+                                />
+                            </Suspense>
                         </div>
                         <div className="absolute bottom-8 left-0 flex w-full justify-evenly">
                         {
@@ -84,23 +89,43 @@ export default function VideoPageReactComp() {
                             )
                         }
                         </div>
-                        <div className="absolute inset-y-1/2 left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
-                            <button 
-                                className='w-fit h-fit text-3xl text-teal-300 bg-zinc-800 p-3 z-50'                     
-                                onClick={() => {
-                                    setPlay(!play)
-                                    globalAutoplay.click = !play
-                                }}
-                            >
-                                Click to play
-                            </button>
-                        </div>
+
+                        {
+                            currentVideo === 0 && (
+                                <div className="absolute top-0 left-0 w-screen h-screen bg-zinc-800 justify-center items-center z-[100]" style={{display: playStart ? 'none' : 'flex'}}>
+                                    <button 
+                                        className='w-fit h-fit text-3xl bg-teal-300 text-zinc-800 px-10 py-3 rounded-full'                     
+                                        onClick={() => {
+                                            setPlay(true)
+                                            setPlayStart(true)
+                                            globalAutoplay.click = true
+                                        }}
+                                    >
+                                       Start
+                                    </button>
+                                </div>
+                            )
+                        }
+
+                                <div className="absolute inset-y-1/2 left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
+                                    <button 
+                                        className='w-fit h-fit text-3xl text-teal-300 bg-zinc-800 p-3 z-50'                     
+                                        onClick={() => {
+                                            setPlay(!play)
+                                            globalAutoplay.click = !play
+                                        }}
+                                    >
+                                       Click to play
+                                    </button>
+                                </div>
                             
                         <div className="absolute top-8 left-0 w-full flex justify-center">
                             <button 
                                 className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'                     
                                 onClick={() => {
-                                    globalAutoplay.click = true
+                                    setPlay(false)
+                                    setPlayStart(false)
+                                    globalAutoplay.click = false
                                     setCurrentVideo(0)
                                 }}
                             >

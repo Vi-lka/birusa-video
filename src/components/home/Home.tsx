@@ -13,7 +13,7 @@ function Home() {
                 <main className="flex min-h-screen max-h-screen flex-col items-center justify-center p-24">
                     <Link 
                         className='text-5xl'
-                        href={'start/' + CONTENT[0].url} 
+                        href={'enter/'} 
                         onClick={() => {
                             globalAutoplay.click = true
                             document.body.requestFullscreen()
