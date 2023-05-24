@@ -38,7 +38,7 @@ function VideoPage({ params }: Props) {
         if (PATHS.includes(urlFull)) {
             return link = params.slug[params.slug.length - 1]
         } else {
-            // return router.push('/404')
+            return router.push('/404')
         }
     };
 
@@ -56,9 +56,9 @@ function VideoPage({ params }: Props) {
         }
     });
 
-    // console.log('PLAY: ' + play)
-    // console.log('globalAutoplay.CLICK: ' + globalAutoplay.click)
-    // console.log('ENDED: ' + ended)
+    console.log('PLAY: ' + play)
+    console.log('globalAutoplay.CLICK: ' + globalAutoplay.click)
+    console.log('ENDED: ' + ended)
 
 
     return (
@@ -105,6 +105,17 @@ function VideoPage({ params }: Props) {
                         </Link>
                     )
                 }
+                </div>
+                <div className="absolute inset-y-1/2 left-0 w-full justify-evenly" style={{display: play ? 'none' : 'flex'}}>
+                    <button 
+                        className='w-fit h-fit text-3xl text-teal-300 bg-zinc-800 p-3 z-50'                     
+                        onClick={() => {
+                            setPlay(!play)
+                            globalAutoplay.click = !play
+                        }}
+                    >
+                        Click to play
+                    </button>
                 </div>
             </div>
         </>
