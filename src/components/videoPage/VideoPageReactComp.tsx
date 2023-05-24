@@ -4,21 +4,26 @@ import React, { Suspense } from 'react'
 import Loading from '@/components/ui/loading'
 import { CONTENT, globalAutoplay } from '@/utils/content';
 import ReactPlayer from 'react-player';
+import { getCookie, hasCookie, setCookie } from 'cookies-next';
 
 export default function VideoPageReactComp() {
 
     const [loading, setLoading] = React.useState<boolean>(true);
 
-    const [currentVideo, setCurrentVideo] = React.useState<number>(0);
+    const [currentVideo, setCurrentVideo] = React.useState<number | undefined | null>(0);
     
     const [ended, setEnded] = React.useState<boolean>(false);
 
     const [playStart, setPlayStart] = React.useState(false);
 
     const [play, setPlay] = React.useState(false);
-    
+
+    const addCookie = (current: number) => {
+        setCookie('current-progress', current.toString());
+    }
 
     React.useEffect(() => {
+        hasCookie('current-progress') && setCurrentVideo( Number(getCookie('current-progress')) )
         globalAutoplay.click && setPlay(true)
     }, [])
 
@@ -34,8 +39,6 @@ export default function VideoPageReactComp() {
             buttons = element.buttons
         }
     });
-
-    console.log(loading)
 
     return (
         <>
@@ -81,6 +84,7 @@ export default function VideoPageReactComp() {
                                     onClick={() => { 
                                         globalAutoplay.click = true
                                         setCurrentVideo(value.indexUrl)
+                                        addCookie(value.indexUrl)
                                         setLoading(true)
                                     }} 
                                 >
@@ -127,6 +131,7 @@ export default function VideoPageReactComp() {
                                     setPlayStart(false)
                                     globalAutoplay.click = false
                                     setCurrentVideo(0)
+                                    addCookie(0)
                                 }}
                             >
                                 back to start
