@@ -1,12 +1,73 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import localFont from 'next/font/local'
 
 export const metadata = {
   title: 'Birusa',
   description: 'Some video)))',
 }
+
+const MullerNextTrial = localFont({
+  src: [
+    {
+      path: '../fonts/MullerNextTrial-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/MullerNextTrial-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/MullerNextTrial-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-MN'
+});
+
+const MullerNextWideTrial = localFont({
+  src: [
+    {
+      path: '../fonts/MullerNextWideTrial-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/MullerNextWideTrial-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/MullerNextWideTrial-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-MNWide'
+});
+
+const MullerNextExpandedTrial = localFont({
+  src: [
+    {
+      path: '../fonts/MullerNextExpandedTrial-Thin.ttf',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/MullerNextExpandedTrial-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/MullerNextExpandedTrial-ExtraBold.ttf',
+      weight: '800',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-MNExpanded'
+});
 
 export default function RootLayout({
   children,
@@ -15,7 +76,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${MullerNextTrial.variable} ${MullerNextWideTrial.variable} ${MullerNextExpandedTrial.variable}`}>{children}</body>
     </html>
   )
 }

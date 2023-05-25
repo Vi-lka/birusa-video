@@ -7,6 +7,7 @@ import ReactPlayer from 'react-player';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import StartScreen from '../ui/StartScreen';
+import { motion } from 'framer-motion';
 
 export default function VideoPageReactComp() {
 
@@ -88,10 +89,16 @@ export default function VideoPageReactComp() {
                         <div className="absolute bottom-8 left-0 flex w-full justify-evenly">
                         {
                             buttons.map((value, index) => 
-                                <button 
+                                <motion.button 
                                     key={index} 
-                                    className='text-teal-300 bg-zinc-800 p-3 z-50'
+                                    className='font-MN font-extrabold text-xl bg-birusa-blue text-white px-7 py-4 rounded-full z-50'
                                     style={{display: ended ? 'block' : 'block'}}
+                                    whileHover={{
+                                        backgroundColor: 'rgb(132 204 22)',
+                                        textShadow: '0 0 5px rgba(0 79 117)',
+                                        boxShadow: '0 0 10px rgba(132 204 22)',
+                                        transition: { duration: 0.15 },
+                                    }}
                                     onClick={() => { 
                                         globalAutoplay.click = true
                                         setCurrentVideo(value.indexUrl)
@@ -100,7 +107,7 @@ export default function VideoPageReactComp() {
                                     }} 
                                 >
                                     {value.name}
-                                </button>
+                                </motion.button>
                             )
                         }
                         </div>
@@ -125,16 +132,22 @@ export default function VideoPageReactComp() {
                             </button>
                         </div>
 
-                        <div className="absolute inset-y-1/2 left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
-                            <button 
-                                className='w-fit h-fit text-3xl text-teal-300 bg-zinc-800 p-3 z-50'                     
+                        <div className="absolute bottom-[45%] left-0 w-full justify-center" style={{display: play ? 'none' : 'flex'}}>
+                            <motion.button 
+                                className='w-fit h-fit font-MNWide font-extrabold uppercase text-4xl bg-birusa-blue text-white px-10 py-7 rounded-full border-2 border-birusa-blue z-50'
+                                whileHover={{
+                                    backgroundColor: 'rgb(255 255 255)',
+                                    color: 'rgb(0 131 173)',
+                                    boxShadow: '0 0 10px rgba(0 131 173)',
+                                    transition: { duration: 0.15 },
+                                }}                     
                                 onClick={() => {
                                     setPlay(!play)
                                     globalAutoplay.click = !play
                                 }}
                             >
-                               Click to play
-                            </button>
+                               Продолжить
+                            </motion.button>
                         </div>
                             
                         <div className="absolute top-5 left-5 w-fit flex justify-center">

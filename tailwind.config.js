@@ -17,7 +17,12 @@ module.exports = {
         'birusa-blue-dark': '#004f75',
         'birusa-blue-light': '#4ac1e0',
         'birusa-blue-semilight': '#00aedd',
-      }
+      },
+      fontFamily: {
+        MN: ['var(--font-MN)'],
+        MNWide: ['var(--font-MNWide)'],
+        MNExpanded: ['var(--font-MNExpanded)'],
+      },
     },
   },
   plugins: [],
