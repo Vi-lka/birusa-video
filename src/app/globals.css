@@ -26,3 +26,8 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+/* .main-image-bg {
+  background: transparent;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(0, 131, 173, 0.5) 100%);
+} */

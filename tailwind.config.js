@@ -13,6 +13,8 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        'birusa-violet': '#4a017d',
+        'birusa-green': '#80c41c',
         'birusa-blue': '#0083ad',
         'birusa-blue-dark': '#004f75',
         'birusa-blue-light': '#4ac1e0',

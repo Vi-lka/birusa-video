@@ -3,9 +3,9 @@ export const globalAutoplay = {
 }
 
 export const PATHS = [
-        'video1/',
-        'video1/video2/',
-        'video1/video3/',
+    'video1/',
+    'video1/video2/',
+    'video1/video3/',
 ] as string[]
 
 export const CONTENT: ContentType[] = [
@@ -21,7 +21,7 @@ export const CONTENT: ContentType[] = [
                 indexUrl: 1,
             },
             {
-                name: 'Variant2' ,
+                name: 'Variant2',
                 url: 'video1/video3/',
                 indexUrl: 2,
             }
@@ -32,14 +32,36 @@ export const CONTENT: ContentType[] = [
         name: 'Step - Start/Variant1',
         url: 'video1/video2/',
         filename: 'video2',
-        buttons: []
+        buttons: [
+            {
+                name: 'Variant1',
+                url: 'video1/video2/',
+                indexUrl: 1,
+            },
+            {
+                name: 'Variant2',
+                url: 'video1/video3/',
+                indexUrl: 2,
+            }
+        ]
     },
     {
         id: 2,
         name: 'Step - Start/Variant2',
         url: 'video1/video3/',
         filename: 'video3',
-        buttons: []
+        buttons: [
+            {
+                name: 'Variant1',
+                url: 'video1/video2/',
+                indexUrl: 1,
+            },
+            {
+                name: 'Variant2',
+                url: 'video1/video3/',
+                indexUrl: 2,
+            }
+        ]
     }
 
 ]

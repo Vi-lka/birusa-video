@@ -28,7 +28,7 @@ const sidebar = {
     }
   }),
   closed: {
-    clipPath: window.innerWidth > 1000 ? "circle(140px at 100% 0px)" : "circle(100px at 100% 0px)",
+    clipPath: "circle(0px at 100% 0px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -43,10 +43,8 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
-  
-  const debouncedIsOpen = useDebounce(isOpen, 300);
 
-  console.log(debouncedIsOpen)
+  const debouncedIsOpen = useDebounce(isOpen, 300);
 
   return (
     <>
@@ -83,9 +81,11 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
         <Image
           className='object-cover z-[49]'
           fill={true}
-          src={'../imgs/polosa.svg'}
+          src={'../imgs/background-main.svg'}
+          priority={true}
           alt="Бирюса TIM"
         />
+        <div className='absolute top-0 left-0 w-screen h-screen z-[40] main-image-bg' />
       </div>
 
       <motion.nav
@@ -101,19 +101,6 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
         <Navigation isOpen={debouncedIsOpen} />
         <MenuToggle toggle={() => toggleOpen()} />
       </motion.nav>
-
-      {/* <div className='absolute top-0 right-0 w-fit h-fit mt-10 mr-10 z-[101]'  style={{ display: playStart ? 'none' : 'flex' }}>
-        <div className='container-burger-menu w-fit z-[100]'>
-          <div 
-            className={openMenu ? "burger-menu burger-menu--opened" : "burger-menu burger-menu--closed"}
-            onClick={() => setOpenMenu(!openMenu)}
-          >
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </div>
-        </div>
-      </div> */}
     </>
   )
 }
