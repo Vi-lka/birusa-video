@@ -26,7 +26,7 @@ export default function VideoPageReactComp() {
     const [play, setPlay] = React.useState(false);
 
     const addCookie = (current: number) => {
-        setCookie('current-progress', current.toString(), {maxAge: 60 * 60 * 72, secure: true, path: '/'});
+        setCookie('current-progress', current.toString(), {maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true});
     }
 
     React.useEffect(() => {
@@ -116,6 +116,7 @@ export default function VideoPageReactComp() {
                             currentVideo === 0 && (
                                 <StartScreen 
                                     setPlay={setPlay}
+                                    play={play}
                                     setPlayStart={setPlayStart}
                                     playStart={playStart}
                                     handleFullScreen={handleFullScreen}

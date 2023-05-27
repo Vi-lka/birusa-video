@@ -14,7 +14,7 @@ function Page() {
           {/* <Home /> */}
           <Suspense fallback={<Loading />}>
             <SuspenseVideoPageReactComp />
-        </Suspense>
+          </Suspense>
         </>
     )
 }

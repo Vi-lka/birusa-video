@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --birusa-blue: #0083ad;
+  --birusa-blue-dark: #004f75;
+  --birusa-blue-light: #4ac1e0;
+  --birusa-blue-semilight: #00aedd;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +23,6 @@
 html,
 body {
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
