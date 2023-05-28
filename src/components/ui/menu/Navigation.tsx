@@ -11,10 +11,10 @@ const variants = {
   }
 };
 
-const itemIds = [0, 1, 2, 3];
+const itemIds = [0, 1, 2];
 
-export const Navigation = ({isOpen} : {isOpen: boolean}) => (
-  <motion.ul 
+export const Navigation = ({ isOpen }: { isOpen: boolean }) => (
+  <motion.ul
     className="absolute top-[15%] left-0 w-screen h-[80%] flex-col justify-evenly"
     style={{ display: isOpen ? 'flex' : 'none' }}
     variants={variants}

@@ -14,7 +14,7 @@ const Path = (props: any) => (
 export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
   <motion.button
     className={
-      "flex justify-center items-center outline-none border-[3px] border-birusa-blue cursor-pointer absolute top-0 right-0 w-[60px] h-[50px] pt-[5px] pr-[10px] pl-[12px] bg-white rounded-xl bg-transparent "
+      "flex justify-center items-center outline-none border-[3px] border-none cursor-pointer absolute top-0 right-0 w-[60px] h-[50px] pt-[5px] pr-[10px] pl-[12px] bg-white rounded-xl bg-transparent "
       +
       (window.innerWidth > 1000 ? "mt-11 mr-[3%]" : "mt-11 mr-[3%]")
     }

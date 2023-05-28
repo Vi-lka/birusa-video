@@ -54,15 +54,19 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
         </h1>
       </div>
 
-      <div className="absolute top-0 left-0 w-screen h-screen bg-white justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
+      <div className="absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
+        <motion.p
+          className='w-[45vw] h-fit font-MNWide font-extrabold uppercase text-3xl text-center bg-white text-birusa-blue p-5 self-end mb-[10vh] mr-10 rounded-full border-none scale-100 border-birusa-blue z-50'
+        >
+          {"Тут что-нибудь написано (короткое описание)"}
+        </motion.p>
+
         <motion.button
-          className='w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-10 py-7 rounded-full border-4 scale-100 border-birusa-blue z-50'
+          className='w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-10 py-7 mb-[25vh] rounded-full border-4 scale-100 border-birusa-blue z-50'
           whileHover={{
             color: 'rgb(255 255 255)',
             backgroundColor: 'rgb(0 131 173)',
             boxShadow: '0 0 8px rgba(0 79 117)',
-            paddingTop: '34px',
-            paddingBottom: '34px',
             paddingLeft: '50px',
             paddingRight: '50px',
             transition: { duration: 0.15 },
@@ -81,7 +85,7 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
         <Image
           className='object-cover z-[49]'
           fill={true}
-          src={'../imgs/background-main.svg'}
+          src={'../imgs/background.svg'}
           priority={true}
           alt="Бирюса TIM"
         />
