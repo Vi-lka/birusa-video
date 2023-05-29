@@ -8,6 +8,9 @@ import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import StartScreen from '../ui/StartScreen';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { BiExitFullscreen, BiFullscreen } from 'react-icons/bi';
+import ButtonsVar from '../ui/ButtonsVar';
 
 export default function VideoPageReactComp() {
 
@@ -34,19 +37,6 @@ export default function VideoPageReactComp() {
         globalAutoplay.click && setPlay(true)
     }, [])
 
-    let buttons = [] as {
-        name: string,
-        url: string,
-        indexUrl: number
-
-    }[];
-
-    CONTENT.forEach(element => {
-        if (element.id === currentVideo) {
-            buttons = element.buttons
-        }
-    });
-
     const reportChange = useCallback((state: any) => {
         setFullscreen(state)
     }, [])
@@ -58,6 +48,18 @@ export default function VideoPageReactComp() {
                 {CONTENT.map(element => (
                     element.id === currentVideo ? (
                         <div key={element.id} className="relative w-screen h-screen flex-col items-center justify-between" style={{ display: loading ? 'none' : 'flex' }}>
+                            {
+                                currentVideo === 0 && (
+                                    <StartScreen
+                                        setPlay={setPlay}
+                                        play={play}
+                                        setPlayStart={setPlayStart}
+                                        playStart={playStart}
+                                        handleFullScreen={handleFullScreen}
+                                    />
+                                )
+                            }
+
                             <div
                                 className='w-fit h-fit'
                                 onClick={() => {
@@ -67,7 +69,7 @@ export default function VideoPageReactComp() {
                             >
                                 <Suspense fallback={<Loading />}>
                                     <ReactPlayer
-                                        style={{ zIndex: 1 }}
+                                        style={{ zIndex: 100 }}
                                         width={'100vw'}
                                         height={'100vh'}
                                         playing={play}
@@ -83,66 +85,31 @@ export default function VideoPageReactComp() {
                                         onEnded={() => {
                                             setEnded(true)
                                         }}
+                                        onProgress={(state) => {
+                                            console.log("playedSeconds: " + state.playedSeconds)
+                                            console.log("loadedSeconds: " + state.loadedSeconds)
+                                        }}
                                     />
                                 </Suspense>
                             </div>
-                            <div className="absolute bottom-8 left-0 flex w-full justify-evenly">
-                                {
-                                    buttons.map((value, index) =>
-                                        <motion.button
-                                            key={index}
-                                            className='font-MN font-extrabold text-xl bg-birusa-blue text-white px-7 py-4 rounded-full z-50'
-                                            style={{ display: ended ? 'block' : 'none' }}
-                                            whileHover={{
-                                                backgroundColor: 'rgb(132 204 22)',
-                                                textShadow: '0 0 5px rgba(0 79 117)',
-                                                boxShadow: '0 0 10px rgba(132 204 22)',
-                                                transition: { duration: 0.15 },
-                                            }}
-                                            onClick={() => {
-                                                setEnded(false)
-                                                globalAutoplay.click = true
-                                                setCurrentVideo(value.indexUrl)
-                                                addCookie(value.indexUrl)
-                                                setLoading(true)
-                                            }}
-                                        >
-                                            {value.name}
-                                        </motion.button>
-                                    )
-                                }
-                            </div>
+                            
+                            <ButtonsVar 
+                                currentVideo={currentVideo}
+                                setCurrentVideo={setCurrentVideo}
+                                ended={ended}
+                                setEnded={setEnded}
+                                setLoading={setLoading}
+                            />
 
-                            {
-                                currentVideo === 0 && (
-                                    <StartScreen
-                                        setPlay={setPlay}
-                                        play={play}
-                                        setPlayStart={setPlayStart}
-                                        playStart={playStart}
-                                        handleFullScreen={handleFullScreen}
-                                    />
-                                )
-                            }
-
-                            <div className="absolute top-5 right-5 w-fit justify-center" style={{ display: play ? 'none' : 'flex' }}>
-                                <button
-                                    className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'
-                                    onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
-                                >
-                                    {fullscreen ? "FullScreen on" : "FullScreen off"}
-                                </button>
-                            </div>
-
-                            <div className="absolute bottom-[45%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
+                            <div className="absolute bottom-[40%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
                                 <motion.button
-                                    className='w-fit h-fit font-MNWide font-extrabold uppercase text-4xl bg-birusa-blue text-white px-10 py-7 rounded-full border-2 border-birusa-blue z-50'
+                                    className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue px-6 2xl:px-16 py-5 2xl:py-10 rounded-full border-4 border-birusa-blue z-50'
                                     whileHover={{
-                                        backgroundColor: 'rgb(255 255 255)',
-                                        color: 'rgb(0 131 173)',
+                                        color: 'rgb(255 255 255)',
+                                        backgroundColor: 'rgb(0 131 173)',
                                         boxShadow: '0 0 8px rgba(0 79 117)',
-                                        paddingLeft: '50px',
-                                        paddingRight: '50px',
+                                        paddingLeft: '70px',
+                                        paddingRight: '70px',
                                         transition: { duration: 0.15 },
                                     }}
                                     onClick={() => {
@@ -154,6 +121,15 @@ export default function VideoPageReactComp() {
                                 </motion.button>
                             </div>
 
+                            <Image
+                              className='object-cover z-[0]'
+                              style={{ display: play ? 'none' : 'flex' }}
+                              fill={true}
+                              src={'../imgs/background.svg'}
+                              priority={true}
+                              alt="Бирюса TIM"
+                            />
+
                             <div className="absolute top-5 left-5 w-fit flex justify-center">
                                 <button
                                     className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'
@@ -161,12 +137,51 @@ export default function VideoPageReactComp() {
                                         setPlay(false)
                                         setPlayStart(false)
                                         globalAutoplay.click = false
+                                        setEnded(false)
                                         setCurrentVideo(0)
                                         addCookie(0)
                                     }}
                                 >
-                                    Back to start
+                                   {"Back to Start (Debug)"}
                                 </button>
+                            </div>
+
+                            <div 
+                                className="
+                                    absolute       
+                                    top-0 
+                                    right-0 
+                                    justify-center
+                                    w-[60px] 
+                                    h-[60px]
+                                    mt-[110px] 
+                                    mr-[3%]
+                                " 
+                                style={{ display: play ? 'none' : 'flex' }}
+                            >
+                                <motion.button
+                                    className='
+                                        w-fit 
+                                        h-fit 
+                                        text-xl 
+                                        text-birusa-blue 
+                                        cursor-pointer
+                                        bg-white 
+                                        rounded-xl 
+                                        px-3
+                                        py-2
+                                        outline-none 
+                                        border-none 
+                                        z-[200]
+                                    '
+                                    whileHover={{
+                                        boxShadow: '0 0 8px rgba(0 79 117)',
+                                        transition: { duration: 0.15 },
+                                      }}
+                                    onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
+                                >
+                                    {fullscreen ? <BiExitFullscreen className='w-[35px] h-[35px]' /> : <BiFullscreen className='w-[35px] h-[35px]' />}
+                                </motion.button>
                             </div>
                         </div>
                     ) : null

@@ -27,7 +27,163 @@ body {
   overflow: hidden;
 }
 
-/* .main-image-bg {
-  background: transparent;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 10%, rgba(0, 131, 173, 0.5) 100%);
-} */
+.main-title {
+  font-size: 1vw;
+}
+
+.start-button {
+  font-size: 2.2vw;
+}
+
+.main-text {
+  width: 45vw;
+  font-size: 1.3vw;
+}
+
+@media (max-height: 290px) {
+
+  .start-screen-cont-main {
+    justify-content: end;
+    padding-bottom: 28vh;
+  }
+
+  .main-text {
+    /* text-align: center !important; */
+    /* margin: 0 auto !important; */
+    width: 40vw !important;
+    font-size: 12px !important;
+    margin-bottom: 22px !important;
+    margin-right: 15vw !important;
+  }
+
+  .start-button {
+    font-size: 22px !important;
+    margin-bottom: 0 !important;
+  }
+
+}
+
+
+@media (min-height: 290px) and (max-height: 550px) {
+
+  .start-screen-cont-main {
+    justify-content: end;
+    padding-bottom: 28vh;
+  }
+
+  .main-text {
+    /* text-align: center !important; */
+    /* margin: 0 auto !important; */
+    width: 40vw !important;
+    font-size: 14px !important;
+    margin-bottom: 22vh !important;
+    margin-right: 15vw !important;
+  }
+
+  .start-button {
+    font-size: 22px !important;
+    margin-bottom: 0 !important;
+  }
+
+}
+
+@media (max-width: 600px) {
+    .buttons-var {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .buttons-var button {
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+
+  .main-title {
+    font-size: 10px;
+  }
+
+  .start-button {
+    font-size: 24px;
+  }
+
+  .main-text {
+    text-align: center;
+    width: 80vw;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-bottom: 11vh;
+    background: transparent
+  }
+
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+
+  .main-title {
+    font-size: 10px;
+  }
+
+  .start-button {
+    font-size: 28px;
+  }
+
+  .main-text {
+    width: 65vw;
+    font-size: 16px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .main-title {
+    font-size: 14px;
+  }
+
+  .start-button {
+    font-size: 30px;
+  }
+
+  .main-text {
+    width: 60vw;
+    font-size: 20px;
+  }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+
+  .main-title {
+    font-size: 12px;
+  }
+
+  .start-button {
+    font-size: 32px;
+  }
+    
+  .main-text {
+    width: 50vw;
+    font-size: 22px;
+  }
+
+}
+
+@media (min-width: 1280px) and (max-width: 1536px) {
+
+  .main-title {
+    font-size: 16px;
+  }
+
+  .start-button {
+    font-size: 34px;
+  }
+  
+  .main-text {
+    font-size: 30px;
+  }
+
+}

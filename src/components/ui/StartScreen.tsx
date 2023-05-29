@@ -49,26 +49,26 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
   return (
     <>
       <div className='absolute top-0 left-0 w-fit h-fit mt-10 ml-[3%] z-[101]' style={{ display: play ? 'none' : 'flex' }}>
-        <h1 className='w-fit h-fit font-MNWide font-extrabold uppercase text-xl bg-birusa-blue text-white px-7 py-4 rounded-full'>
+        <h1 className='main-title w-fit h-fit font-MNWide font-extrabold uppercase bg-birusa-blue text-white px-7 py-4 rounded-full'>
           Название/Лого
         </h1>
       </div>
 
-      <div className="absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
+      <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
         <motion.p
-          className='w-[45vw] h-fit font-MNWide font-extrabold uppercase text-3xl text-center bg-white text-birusa-blue p-5 self-end mb-[10vh] mr-10 rounded-full border-none scale-100 border-birusa-blue z-50'
+          className='main-text h-fit font-MNWide font-extrabold uppercase text-center bg-white text-birusa-blue p-1 self-end mb-[10vh] mr-10 rounded-full border-none scale-100 border-birusa-blue z-50'
         >
           {"Тут что-нибудь написано (короткое описание)"}
         </motion.p>
 
         <motion.button
-          className='w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-10 py-7 mb-[25vh] rounded-full border-4 scale-100 border-birusa-blue z-50'
+          className='start-button w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-12 2xl:px-16 py-6 2xl:py-11 mb-[20vh] rounded-full border-4 scale-100 border-birusa-blue z-50'
           whileHover={{
             color: 'rgb(255 255 255)',
             backgroundColor: 'rgb(0 131 173)',
             boxShadow: '0 0 8px rgba(0 79 117)',
-            paddingLeft: '50px',
-            paddingRight: '50px',
+            paddingLeft: '70px',
+            paddingRight: '70px',
             transition: { duration: 0.15 },
           }}
           onClick={() => {
@@ -77,7 +77,7 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
             globalAutoplay.click = true
             handleFullScreen.enter
           }}
-          onClickCapture={handleFullScreen.enter}
+          // onClickCapture={handleFullScreen.enter}
         >
           Начать
         </motion.button>
@@ -89,11 +89,10 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
           priority={true}
           alt="Бирюса TIM"
         />
-        <div className='absolute top-0 left-0 w-screen h-screen z-[40] main-image-bg' />
       </div>
 
       <motion.nav
-        className=' z-[100]'
+        className='z-[100]'
         style={{ display: play ? 'none' : 'flex' }}
         initial={false}
         animate={isOpen ? "open" : "closed"}

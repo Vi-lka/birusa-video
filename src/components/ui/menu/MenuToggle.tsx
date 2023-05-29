@@ -13,11 +13,26 @@ const Path = (props: any) => (
 
 export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
   <motion.button
-    className={
-      "flex justify-center items-center outline-none border-[3px] border-none cursor-pointer absolute top-0 right-0 w-[60px] h-[50px] pt-[5px] pr-[10px] pl-[12px] bg-white rounded-xl bg-transparent "
-      +
-      (window.innerWidth > 1000 ? "mt-11 mr-[3%]" : "mt-11 mr-[3%]")
-    }
+    className="
+      flex 
+      justify-center 
+      items-center 
+      outline-none 
+      border-none 
+      cursor-pointer 
+      absolute 
+      top-0 
+      right-0 
+      w-[60px] 
+      h-[50px] 
+      pt-[5px]
+      pr-[10px] 
+      pl-[12px] 
+      bg-white 
+      rounded-xl 
+      mt-10 
+      mr-[3%]
+    "
     whileHover={{
       boxShadow: '0 0 8px rgba(0 79 117)',
       transition: { duration: 0.15 },

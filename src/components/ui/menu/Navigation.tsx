@@ -15,7 +15,16 @@ const itemIds = [0, 1, 2];
 
 export const Navigation = ({ isOpen }: { isOpen: boolean }) => (
   <motion.ul
-    className="absolute top-[15%] left-0 w-screen h-[80%] flex-col justify-evenly"
+    className="
+      absolute 
+      flex-col 
+      justify-center
+      w-screen 
+      left-0 
+      top-[20vh] 
+      h-[70vh] 
+      md:justify-evenly 
+    "
     style={{ display: isOpen ? 'flex' : 'none' }}
     variants={variants}
   >
