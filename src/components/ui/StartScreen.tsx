@@ -21,18 +21,20 @@ type Props = {
 
 export default function StartScreen({ setPlay, setPlayStart, playStart, handleFullScreen }: Props) {
 
-  const [videoReady, setVideoReady] = React.useState<boolean>(false);
   const [videoStart, setVideoStart] = React.useState<boolean>(false);
 
   return (
     <>
-      {/* {videoReady ? null : <Loading />} */}
 
       <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
         <motion.p
-          className='absolute main-text h-fit font-MNWide font-extrabold uppercase text-center bg-transparent text-birusa-blue-semilight p-1 top-[20vh] right-[10vw] rounded-full z-50'
+          className='main-text h-fit font-MNWide font-extrabold uppercase text-center antialiased md:subpixel-antialiased text-white px-4 py-[14px] lg:px-7 lg:py-4 2xl:px-12 2xl:py-6 rounded-full z-50'
         >
-          {"БЛЯ, это надо передвинуть и изменить вообще"}
+          Место силы – Сибирь. Бирюса
+          <br />
+          <span className='font-MNWide font-normal normal-case'>
+            Интерактивный фильм
+          </span>
         </motion.p>
 
         <motion.button
@@ -49,9 +51,9 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
             setPlay(true)
             setPlayStart(true)
             globalAutoplay.click = true
-            // handleFullScreen.enter
+            handleFullScreen.enter
           }}
-        // onClickCapture={handleFullScreen.enter}
+          onClickCapture={handleFullScreen.enter}
         >
           Начать
         </motion.button>
@@ -95,15 +97,9 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
                 alt="Бирюса TIM"
               />
             }
-            onReady={() => {
-              setVideoReady(true)
-            }}
             onStart={() => {
               setVideoStart(true)
             }}
-            // onEnded={() => {
-            //     setEnded(true)
-            // }}
             onProgress={(state) => {
               console.log("playedSeconds: " + state.playedSeconds)
               console.log("loadedSeconds: " + state.loadedSeconds)

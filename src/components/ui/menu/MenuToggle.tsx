@@ -23,15 +23,21 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
       absolute 
       top-0 
       right-0 
-      w-[60px] 
-      h-[50px] 
-      pt-[5px]
-      pr-[10px] 
-      pl-[12px] 
+      lg:w-[60px] 
+      lg:h-[50px] 
+      lg:pt-[5px]
+      lg:pr-[10px] 
+      lg:pl-[12px] 
+      w-[38px] 
+      h-[37px] 
+      pt-[3px]
+      pr-[7px] 
+      pl-[8px] 
+      lg:mt-10 
+      mt-4 
+      mr-[3%]
       bg-white 
       rounded-xl 
-      mt-10 
-      mr-[3%]
       z-[200]
     "
     whileHover={{
@@ -40,7 +46,7 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
     }}
     onClick={toggle}
   >
-    <svg width="23" height="23" viewBox="0 0 23 23" className="scale-150">
+    <svg width="23" height="23" viewBox="0 0 23 23" className="lg:scale-150 scale-100">
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },

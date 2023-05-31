@@ -206,9 +206,12 @@ export default function VideoPageReactComp() {
                         top-0 
                         right-0 
                         justify-center
-                        w-[60px] 
-                        h-[60px]
-                        mt-[110px] 
+                        lg:w-[60px] 
+                        lg:h-[60px]
+                        w-[38px] 
+                        h-[38px]
+                        lg:mt-[110px] 
+                        mt-[65px] 
                         mr-[3%]
                     "
                     style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
@@ -222,8 +225,11 @@ export default function VideoPageReactComp() {
                             cursor-pointer
                             bg-white 
                             rounded-xl 
-                            px-3
-                            py-2
+                            px-[6px]
+                            pl-[7px]
+                            py-[6px]
+                            lg:px-3
+                            lg:py-2
                             outline-none 
                             border-none 
                             z-[200]
@@ -234,7 +240,7 @@ export default function VideoPageReactComp() {
                         }}
                         onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
                     >
-                        {fullscreen ? <BiExitFullscreen className='w-[35px] h-[35px]' /> : <BiFullscreen className='w-[35px] h-[35px]' />}
+                        {fullscreen ? <BiExitFullscreen className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' /> : <BiFullscreen className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' />}
                     </motion.button>
                 </div>
             </FullScreen>
