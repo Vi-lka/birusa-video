@@ -72,7 +72,7 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
             height={'100%'}
             playing={true}
             muted={true}
-            url={"../video/bg-video-start.webm"}
+            url={"../video/background-video.mp4"}
             controls={false}
             playsinline
             stopOnUnmount={true}
