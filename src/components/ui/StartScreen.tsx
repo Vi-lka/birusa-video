@@ -22,7 +22,7 @@ type Props = {
 export default function StartScreen({ setPlay, setPlayStart, playStart, handleFullScreen }: Props) {
 
   const [videoReady, setVideoReady] = React.useState<boolean>(false);
-
+  const [videoStart, setVideoStart] = React.useState<boolean>(false);
 
   return (
     <>
@@ -65,6 +65,15 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
           alt="Бирюса TIM"
         />
 
+        <Image
+          className='object-cover z-[9]'
+          style={{ display: videoStart ? 'none' : 'block' }}
+          fill={true}
+          src={'../imgs/bg-img-start.jpg'}
+          priority={true}
+          alt="Бирюса TIM"
+        />
+
         <Suspense fallback={<Loading />}>
           <ReactPlayer
             className="bg-video"
@@ -72,21 +81,25 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
             height={'100%'}
             playing={true}
             muted={true}
-            url={"../video/background-video.mp4"}
+            url={"../video/bg-video-start.webm"}
             controls={false}
             playsinline
             stopOnUnmount={true}
             loop={true}
             fallback={
               <Image
+                className='object-cover z-[10]'
                 fill={true}
-                src={'../imgs/background.svg'}
+                src={'../imgs/bg-img-start.jpg'}
                 priority={true}
                 alt="Бирюса TIM"
               />
             }
             onReady={() => {
               setVideoReady(true)
+            }}
+            onStart={() => {
+              setVideoStart(true)
             }}
             // onEnded={() => {
             //     setEnded(true)
@@ -98,7 +111,7 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
           />
         </Suspense>
 
-        <div className="bg-color w-screen h-screen absolute top-0 left-0 z-[11]" style={{ display: videoReady ? 'block' : 'none' }} />
+        <div className="bg-color w-screen h-screen absolute top-0 left-0 z-[11]" />
       </div>
     </>
   )
