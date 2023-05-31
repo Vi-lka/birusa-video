@@ -77,7 +77,7 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
             globalAutoplay.click = true
             handleFullScreen.enter
           }}
-          // onClickCapture={handleFullScreen.enter}
+          onClickCapture={handleFullScreen.enter}
         >
           Начать
         </motion.button>
