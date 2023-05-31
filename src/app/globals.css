@@ -20,12 +20,13 @@
   }
 }
 
-@keyframes wave{
-  0%{
-      transform: rotate(0);
+@keyframes wave {
+  0% {
+    transform: rotate(0);
   }
-  100%{
-      transform: rotate(360deg);
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -47,6 +48,11 @@ body {
   object-fit: cover;
 }
 
+.bg-color {
+  background: rgba(0, 79, 117, 0.15);
+  /* background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 20%, rgba(0, 79, 117, 0.5) 100%); */
+}
+
 .main-title {
   width: fit-content;
   height: fit-content;
@@ -56,55 +62,63 @@ body {
   box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.6), 0 4px 8px 0 rgba(255, 255, 255, 0.7);
   overflow: hidden;
 }
-.main-title:before, .main-title:after{
+
+.main-title:before,
+.main-title:after {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  content:'';
+  content: '';
   position: absolute;
   background-color: #fff;
 }
-.main-title:before{
+
+.main-title:before {
   right: 0;
   top: -190px;
   border-radius: 45%;
-  background:rgba(255,255,255, 0.9);
-  animation:wave 5s linear infinite;
+  background: rgba(255, 255, 255, 0.9);
+  animation: wave 5s linear infinite;
 }
-.main-title:after{
+
+.main-title:after {
   left: 0;
   top: 45px;
   border-radius: 40%;
-  background:rgba(255,255,255,0.7);
-  animation:wave 5s linear infinite;
+  background: rgba(255, 255, 255, 0.7);
+  animation: wave 5s linear infinite;
 }
 
 .start-button {
   position: relative;
-  font-size:  max(38px, 1.2vw);
+  font-size: max(38px, 1.2vw);
   overflow: hidden;
 }
-.start-button:before, .start-button:after{
+
+.start-button:before,
+.start-button:after {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  content:'';
+  content: '';
   position: absolute;
   background-color: #fff;
 }
-.start-button:before{
+
+.start-button:before {
   right: -110px;
   top: 50%;
   border-radius: 45%;
-  background:rgba(255,255,255, 0.5);
-  animation:wave 5s linear infinite;
+  background: rgba(255, 255, 255, 0.5);
+  animation: wave 5s linear infinite;
 }
-.start-button:after{
+
+.start-button:after {
   right: -130px;
   top: 60%;
   border-radius: 40%;
-  background:rgba(255,255,255,0.8);
-  animation:wave 5s linear infinite;
+  background: rgba(255, 255, 255, 0.8);
+  animation: wave 5s linear infinite;
 }
 
 .main-text {
@@ -115,10 +129,10 @@ body {
 
 @media (max-height: 290px) {
 
-  .start-screen-cont-main {
+  /* .start-screen-cont-main {
     justify-content: end;
     padding-bottom: 28vh;
-  }
+  } */
 
   .main-text {
     /* text-align: center !important; */
@@ -139,10 +153,10 @@ body {
 
 @media (min-height: 290px) and (max-height: 550px) {
 
-  .start-screen-cont-main {
+  /* .start-screen-cont-main {
     justify-content: end;
     padding-bottom: 28vh;
-  }
+  } */
 
   .main-text {
     width: 39vw !important;
@@ -172,10 +186,12 @@ body {
     width: 85%;
     font-size: 10px;
   }
-  .main-title:before{
+
+  .main-title:before {
     top: -195px;
   }
-  .main-title:after{
+
+  .main-title:after {
     top: 50px;
   }
 
@@ -212,10 +228,12 @@ body {
   .main-title {
     font-size: 10px;
   }
-  .main-title:before{
+
+  .main-title:before {
     top: -195px;
   }
-  .main-title:after{
+
+  .main-title:after {
     top: 45px;
   }
 
@@ -235,10 +253,12 @@ body {
   .main-title {
     font-size: 14px;
   }
-  .main-title:before{
+
+  .main-title:before {
     top: -195px;
   }
-  .main-title:after{
+
+  .main-title:after {
     top: 45px;
   }
 
@@ -262,7 +282,7 @@ body {
   .start-button {
     font-size: 32px;
   }
-    
+
   .main-text {
     width: 50vw;
     font-size: 22px;
@@ -279,7 +299,7 @@ body {
   .start-button {
     font-size: 34px;
   }
-  
+
   .main-text {
     font-size: 30px;
   }
@@ -295,20 +315,25 @@ body {
   line-height: 1.75rem;
 }
 
-.water, .water:before, .water:after {
-  width:200px;
+.water,
+.water:before,
+.water:after {
+  width: 200px;
   height: 200px;
 }
 
 @media (max-width: 1024px) {
 
-  .water, .water:before, .water:after {
-    width:140px !important;
+  .water,
+  .water:before,
+  .water:after {
+    width: 140px !important;
     height: 140px !important;
   }
 
-  .water:before, .water:after{
-    top:-60px !important;
+  .water:before,
+  .water:after {
+    top: -60px !important;
   }
 
   .loading h1 {
@@ -318,7 +343,7 @@ body {
 
 }
 
-.water{
+.water {
   background-color: #00aedd;
   border-radius: 50%;
   position: relative;
@@ -326,19 +351,23 @@ body {
   overflow: hidden;
   transform: rotate(180deg);
 }
-.water:before, .water:after{
-  content:'';
+
+.water:before,
+.water:after {
+  content: '';
   position: absolute;
-  top:-80px;
+  top: -80px;
   background-color: #fff;
 }
-.water:before{
+
+.water:before {
   border-radius: 45%;
-  background:rgba(255,255,255,.8);
-  animation:wave 5s linear infinite;
+  background: rgba(255, 255, 255, .8);
+  animation: wave 5s linear infinite;
 }
-.water:after{
+
+.water:after {
   border-radius: 35%;
-  background:rgba(255,255,255,.5);
-  animation:wave 5s linear infinite;
+  background: rgba(255, 255, 255, .5);
+  animation: wave 5s linear infinite;
 }

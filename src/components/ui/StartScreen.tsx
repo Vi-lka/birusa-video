@@ -30,13 +30,13 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
 
       <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
         <motion.p
-          className='main-text h-fit font-MNWide font-extrabold uppercase text-center bg-transparent text-birusa-blue-semilight p-1 self-end mb-[10vh] mr-10 rounded-full z-50'
+          className='absolute main-text h-fit font-MNWide font-extrabold uppercase text-center bg-transparent text-birusa-blue-semilight p-1 top-[20vh] right-[10vw] rounded-full z-50'
         >
           {"БЛЯ, это надо передвинуть и изменить вообще"}
         </motion.p>
 
         <motion.button
-          className='start-button w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-12 py-6 2xl:py-8 mb-[20vh] rounded-full shadow-[0_0_8px_rgba(0,79,117,1)] border-none z-50'
+          className='start-button w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-12 py-6 2xl:py-8 rounded-full shadow-[0_0_8px_rgba(0,79,117,1)] border-none z-50'
           whileHover={{
             color: 'rgb(255 255 255)',
             backgroundColor: 'rgb(0 131 173)',
@@ -49,9 +49,9 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
             setPlay(true)
             setPlayStart(true)
             globalAutoplay.click = true
-            handleFullScreen.enter
+            // handleFullScreen.enter
           }}
-          onClickCapture={handleFullScreen.enter}
+        // onClickCapture={handleFullScreen.enter}
         >
           Начать
         </motion.button>
@@ -72,26 +72,33 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
             height={'100%'}
             playing={true}
             muted={true}
-            url={"../video/background-video.mp4"}
+            url={"../video/bg-video-start.webm"}
             controls={false}
             playsinline
             stopOnUnmount={true}
             loop={true}
-            preload={'auto'}
+            fallback={
+              <Image
+                fill={true}
+                src={'../imgs/background.svg'}
+                priority={true}
+                alt="Бирюса TIM"
+              />
+            }
             onReady={() => {
-                setVideoReady(true)
+              setVideoReady(true)
             }}
             // onEnded={() => {
             //     setEnded(true)
             // }}
             onProgress={(state) => {
-                console.log("playedSeconds: " + state.playedSeconds)
-                console.log("loadedSeconds: " + state.loadedSeconds)
+              console.log("playedSeconds: " + state.playedSeconds)
+              console.log("loadedSeconds: " + state.loadedSeconds)
             }}
           />
         </Suspense>
 
-        <div className="w-screen h-screen absolute top-0 left-0 bg-[rgba(0,0,0,0.5)] z-[11]" style={{display: videoReady ? 'block' : 'none'}} />
+        <div className="bg-color w-screen h-screen absolute top-0 left-0 z-[11]" style={{ display: videoReady ? 'block' : 'none' }} />
       </div>
     </>
   )

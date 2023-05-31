@@ -18,23 +18,23 @@ import useDebounce from '@/utils/use-demounce'
 
 const sidebar = {
     open: (height = window.innerWidth) => ({
-      clipPath: `circle(${height * 2 + 400}px at 100% 0px)`,
-      transition: {
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2
-      }
+        clipPath: `circle(${height * 2 + 400}px at 100% 0px)`,
+        transition: {
+            type: "spring",
+            stiffness: 20,
+            restDelta: 2
+        }
     }),
     closed: {
-      clipPath: "circle(0px at 100% 0px)",
-      transition: {
-        delay: 0.5,
-        type: "spring",
-        stiffness: 400,
-        damping: 40
-      }
+        clipPath: "circle(0px at 100% 0px)",
+        transition: {
+            delay: 0.5,
+            type: "spring",
+            stiffness: 400,
+            damping: 40
+        }
     }
-  };;
+};;
 
 export default function VideoPageReactComp() {
 
@@ -56,7 +56,7 @@ export default function VideoPageReactComp() {
 
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
-  
+
     const debouncedIsOpen = useDebounce(isOpen, 300);
 
     const addCookie = (current: number) => {
@@ -77,10 +77,10 @@ export default function VideoPageReactComp() {
             <FullScreen handle={handleFullScreen} onChange={reportChange}>
                 {loading ? <Loading /> : null}
 
-                <div className='absolute top-0 left-0 w-fit h-fit mt-10 ml-[3%] z-[210]' style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}>
-                  <div className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white px-4 py-[14px] lg:px-7 lg:py-4 rounded-full'>
-                    Место силы – Сибирь. Бирюса
-                  </div>
+                <div className='absolute top-0 left-0 w-fit h-fit mt-10 ml-[3%] z-[210]' style={{ display: playStart ? (play ? (loading ? 'flex' : 'none') : 'flex') : 'none' }}>
+                    <div className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white px-4 py-[14px] lg:px-7 lg:py-4 rounded-full'>
+                        Место силы – Сибирь. Бирюса
+                    </div>
                 </div>
 
                 {
@@ -129,8 +129,8 @@ export default function VideoPageReactComp() {
                                     />
                                 </Suspense>
                             </div>
-                            
-                            <ButtonsVar 
+
+                            <ButtonsVar
                                 currentVideo={currentVideo}
                                 setCurrentVideo={setCurrentVideo}
                                 ended={ended}
@@ -140,10 +140,10 @@ export default function VideoPageReactComp() {
                         </div>
                     ) : null
                 ))}
-                
-                <div className="absolute bottom-[40%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
+
+                <div className="absolute bottom-[45%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
                     <motion.button
-                        className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue shadow-[0_0_8px_rgba(0,79,117,1)] px-10 py-6 rounded-full border-none z-50'
+                        className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue shadow-[0_0_8px_rgba(0,79,117,1)] px-10 py-6 rounded-full border-none z-[50]'
                         whileHover={{
                             color: 'rgb(255 255 255)',
                             backgroundColor: 'rgb(0 131 173)',
@@ -162,12 +162,12 @@ export default function VideoPageReactComp() {
                 </div>
 
                 <Image
-                  className='object-cover z-1'
-                  style={{ display: play ? 'none' : 'flex' }}
-                  fill={true}
-                  src={'../imgs/background.svg'}
-                  priority={true}
-                  alt="Бирюса TIM"
+                    className='object-cover z-1'
+                    style={{ display: play ? 'none' : 'flex' }}
+                    fill={true}
+                    src={'../imgs/background.svg'}
+                    priority={true}
+                    alt="Бирюса TIM"
                 />
 
                 <div className="absolute top-5 left-5 w-fit flex justify-center">
@@ -182,25 +182,25 @@ export default function VideoPageReactComp() {
                             addCookie(0)
                         }}
                     >
-                       {"Back to Start (Debug)"}
+                        {"Back to Start (Debug)"}
                     </button>
                 </div>
 
                 <motion.nav
-                  className='z-[200]'
-                  style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
-                  initial={false}
-                  animate={isOpen ? "open" : "closed"}
-                  custom={height}
-                  ref={containerRef}
+                    className='z-[200]'
+                    style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
+                    initial={false}
+                    animate={isOpen ? "open" : "closed"}
+                    custom={height}
+                    ref={containerRef}
                 >
-                
-                  <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue z-[200]" variants={sidebar} />
-                  <Navigation isOpen={debouncedIsOpen} />
-                  <MenuToggle toggle={() => toggleOpen()} />
+
+                    <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue z-[200]" variants={sidebar} />
+                    <Navigation isOpen={debouncedIsOpen} />
+                    <MenuToggle toggle={() => toggleOpen()} />
                 </motion.nav>
 
-                <div 
+                <div
                     className="
                         absolute       
                         top-0 
@@ -210,7 +210,7 @@ export default function VideoPageReactComp() {
                         h-[60px]
                         mt-[110px] 
                         mr-[3%]
-                    " 
+                    "
                     style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
                 >
                     <motion.button
@@ -231,7 +231,7 @@ export default function VideoPageReactComp() {
                         whileHover={{
                             boxShadow: '0 0 8px rgba(0 79 117)',
                             transition: { duration: 0.15 },
-                          }}
+                        }}
                         onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
                     >
                         {fullscreen ? <BiExitFullscreen className='w-[35px] h-[35px]' /> : <BiFullscreen className='w-[35px] h-[35px]' />}
