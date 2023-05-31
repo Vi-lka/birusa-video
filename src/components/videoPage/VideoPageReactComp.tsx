@@ -1,16 +1,40 @@
 'use client'
 
-import React, { Suspense, useCallback } from 'react'
+import React, { Suspense, useCallback, useRef } from 'react'
 import Loading from '@/components/ui/loading'
 import { CONTENT, globalAutoplay } from '@/utils/content';
 import ReactPlayer from 'react-player';
 import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import StartScreen from '../ui/StartScreen';
-import { motion } from 'framer-motion';
+import { motion, useCycle } from 'framer-motion';
 import Image from 'next/image';
 import { BiExitFullscreen, BiFullscreen } from 'react-icons/bi';
 import ButtonsVar from '../ui/ButtonsVar';
+import { Navigation } from '../ui/menu/Navigation';
+import { MenuToggle } from '../ui/menu/MenuToggle';
+import { useDimensions } from '@/utils/use-dimensions';
+import useDebounce from '@/utils/use-demounce'
+
+const sidebar = {
+    open: (height = window.innerWidth) => ({
+      clipPath: `circle(${height * 2 + 400}px at 100% 0px)`,
+      transition: {
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2
+      }
+    }),
+    closed: {
+      clipPath: "circle(0px at 100% 0px)",
+      transition: {
+        delay: 0.5,
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    }
+  };;
 
 export default function VideoPageReactComp() {
 
@@ -27,6 +51,13 @@ export default function VideoPageReactComp() {
     const [playStart, setPlayStart] = React.useState(false);
 
     const [play, setPlay] = React.useState(false);
+
+    const [isOpen, toggleOpen] = useCycle(false, true);
+
+    const containerRef = useRef(null);
+    const { height } = useDimensions(containerRef);
+  
+    const debouncedIsOpen = useDebounce(isOpen, 300);
 
     const addCookie = (current: number) => {
         setCookie('current-progress', current.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
@@ -145,6 +176,20 @@ export default function VideoPageReactComp() {
                                    {"Back to Start (Debug)"}
                                 </button>
                             </div>
+
+                            <motion.nav
+                              className='z-[200]'
+                              style={{ display: play ? 'none' : 'flex' }}
+                              initial={false}
+                              animate={isOpen ? "open" : "closed"}
+                              custom={height}
+                              ref={containerRef}
+                            >
+                            
+                              <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue" variants={sidebar} />
+                              <Navigation isOpen={debouncedIsOpen} />
+                              <MenuToggle toggle={() => toggleOpen()} />
+                            </motion.nav>
 
                             <div 
                                 className="

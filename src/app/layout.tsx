@@ -75,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={`${MullerNextTrial.variable} ${MullerNextWideTrial.variable} ${MullerNextExpandedTrial.variable}`}>{children}</body>
     </html>
   )

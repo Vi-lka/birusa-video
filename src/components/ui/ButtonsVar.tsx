@@ -70,8 +70,8 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
                     rounded-full 
                     z-50
                 '
-                style={{ display: ended ? 'block' : 'none' }}
-                animate={ended ? "open" : "closed"}
+                style={{ display: ended ? 'block' : 'block' }}
+                animate={ended ? "open" : "open"}
                 variants={variants}
                 whileHover={{
                     backgroundColor: 'rgb(132 204 22)',

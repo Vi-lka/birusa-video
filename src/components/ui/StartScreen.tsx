@@ -18,33 +18,7 @@ type Props = {
   handleFullScreen: FullScreenHandle,
 }
 
-const sidebar = {
-  open: (height = window.innerWidth) => ({
-    clipPath: `circle(${height * 2 + 400}px at 100% 0px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2
-    }
-  }),
-  closed: {
-    clipPath: "circle(0px at 100% 0px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40
-    }
-  }
-};
-
 export default function StartScreen({ setPlay, play, setPlayStart, playStart, handleFullScreen }: Props) {
-
-  const [isOpen, toggleOpen] = useCycle(false, true);
-  const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
-
-  const debouncedIsOpen = useDebounce(isOpen, 300);
 
   return (
     <>
@@ -90,20 +64,6 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
           alt="Бирюса TIM"
         />
       </div>
-
-      <motion.nav
-        className='z-[100]'
-        style={{ display: play ? 'none' : 'flex' }}
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={height}
-        ref={containerRef}
-      >
-
-        <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue" variants={sidebar} />
-        <Navigation isOpen={debouncedIsOpen} />
-        <MenuToggle toggle={() => toggleOpen()} />
-      </motion.nav>
     </>
   )
 }

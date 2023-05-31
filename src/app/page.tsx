@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react'
-import Home from '@/components/home/Home';
 import Loading from '@/components/ui/loading';
 import dynamic from 'next/dynamic';
 const SuspenseVideoPageReactComp = dynamic(
@@ -11,7 +10,6 @@ function Page() {
 
     return (
         <>
-          {/* <Home /> */}
           <Suspense fallback={<Loading />}>
             <SuspenseVideoPageReactComp />
           </Suspense>
