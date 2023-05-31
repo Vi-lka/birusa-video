@@ -14,22 +14,25 @@ import ReactPlayer from 'react-player'
 
 type Props = {
   setPlay: React.Dispatch<React.SetStateAction<boolean>>,
-  play: boolean,
   setPlayStart: React.Dispatch<React.SetStateAction<boolean>>,
   playStart: boolean,
   handleFullScreen: FullScreenHandle,
 }
 
-export default function StartScreen({ setPlay, play, setPlayStart, playStart, handleFullScreen }: Props) {
+export default function StartScreen({ setPlay, setPlayStart, playStart, handleFullScreen }: Props) {
+
+  const [videoReady, setVideoReady] = React.useState<boolean>(false);
+
 
   return (
     <>
+      {videoReady ? null : <Loading />}
 
       <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
         <motion.p
           className='main-text h-fit font-MNWide font-extrabold uppercase text-center bg-transparent text-birusa-blue-semilight p-1 self-end mb-[10vh] mr-10 rounded-full z-50'
         >
-          {"БЛЯ, это надо передвинуть"}
+          {"БЛЯ, это надо передвинуть и изменить вообще"}
         </motion.p>
 
         <motion.button
@@ -69,15 +72,15 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
             height={'100%'}
             playing={true}
             muted={true}
-            url={"../video/bg-video.mp4"}
+            url={"../video/background-video.mp4"}
             controls={false}
             playsinline
             stopOnUnmount={true}
             loop={true}
             preload={'auto'}
-            // onReady={() => {
-            //     setLoading(false)
-            // }}
+            onReady={() => {
+                setVideoReady(true)
+            }}
             // onEnded={() => {
             //     setEnded(true)
             // }}
@@ -88,7 +91,7 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
           />
         </Suspense>
 
-        <div className="w-screen h-screen absolute top-0 left-0 bg-[rgba(0,0,0,0.5)] z-[11]" />
+        <div className="w-screen h-screen absolute top-0 left-0 bg-[rgba(0,0,0,0.5)] z-[11]" style={{display: videoReady ? 'block' : 'none'}} />
       </div>
     </>
   )

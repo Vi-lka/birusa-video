@@ -87,7 +87,6 @@ export default function VideoPageReactComp() {
                     currentVideo === 0 && (
                         <StartScreen
                             setPlay={setPlay}
-                            play={play}
                             setPlayStart={setPlayStart}
                             playStart={playStart}
                             handleFullScreen={handleFullScreen}
