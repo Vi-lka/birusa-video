@@ -74,11 +74,11 @@ export default function VideoPageReactComp() {
 
     return (
         <>
-            {loading ? <Loading /> : null}
             <FullScreen handle={handleFullScreen} onChange={reportChange}>
+                {loading ? <Loading /> : null}
                 {CONTENT.map(element => (
                     element.id === currentVideo ? (
-                        <div key={element.id} className="relative w-screen h-screen flex-col items-center justify-between" style={{ display: loading ? 'none' : 'flex' }}>
+                        <div key={element.id} className="relative w-screen h-screen flex flex-col items-center justify-between">
                             {
                                 currentVideo === 0 && (
                                     <StartScreen
@@ -179,7 +179,7 @@ export default function VideoPageReactComp() {
 
                             <motion.nav
                               className='z-[200]'
-                              style={{ display: play ? 'none' : 'flex' }}
+                              style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
                               initial={false}
                               animate={isOpen ? "open" : "closed"}
                               custom={height}
@@ -202,7 +202,7 @@ export default function VideoPageReactComp() {
                                     mt-[110px] 
                                     mr-[3%]
                                 " 
-                                style={{ display: play ? 'none' : 'flex' }}
+                                style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
                             >
                                 <motion.button
                                     className='

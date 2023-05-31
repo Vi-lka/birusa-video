@@ -14,8 +14,13 @@ export default function Loading() {
         <>
         {
             !loading && (
-                <div className="absolute w-screen h-screen flex flex-col items-center justify-center bg-zinc-800 z-[100]">
-                    <h1 className="text-teal-300 p-3 text-xl">Loading...</h1>
+                <div className="loading absolute w-screen h-screen flex flex-col items-center justify-center z-[100]">
+                    <div className="water"></div>
+                    <div className="font-MNWide font-normal text-center text-white px-7 py-4 pr-4">
+                        <h1>
+                            Загрузка...
+                        </h1>
+                    </div>
                 </div>
             )
         }
