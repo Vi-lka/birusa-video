@@ -65,29 +65,31 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
           alt="Бирюса TIM"
         />
 
-        <ReactPlayer
-          className="bg-video"
-          width={'100%'}
-          height={'100%'}
-          playing={true}
-          muted={true}
-          url={"../video/background-video.mp4"}
-          controls={false}
-          playsinline
-          stopOnUnmount={true}
-          loop={true}
-          preload={'auto'}
-          onReady={() => {
-              setVideoReady(true)
-          }}
-          // onEnded={() => {
-          //     setEnded(true)
-          // }}
-          onProgress={(state) => {
-              console.log("playedSeconds: " + state.playedSeconds)
-              console.log("loadedSeconds: " + state.loadedSeconds)
-          }}
-        />
+        <Suspense fallback={<Loading />}>
+          <ReactPlayer
+            className="bg-video"
+            width={'100%'}
+            height={'100%'}
+            playing={true}
+            muted={true}
+            url={"../video/background-video.mp4"}
+            controls={false}
+            playsinline
+            stopOnUnmount={true}
+            loop={true}
+            preload={'auto'}
+            onReady={() => {
+                setVideoReady(true)
+            }}
+            // onEnded={() => {
+            //     setEnded(true)
+            // }}
+            onProgress={(state) => {
+                console.log("playedSeconds: " + state.playedSeconds)
+                console.log("loadedSeconds: " + state.loadedSeconds)
+            }}
+          />
+        </Suspense>
 
         <div className="w-screen h-screen absolute top-0 left-0 bg-[rgba(0,0,0,0.5)] z-[11]" style={{display: videoReady ? 'block' : 'none'}} />
       </div>
