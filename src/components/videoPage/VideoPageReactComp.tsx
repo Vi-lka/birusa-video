@@ -76,21 +76,28 @@ export default function VideoPageReactComp() {
         <>
             <FullScreen handle={handleFullScreen} onChange={reportChange}>
                 {loading ? <Loading /> : null}
+
+                <div className='absolute top-0 left-0 w-fit h-fit mt-10 ml-[3%] z-[210]' style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}>
+                  <div className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white px-4 py-[14px] lg:px-7 lg:py-4 rounded-full'>
+                    Место силы – Сибирь. Бирюса
+                  </div>
+                </div>
+
+                {
+                    currentVideo === 0 && (
+                        <StartScreen
+                            setPlay={setPlay}
+                            play={play}
+                            setPlayStart={setPlayStart}
+                            playStart={playStart}
+                            handleFullScreen={handleFullScreen}
+                        />
+                    )
+                }
+
                 {CONTENT.map(element => (
                     element.id === currentVideo ? (
                         <div key={element.id} className="relative w-screen h-screen flex flex-col items-center justify-between">
-                            {
-                                currentVideo === 0 && (
-                                    <StartScreen
-                                        setPlay={setPlay}
-                                        play={play}
-                                        setPlayStart={setPlayStart}
-                                        playStart={playStart}
-                                        handleFullScreen={handleFullScreen}
-                                    />
-                                )
-                            }
-
                             <div
                                 className='w-fit h-fit'
                                 onClick={() => {
@@ -131,106 +138,106 @@ export default function VideoPageReactComp() {
                                 setEnded={setEnded}
                                 setLoading={setLoading}
                             />
-
-                            <div className="absolute bottom-[40%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
-                                <motion.button
-                                    className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue px-6 2xl:px-16 py-5 2xl:py-8 rounded-full border-4 border-birusa-blue z-50'
-                                    whileHover={{
-                                        color: 'rgb(255 255 255)',
-                                        backgroundColor: 'rgb(0 131 173)',
-                                        boxShadow: '0 0 8px rgba(0 79 117)',
-                                        paddingLeft: '70px',
-                                        paddingRight: '70px',
-                                        transition: { duration: 0.15 },
-                                    }}
-                                    onClick={() => {
-                                        setPlay(!play)
-                                        globalAutoplay.click = !play
-                                    }}
-                                >
-                                    Продолжить
-                                </motion.button>
-                            </div>
-
-                            <Image
-                              className='object-cover z-[0]'
-                              style={{ display: play ? 'none' : 'flex' }}
-                              fill={true}
-                              src={'../imgs/background.svg'}
-                              priority={true}
-                              alt="Бирюса TIM"
-                            />
-
-                            <div className="absolute top-5 left-5 w-fit flex justify-center">
-                                <button
-                                    className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'
-                                    onClick={() => {
-                                        setPlay(false)
-                                        setPlayStart(false)
-                                        globalAutoplay.click = false
-                                        setEnded(false)
-                                        setCurrentVideo(0)
-                                        addCookie(0)
-                                    }}
-                                >
-                                   {"Back to Start (Debug)"}
-                                </button>
-                            </div>
-
-                            <motion.nav
-                              className='z-[200]'
-                              style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
-                              initial={false}
-                              animate={isOpen ? "open" : "closed"}
-                              custom={height}
-                              ref={containerRef}
-                            >
-                            
-                              <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue" variants={sidebar} />
-                              <Navigation isOpen={debouncedIsOpen} />
-                              <MenuToggle toggle={() => toggleOpen()} />
-                            </motion.nav>
-
-                            <div 
-                                className="
-                                    absolute       
-                                    top-0 
-                                    right-0 
-                                    justify-center
-                                    w-[60px] 
-                                    h-[60px]
-                                    mt-[110px] 
-                                    mr-[3%]
-                                " 
-                                style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
-                            >
-                                <motion.button
-                                    className='
-                                        w-fit 
-                                        h-fit 
-                                        text-xl 
-                                        text-birusa-blue 
-                                        cursor-pointer
-                                        bg-white 
-                                        rounded-xl 
-                                        px-3
-                                        py-2
-                                        outline-none 
-                                        border-none 
-                                        z-[200]
-                                    '
-                                    whileHover={{
-                                        boxShadow: '0 0 8px rgba(0 79 117)',
-                                        transition: { duration: 0.15 },
-                                      }}
-                                    onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
-                                >
-                                    {fullscreen ? <BiExitFullscreen className='w-[35px] h-[35px]' /> : <BiFullscreen className='w-[35px] h-[35px]' />}
-                                </motion.button>
-                            </div>
                         </div>
                     ) : null
                 ))}
+                
+                <div className="absolute bottom-[40%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
+                    <motion.button
+                        className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue shadow-[0_0_8px_rgba(0,79,117,1)] px-10 py-6 rounded-full border-none z-50'
+                        whileHover={{
+                            color: 'rgb(255 255 255)',
+                            backgroundColor: 'rgb(0 131 173)',
+                            boxShadow: '0 0 8px rgba(0 79 117)',
+                            paddingLeft: '68px',
+                            paddingRight: '68px',
+                            transition: { duration: 0.15 },
+                        }}
+                        onClick={() => {
+                            setPlay(!play)
+                            globalAutoplay.click = !play
+                        }}
+                    >
+                        Продолжить
+                    </motion.button>
+                </div>
+
+                <Image
+                  className='object-cover z-1'
+                  style={{ display: play ? 'none' : 'flex' }}
+                  fill={true}
+                  src={'../imgs/background.svg'}
+                  priority={true}
+                  alt="Бирюса TIM"
+                />
+
+                <div className="absolute top-5 left-5 w-fit flex justify-center">
+                    <button
+                        className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'
+                        onClick={() => {
+                            setPlay(false)
+                            setPlayStart(false)
+                            globalAutoplay.click = false
+                            setEnded(false)
+                            setCurrentVideo(0)
+                            addCookie(0)
+                        }}
+                    >
+                       {"Back to Start (Debug)"}
+                    </button>
+                </div>
+
+                <motion.nav
+                  className='z-[200]'
+                  style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
+                  initial={false}
+                  animate={isOpen ? "open" : "closed"}
+                  custom={height}
+                  ref={containerRef}
+                >
+                
+                  <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue z-[200]" variants={sidebar} />
+                  <Navigation isOpen={debouncedIsOpen} />
+                  <MenuToggle toggle={() => toggleOpen()} />
+                </motion.nav>
+
+                <div 
+                    className="
+                        absolute       
+                        top-0 
+                        right-0 
+                        justify-center
+                        w-[60px] 
+                        h-[60px]
+                        mt-[110px] 
+                        mr-[3%]
+                    " 
+                    style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
+                >
+                    <motion.button
+                        className='
+                            w-fit 
+                            h-fit 
+                            text-xl 
+                            text-birusa-blue 
+                            cursor-pointer
+                            bg-white 
+                            rounded-xl 
+                            px-3
+                            py-2
+                            outline-none 
+                            border-none 
+                            z-[200]
+                        '
+                        whileHover={{
+                            boxShadow: '0 0 8px rgba(0 79 117)',
+                            transition: { duration: 0.15 },
+                          }}
+                        onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
+                    >
+                        {fullscreen ? <BiExitFullscreen className='w-[35px] h-[35px]' /> : <BiFullscreen className='w-[35px] h-[35px]' />}
+                    </motion.button>
+                </div>
             </FullScreen>
         </>
     )

@@ -36,6 +36,7 @@ export const MenuItem = ({ i }: { i: number }) => {
         lg:py-10 
         md:py-8 
         cursor-pointer
+        z-[200]
       "
       variants={variants}
       whileHover={{ 

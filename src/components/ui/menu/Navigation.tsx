@@ -24,6 +24,7 @@ export const Navigation = ({ isOpen }: { isOpen: boolean }) => (
       top-[20vh] 
       h-[70vh] 
       md:justify-evenly 
+      z-[200]
     "
     style={{ display: isOpen ? 'flex' : 'none' }}
     variants={variants}

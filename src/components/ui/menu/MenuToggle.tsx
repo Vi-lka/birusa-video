@@ -32,6 +32,7 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
       rounded-xl 
       mt-10 
       mr-[3%]
+      z-[200]
     "
     whileHover={{
       boxShadow: '0 0 8px rgba(0 79 117)',
