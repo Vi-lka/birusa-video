@@ -52,20 +52,20 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
                 className='
                     font-MN 
                     font-extrabold 
-                    2xl:text-3xl 
-                    xl:text-2xl
-                    lg:text-xl
-                    md:text-lg
-                    text-base
+                    2xl:text-2xl 
+                    xl:text-xl
+                    lg:text-lg
+                    md:text-base
+                    text-sm
                     bg-birusa-blue 
                     text-white 
                     xl:px-10
-                    xl:py-6
+                    xl:py-5
                     lg:px-8
-                    lg:py-5
+                    lg:py-3
                     md:px-5 
                     md:py-2 
-                    px-3
+                    px-4
                     py-2
                     rounded-full 
                     z-50

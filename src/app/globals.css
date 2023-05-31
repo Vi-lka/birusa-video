@@ -28,16 +28,16 @@ body {
 }
 
 .main-title {
-  font-size: 1vw;
+  font-size: max(18px, 0.6vw);
 }
 
 .start-button {
-  font-size: 2.2vw;
+  font-size:  max(38px, 1.2vw);
 }
 
 .main-text {
   width: 45vw;
-  font-size: 1.3vw;
+  font-size: max(32px, 1vw);
 }
 
 @media (max-height: 290px) {
@@ -74,15 +74,16 @@ body {
   .main-text {
     /* text-align: center !important; */
     /* margin: 0 auto !important; */
-    width: 40vw !important;
+    width: 39vw !important;
     font-size: 14px !important;
     margin-bottom: 22vh !important;
     margin-right: 15vw !important;
   }
 
   .start-button {
-    font-size: 22px !important;
-    margin-bottom: 0 !important;
+    font-size: 18px !important;
+    margin-bottom: 15px !important;
+    padding: 20px 40px !important;
   }
 
 }
@@ -113,7 +114,7 @@ body {
   .main-text {
     text-align: center;
     width: 80vw;
-    font-size: 15px;
+    font-size: 14px;
     margin: 0 auto;
     margin-bottom: 11vh;
     background: transparent
@@ -150,7 +151,7 @@ body {
 
   .main-text {
     width: 60vw;
-    font-size: 20px;
+    font-size: 18px;
   }
 
 }
@@ -175,7 +176,7 @@ body {
 @media (min-width: 1280px) and (max-width: 1536px) {
 
   .main-title {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .start-button {

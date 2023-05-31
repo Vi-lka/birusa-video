@@ -134,7 +134,7 @@ export default function VideoPageReactComp() {
 
                             <div className="absolute bottom-[40%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
                                 <motion.button
-                                    className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue px-6 2xl:px-16 py-5 2xl:py-10 rounded-full border-4 border-birusa-blue z-50'
+                                    className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue px-6 2xl:px-16 py-5 2xl:py-8 rounded-full border-4 border-birusa-blue z-50'
                                     whileHover={{
                                         color: 'rgb(255 255 255)',
                                         backgroundColor: 'rgb(0 131 173)',

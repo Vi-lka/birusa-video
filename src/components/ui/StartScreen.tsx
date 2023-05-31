@@ -36,7 +36,7 @@ export default function StartScreen({ setPlay, play, setPlayStart, playStart, ha
         </motion.p>
 
         <motion.button
-          className='start-button w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-12 2xl:px-16 py-6 2xl:py-11 mb-[20vh] rounded-full border-4 scale-100 border-birusa-blue z-50'
+          className='start-button w-fit h-fit font-MNWide font-extrabold uppercase text-5xl bg-white text-birusa-blue px-12 2xl:px-16 py-6 2xl:py-8 mb-[20vh] rounded-full border-4 scale-100 border-birusa-blue z-50'
           whileHover={{
             color: 'rgb(255 255 255)',
             backgroundColor: 'rgb(0 131 173)',
