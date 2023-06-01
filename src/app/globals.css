@@ -180,6 +180,10 @@ body {
   animation: wave 5s linear infinite;
 }
 
+.buttons-var button {
+  min-width: 30%;
+}
+
 @media (max-width: 600px) {
   .buttons-var {
     flex-direction: column;
@@ -188,6 +192,7 @@ body {
   }
 
   .buttons-var button {
+    min-width: 40%;
     width: fit-content;
     margin-bottom: 40px;
   }

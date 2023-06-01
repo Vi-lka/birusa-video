@@ -12,53 +12,63 @@ export const CONTENT: ContentType[] = [
     {
         id: 0,
         name: 'Start',
-        url: 'video1/',
-        filename: 'video1',
+        filename: 'start.webm',
         buttons: [
             {
-                name: 'Уебать',
-                url: 'video1/video2/',
+                name: 'Поля',
                 indexUrl: 1,
             },
             {
-                name: 'Обнять',
-                url: 'video1/video3/',
+                name: 'Ян',
+                indexUrl: 2,
+            },
+            {
+                name: 'Ника',
                 indexUrl: 2,
             }
         ]
     },
     {
         id: 1,
-        name: 'Step - Start/Variant1',
-        url: 'video1/video2/',
-        filename: 'video2',
+        name: 'Поля',
+        filename: 'polya.webm',
         buttons: [
             {
-                name: 'Уебать',
-                url: 'video1/video2/',
-                indexUrl: 1,
+                name: 'Ян',
+                indexUrl: 2,
             },
             {
-                name: 'Обнять',
-                url: 'video1/video3/',
-                indexUrl: 2,
+                name: 'Ника',
+                indexUrl: 3,
             }
         ]
     },
     {
         id: 2,
-        name: 'Step - Start/Variant2',
-        url: 'video1/video3/',
-        filename: 'video3',
+        name: 'Ян',
+        filename: 'yan.webm',
         buttons: [
             {
-                name: 'Уебать',
-                url: 'video1/video2/',
+                name: 'Ника',
+                indexUrl: 3,
+            },
+            {
+                name: 'Поля',
+                indexUrl: 1,
+            }
+        ]
+    },
+    {
+        id: 3,
+        name: 'Ника',
+        filename: 'nika.webm',
+        buttons: [
+            {
+                name: 'Поля',
                 indexUrl: 1,
             },
             {
-                name: 'Обнять',
-                url: 'video1/video3/',
+                name: 'Ян',
                 indexUrl: 2,
             }
         ]

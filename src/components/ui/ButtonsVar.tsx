@@ -28,7 +28,6 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
 
     let buttons = [] as {
         name: string,
-        url: string,
         indexUrl: number
 
     }[];
@@ -41,6 +40,34 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
 
     const addCookie = (current: number) => {
         setCookie('current-progress', current.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
+    }
+
+    const setPersonColor = (current: number) => {
+        switch (current) {
+            case 0:
+                return '#f41e6b'
+            case 1:
+                return '#4a017d'
+            case 2:
+                return '#80c41c'
+        
+            default:
+                break;
+        }
+    }
+
+    const setPersonShadow = (current: number) => {
+        switch (current) {
+            case 0:
+                return '0 0 8px #f41e6b'
+            case 1:
+                return '0 0 8px #4a017d'
+            case 2:
+                return '0 0 8px #80c41c'
+        
+            default:
+                break;
+        }
     }
     
   return (
@@ -70,14 +97,13 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
                     rounded-full 
                     z-50
                 '
-                style={{ display: ended ? 'block' : 'block' }}
-                animate={ended ? "open" : "open"}
+                style={{display: ended ? 'block' : 'none'}}
+                animate={ended ? "open" : "closed"}
                 variants={variants}
                 whileHover={{
                     color: "white",
-                    backgroundColor: 'rgb(132 204 22)',
-                    textShadow: '0 0 5px rgba(0 79 117)',
-                    boxShadow: '0 0 10px rgba(132 204 22)',
+                    backgroundColor: currentVideo === 0 ? setPersonColor(index) : '#00aedd',
+                    boxShadow: currentVideo === 0 ? setPersonShadow(index) : '0 0 10px #00aedd',
                     transition: { duration: 0.15 },
                 }}
                 onClick={() => {

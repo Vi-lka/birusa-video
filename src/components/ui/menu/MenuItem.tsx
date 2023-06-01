@@ -19,7 +19,7 @@ const variants = {
   }
 };
 
-const titles = ["Карта", "О Проекте", "Партнеры"];
+const titles = ["Карта", "О Проекте", "Партнёры"];
 
 export const MenuItem = ({ i }: { i: number }) => {
 

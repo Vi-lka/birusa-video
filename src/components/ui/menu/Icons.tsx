@@ -53,7 +53,7 @@ export default function Icons() {
             />
         </a>
     </motion.div>
-    <motion.div className="w-fit h-fit mr-[3%]">
+    <motion.div className="w-fit h-fit mr-[3%] flex">
         <a href="https://vk.com/biryusa_tim " target="_blank" className="w-fit h-fit">
             <Image
                 className="
@@ -61,7 +61,7 @@ export default function Icons() {
                 lg:w-[55px]
                 xl:w-[65px]
                 mx-auto
-                mb-2
+                mr-2
                 "
                 width={50}
                 height={50}

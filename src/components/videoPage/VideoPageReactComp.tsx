@@ -114,8 +114,12 @@ export default function VideoPageReactComp() {
                             <div
                                 className='w-fit h-fit'
                                 onClick={() => {
-                                    setPlay(!play)
-                                    globalAutoplay.click = !play
+                                    if (ended) {
+                                        return
+                                    } else {
+                                        setPlay(!play)
+                                        globalAutoplay.click = !play
+                                    }
                                 }}
                             >
                                 <Suspense fallback={<Loading />}>
@@ -124,7 +128,7 @@ export default function VideoPageReactComp() {
                                         width={'100vw'}
                                         height={'100vh'}
                                         playing={play}
-                                        url={"../video/" + element.filename + ".mp4"}
+                                        url={"../video/" + element.filename}
                                         controls={false}
                                         playsinline
                                         stopOnUnmount={true}
