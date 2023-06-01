@@ -18,11 +18,11 @@ export const Navigation = ({ isOpen }: { isOpen: boolean }) => (
     className="
       absolute 
       flex-col 
-      justify-center
+      justify-evenly
       w-screen 
       left-0 
-      top-[20vh] 
-      h-[70vh] 
+      top-[25vh] 
+      h-[65vh] 
       md:justify-evenly 
       z-[200]
     "

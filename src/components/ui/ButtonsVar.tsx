@@ -44,7 +44,7 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
     }
     
   return (
-    <div className="buttons-var absolute bottom-[15vh] left-0 flex w-full justify-evenly">
+    <div className="buttons-var absolute lg:bottom-[15vh] md:bottom-[15vh] sm:bottom-[12vh] bottom-[4vh] left-0 flex w-full justify-evenly">
     {
         buttons.map((value, index) =>
             <motion.button

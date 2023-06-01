@@ -77,7 +77,20 @@ export default function VideoPageReactComp() {
             <FullScreen handle={handleFullScreen} onChange={reportChange}>
                 {loading ? <Loading /> : null}
 
-                <div className='absolute top-0 left-0 w-fit h-fit mt-10 ml-[3%] z-[210]' style={{ display: playStart ? (play ? (loading ? 'flex' : 'none') : 'flex') : 'none' }}>
+                <div 
+                    className="
+                        absolute 
+                        top-0 
+                        left-0 
+                        w-fit 
+                        h-fit 
+                        lg:mt-10 
+                        mt-4  
+                        ml-[3%] 
+                        z-[210]
+                    " 
+                    style={{ display: playStart ? (play ? (loading ? 'flex' : 'none') : 'flex') : 'none' }}
+                >
                     <div className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white px-4 py-[14px] lg:px-7 lg:py-4 rounded-full'>
                         Место силы – Сибирь. Бирюса
                     </div>
@@ -141,7 +154,7 @@ export default function VideoPageReactComp() {
                     ) : null
                 ))}
 
-                <div className="absolute bottom-[45%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
+                <div className="absolute bottom-[40%] left-0 w-full justify-center" style={{ display: play ? 'none' : 'flex' }}>
                     <motion.button
                         className='start-button w-fit h-fit font-MNWide font-extrabold uppercase bg-white text-birusa-blue shadow-[0_0_8px_rgba(0,79,117,1)] px-10 py-6 rounded-full border-none z-[50]'
                         whileHover={{
@@ -170,7 +183,7 @@ export default function VideoPageReactComp() {
                     alt="Бирюса TIM"
                 />
 
-                <div className="absolute top-5 left-5 w-fit flex justify-center">
+                <div className="absolute top-16 left-5 w-fit flex justify-center">
                     <button
                         className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'
                         onClick={() => {

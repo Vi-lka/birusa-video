@@ -32,9 +32,7 @@ export const MenuItem = ({ i }: { i: number }) => {
         items-center 
         justify-center 
         p-0 
-        py-5 
-        lg:py-10 
-        md:py-8 
+        py-3 
         cursor-pointer
         z-[200]
       "
@@ -54,9 +52,10 @@ export const MenuItem = ({ i }: { i: number }) => {
             font-MNWide 
             font-extrabold 
             uppercase
-            xl:text-5xl 
-            lg:text-4xl 
-            text-2xl
+            2xl:text-5xl 
+            xl:text-4xl 
+            lg:text-3xl 
+            text-xl
             text-white
           "
         >
