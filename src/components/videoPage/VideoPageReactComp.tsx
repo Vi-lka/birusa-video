@@ -15,6 +15,7 @@ import { Navigation } from '../ui/menu/Navigation';
 import { MenuToggle } from '../ui/menu/MenuToggle';
 import { useDimensions } from '@/utils/use-dimensions';
 import useDebounce from '@/utils/use-demounce'
+import Icons from '../ui/menu/Icons';
 
 const sidebar = {
     open: (height = window.innerWidth) => ({
@@ -34,7 +35,7 @@ const sidebar = {
             damping: 40
         }
     }
-};;
+};
 
 export default function VideoPageReactComp() {
 
@@ -220,6 +221,7 @@ export default function VideoPageReactComp() {
 
                     <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue z-[200]" variants={sidebar} />
                     <Navigation isOpen={debouncedIsOpen} />
+                    <Icons />
                     <MenuToggle toggle={() => toggleOpen()} />
                 </motion.nav>
 
