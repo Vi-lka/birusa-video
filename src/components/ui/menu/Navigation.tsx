@@ -21,11 +21,12 @@ export const Navigation = ({ isOpen }: { isOpen: boolean }) => (
       justify-evenly
       w-screen 
       left-0 
-      top-[15%]
-      sm:top-[18vh]
+      top-[10%]
+      sm:top-[5vh]
       md:top-[25vh] 
-      sm:h-[65vh]
-      h-[80vh]  
+      sm:h-[95vh]
+      h-[80vh] 
+      md:h-[65vh]
       md:justify-evenly 
       z-[200]
     "

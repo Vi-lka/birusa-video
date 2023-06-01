@@ -32,6 +32,8 @@ export const MenuItem = ({ i }: { i: number }) => {
         items-center 
         justify-center 
         p-0 
+        sm:py-0
+        lg:py-3
         py-3 
         cursor-pointer
         z-[200]
@@ -55,6 +57,7 @@ export const MenuItem = ({ i }: { i: number }) => {
             2xl:text-5xl 
             xl:text-4xl 
             lg:text-3xl 
+            sm:text-[16px]
             text-xl
             text-white
           "
