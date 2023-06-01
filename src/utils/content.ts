@@ -16,12 +16,12 @@ export const CONTENT: ContentType[] = [
         filename: 'video1',
         buttons: [
             {
-                name: 'Variant1',
+                name: 'Уебать',
                 url: 'video1/video2/',
                 indexUrl: 1,
             },
             {
-                name: 'Variant2',
+                name: 'Обнять',
                 url: 'video1/video3/',
                 indexUrl: 2,
             }
@@ -34,12 +34,12 @@ export const CONTENT: ContentType[] = [
         filename: 'video2',
         buttons: [
             {
-                name: 'Variant1',
+                name: 'Уебать',
                 url: 'video1/video2/',
                 indexUrl: 1,
             },
             {
-                name: 'Variant2',
+                name: 'Обнять',
                 url: 'video1/video3/',
                 indexUrl: 2,
             }
@@ -52,12 +52,12 @@ export const CONTENT: ContentType[] = [
         filename: 'video3',
         buttons: [
             {
-                name: 'Variant1',
+                name: 'Уебать',
                 url: 'video1/video2/',
                 indexUrl: 1,
             },
             {
-                name: 'Variant2',
+                name: 'Обнять',
                 url: 'video1/video3/',
                 indexUrl: 2,
             }

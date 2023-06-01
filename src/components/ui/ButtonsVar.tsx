@@ -50,15 +50,15 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
             <motion.button
                 key={index}
                 className='
-                    font-MN 
-                    font-extrabold 
+                    font-MNWide 
+                    font-[400] 
                     2xl:text-2xl 
                     xl:text-xl
                     lg:text-lg
-                    md:text-base
                     text-sm
-                    bg-birusa-blue 
-                    text-white 
+                    bg-white
+                    text-birusa-blue 
+                    shadow-[0_0_8px_rgba(0,79,117,1)]
                     xl:px-10
                     xl:py-5
                     lg:px-8
@@ -74,6 +74,7 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
                 animate={ended ? "open" : "open"}
                 variants={variants}
                 whileHover={{
+                    color: "white",
                     backgroundColor: 'rgb(132 204 22)',
                     textShadow: '0 0 5px rgba(0 79 117)',
                     boxShadow: '0 0 10px rgba(132 204 22)',

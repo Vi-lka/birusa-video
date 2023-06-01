@@ -14,6 +14,7 @@ const Path = (props: any) => (
 export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
   <motion.button
     className="
+      toggle-menu-button
       flex 
       justify-center 
       items-center 
@@ -37,10 +38,15 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
       mt-4 
       mr-[3%]
       bg-white 
+      shadow-[0_0_6px_rgba(0,79,117,1)]
       rounded-xl 
       z-[200]
     "
-    whileHover={{
+    whileHover={window.innerWidth > 1024 ? {
+      backgroundColor: 'rgb(0 131 173)',
+      boxShadow: '0 0 8px rgba(0 79 117)',
+      transition: { duration: 0.15 },
+    } : {
       boxShadow: '0 0 8px rgba(0 79 117)',
       transition: { duration: 0.15 },
     }}
@@ -59,7 +65,6 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
           closed: { opacity: 1 },
           open: { opacity: 0 }
         }}
-        transition={{ duration: 0.1 }}
       />
       <Path
         variants={{

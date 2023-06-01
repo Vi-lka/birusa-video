@@ -89,7 +89,7 @@ export default function VideoPageReactComp() {
                         ml-[3%] 
                         z-[210]
                     " 
-                    style={{ display: playStart ? (play ? (loading ? 'flex' : 'none') : 'flex') : 'none' }}
+                    style={{ display: (playStart || currentVideo! > 0) ? (play ? (loading ? 'flex' : 'none') : 'flex') : 'none' }}
                 >
                     <div className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white px-4 py-[14px] lg:px-7 lg:py-4 rounded-full'>
                         Место силы – Сибирь. Бирюса
@@ -175,12 +175,22 @@ export default function VideoPageReactComp() {
                 </div>
 
                 <Image
-                    className='object-cover z-1'
+                    className='object-cover z-[11]'
                     style={{ display: play ? 'none' : 'flex' }}
                     fill={true}
                     src={'../imgs/background.svg'}
                     priority={true}
                     alt="Бирюса TIM"
+                />
+
+                <div 
+                    className="bg-color w-screen h-screen absolute top-0 left-0 z-[10]" 
+                    style={{ display: play ? 'none' : 'block' }}
+                />
+
+                <div 
+                    className="bg-color-black w-screen h-screen absolute top-0 left-0 z-[9]" 
+                    style={{ display: play ? 'none' : 'block' }}
                 />
 
                 <div className="absolute top-16 left-5 w-fit flex justify-center">
@@ -231,12 +241,14 @@ export default function VideoPageReactComp() {
                 >
                     <motion.button
                         className='
+                            toggle-screen-button
                             w-fit 
                             h-fit 
                             text-xl 
                             text-birusa-blue 
                             cursor-pointer
                             bg-white 
+                            shadow-[0_0_6px_rgba(0,79,117,1)]
                             rounded-xl 
                             px-[6px]
                             pl-[7px]
@@ -247,10 +259,14 @@ export default function VideoPageReactComp() {
                             border-none 
                             z-[200]
                         '
-                        whileHover={{
+                        whileHover={window.innerWidth > 1024 ? {
+                            backgroundColor: 'rgb(0 131 173)',
                             boxShadow: '0 0 8px rgba(0 79 117)',
                             transition: { duration: 0.15 },
-                        }}
+                          } : {
+                            boxShadow: '0 0 8px rgba(0 79 117)',
+                            transition: { duration: 0.15 },
+                          }}
                         onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
                     >
                         {fullscreen ? <BiExitFullscreen className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' /> : <BiFullscreen className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' />}

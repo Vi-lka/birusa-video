@@ -108,6 +108,8 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
         </Suspense>
 
         <div className="bg-color w-screen h-screen absolute top-0 left-0 z-[11]" />
+
+        <div className="bg-color-black w-screen h-screen absolute top-0 left-0 z-[11]"/>
       </div>
     </>
   )
