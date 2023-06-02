@@ -14,7 +14,7 @@ export default function Loading() {
         <>
         {
             !loading && (
-                <div className="loading absolute w-screen h-screen flex flex-col items-center justify-center z-[101]">
+                <div className="loading bg-[#027ba3] absolute w-screen h-screen flex flex-col items-center justify-center z-[101]">
                     <div className="water"></div>
                     <div className="font-MNWide font-normal text-center text-white px-7 py-4 pr-4">
                         <h1>

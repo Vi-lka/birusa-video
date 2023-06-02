@@ -1,14 +1,10 @@
 'use client'
 
-import { globalAutoplay } from '@/utils/content'
-import { motion, useCycle } from 'framer-motion'
-import React, { Suspense, useEffect, useRef } from 'react'
+import { globals } from '@/utils/content'
+import { motion } from 'framer-motion'
+import React, { Suspense } from 'react'
 import { FullScreenHandle } from 'react-full-screen'
 import Image from 'next/image';
-import { useDimensions } from '@/utils/use-dimensions'
-import { Navigation } from './menu/Navigation'
-import { MenuToggle } from './menu/MenuToggle'
-import useDebounce from '@/utils/use-demounce'
 import Loading from './loading'
 import ReactPlayer from 'react-player'
 
@@ -50,7 +46,7 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
           onClick={() => {
             setPlay(true)
             setPlayStart(true)
-            globalAutoplay.click = true
+            globals.click = true
             handleFullScreen.enter
           }}
           onClickCapture={handleFullScreen.enter}
@@ -100,10 +96,10 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
             onStart={() => {
               setVideoStart(true)
             }}
-            onProgress={(state) => {
-              console.log("playedSeconds: " + state.playedSeconds)
-              console.log("loadedSeconds: " + state.loadedSeconds)
-            }}
+            // onProgress={(state) => {
+            //   console.log("playedSeconds: " + state.playedSeconds)
+            //   console.log("loadedSeconds: " + state.loadedSeconds)
+            // }}
           />
         </Suspense>
 

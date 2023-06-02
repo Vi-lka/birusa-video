@@ -1,13 +1,12 @@
-'use client'
-
-import { CONTENT, globalAutoplay } from '@/utils/content'
+import { CONTENT, globals } from '@/utils/content'
 import { setCookie } from 'cookies-next'
 import { motion } from 'framer-motion'
 import React from 'react'
+import { isMobile } from 'react-device-detect'
 
 type Props = {
     currentVideo: number | undefined | null,
-    setCurrentVideo: React.Dispatch<React.SetStateAction<number | null | undefined>>,
+    currentPerson: number | undefined | null,
     ended: boolean
     setEnded: React.Dispatch<React.SetStateAction<boolean>>,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>,
@@ -17,19 +16,21 @@ const variants = {
     open: { 
         opacity: 1, 
         y: 0,
+        transition: {
+            y: { velocity: -700, delay: 0.5 }
+        }
     },
     closed: { 
         opacity: 0, 
-        y: "100%",
+        y: "1000%",
     },
-  }
+}
 
-export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEnded, setLoading }: Props) {
+export default function ButtonsVar({ currentVideo, currentPerson, ended, setEnded, setLoading }: Props) {
 
     let buttons = [] as {
         name: string,
         indexUrl: number
-
     }[];
 
     CONTENT.forEach(element => {
@@ -38,32 +39,57 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
         }
     });
 
-    const addCookie = (current: number) => {
-        setCookie('current-progress', current.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
+    function handleClick(index: number) {
+        globals.click = true
+
+        setEnded(false)
+        setLoading(true)
+
+        globals.currentVideo = index
+        addCookieProgress(index)
+
+        if (currentVideo === 0) {
+            globals.currentPerson = index
+            addCookiePerson(index)
+        }
     }
 
-    const setPersonColor = (current: number) => {
+    const addCookieProgress = (progress: number) => {
+        setCookie('current-progress', progress.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
+    }
+
+    const addCookiePerson = (person: number) => {
+        setCookie('current-person', person.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
+    }
+
+    const personColor = (current: number) => {
         switch (current) {
-            case 0:
-                return '#f41e6b'
-            case 1:
-                return '#4a017d'
-            case 2:
+            // Поля
+            case 1: 
                 return '#80c41c'
+            // Ян
+            case 2:
+                return '#4a017d'
+            // Ника
+            case 3:
+                return '#f41e6b'
         
             default:
                 break;
         }
     }
 
-    const setPersonShadow = (current: number) => {
+    const personShadow = (current: number) => {
         switch (current) {
-            case 0:
-                return '0 0 8px #f41e6b'
+            // Поля
             case 1:
-                return '0 0 8px #4a017d'
-            case 2:
                 return '0 0 8px #80c41c'
+            // Ян
+            case 2:
+                return '0 0 8px #4a017d'
+            // Ника
+            case 3:
+                return '0 0 8px #f41e6b'
         
             default:
                 break;
@@ -97,22 +123,21 @@ export default function ButtonsVar({ currentVideo, setCurrentVideo, ended, setEn
                     rounded-full 
                     z-50
                 '
-                style={{display: ended ? 'block' : 'none'}}
+                style={{
+                    display: ended ? 'block' : 'none', 
+                    color: isMobile ? '#ffffff' : 'rgb(0,131,173)',
+                    backgroundColor: isMobile ? (currentVideo === 0 ? personColor(value.indexUrl) : (currentPerson ? personColor(currentPerson) : "#00aedd")) : "#ffffff",
+                    boxShadow: isMobile ? (currentVideo === 0 ? personShadow(value.indexUrl) : (currentPerson ? personShadow(currentPerson) : "0 0 8px #00aedd")) : "0 0 8px rgb(0,79,117)",
+                }}
                 animate={ended ? "open" : "closed"}
                 variants={variants}
                 whileHover={{
-                    color: "white",
-                    backgroundColor: currentVideo === 0 ? setPersonColor(index) : '#00aedd',
-                    boxShadow: currentVideo === 0 ? setPersonShadow(index) : '0 0 10px #00aedd',
+                    color: "#ffffff",
+                    backgroundColor: currentVideo === 0 ? personColor(value.indexUrl) : (currentPerson ? personColor(currentPerson) : "#00aedd"),
+                    boxShadow: currentVideo === 0 ? personShadow(value.indexUrl) : (currentPerson ? personShadow(currentPerson) : "0 0 8px #00aedd"),
                     transition: { duration: 0.15 },
                 }}
-                onClick={() => {
-                    setEnded(false)
-                    globalAutoplay.click = true
-                    setCurrentVideo(value.indexUrl)
-                    addCookie(value.indexUrl)
-                    setLoading(true)
-                }}
+                onClick={() => {handleClick(value.indexUrl)}}
             >
                 {value.name}
             </motion.button>

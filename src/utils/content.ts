@@ -1,5 +1,7 @@
-export const globalAutoplay = {
-    click: false
+export const globals: Globals = {
+    click: false,
+    currentVideo: 0,
+    currentPerson: 0,
 }
 
 export const PATHS = [
@@ -11,7 +13,7 @@ export const PATHS = [
 export const CONTENT: ContentType[] = [
     {
         id: 0,
-        name: 'Start',
+        name: 'Выбери персонажа',
         filename: 'start.webm',
         buttons: [
             {
@@ -24,13 +26,13 @@ export const CONTENT: ContentType[] = [
             },
             {
                 name: 'Ника',
-                indexUrl: 2,
+                indexUrl: 3,
             }
         ]
     },
     {
         id: 1,
-        name: 'Поля',
+        name: 'писку дашь ебать?',
         filename: 'polya.webm',
         buttons: [
             {
@@ -45,7 +47,7 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 2,
-        name: 'Ян',
+        name: 'А што вы делаете в моем холодильнике???',
         filename: 'yan.webm',
         buttons: [
             {
@@ -60,7 +62,7 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 3,
-        name: 'Ника',
+        name: 'Что бормочешь когда дрочешь?',
         filename: 'nika.webm',
         buttons: [
             {

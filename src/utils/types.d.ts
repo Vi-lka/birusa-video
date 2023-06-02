@@ -8,6 +8,8 @@ type ContentType = {
     }[]
 }
 
-type StaticPathType = {
-    slug: string[]
+type Globals = {
+    click: boolean,
+    currentVideo: number,
+    currentPerson: number,
 }

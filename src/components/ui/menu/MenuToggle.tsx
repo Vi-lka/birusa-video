@@ -11,7 +11,21 @@ const Path = (props: any) => (
   />
 );
 
-export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
+const animation = {
+  show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        y: { delay: 0.04 }
+      }
+  },
+  hide: { 
+      opacity: 0, 
+      y: "-200%",
+  },
+}
+
+export const MenuToggle = ({ isOpen, toggle, animate }: { isOpen: boolean, toggle: () => void, animate: string }) => (
   <motion.button
     className="
       toggle-menu-button
@@ -50,6 +64,8 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
       boxShadow: '0 0 8px rgba(0 79 117)',
       transition: { duration: 0.15 },
     }}
+    variants={animation}
+    animate={animate}
     onClick={toggle}
   >
     <svg width="23" height="23" viewBox="0 0 23 23" className="lg:scale-150 scale-100">
@@ -58,6 +74,7 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
           closed: { d: "M 2 2.5 L 20 2.5" },
           open: { d: "M 3 16.5 L 19 2.5" }
         }}
+        animate={isOpen ? "open" : "closed"}
       />
       <Path
         d="M 2 9.423 L 20 9.423"
@@ -65,12 +82,14 @@ export const MenuToggle = ({ toggle }: { toggle: () => void }) => (
           closed: { opacity: 1 },
           open: { opacity: 0 }
         }}
+        animate={isOpen ? "open" : "closed"}
       />
       <Path
         variants={{
           closed: { d: "M 2 16.346 L 20 16.346" },
           open: { d: "M 3 2.5 L 19 16.346" }
         }}
+        animate={isOpen ? "open" : "closed"}
       />
     </svg>
   </motion.button>
