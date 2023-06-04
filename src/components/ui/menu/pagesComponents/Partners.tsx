@@ -4,7 +4,6 @@ import React from 'react'
 type Props = {
     isMenuOpen: boolean,
     isPartnersOpen: boolean,
-    setCurrentMenu: React.Dispatch<React.SetStateAction<number | undefined>>
 }
 
 const animation = {
@@ -24,7 +23,7 @@ const animation = {
     },
 }
 
-export default function Partners({ isMenuOpen, isPartnersOpen, setCurrentMenu }: Props) {
+export default function Partners({ isMenuOpen, isPartnersOpen }: Props) {
     return (
         <motion.div
             className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[200]'

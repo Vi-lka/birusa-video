@@ -84,13 +84,11 @@ export default function Menu({ play, loading, ended }: Props) {
             <About
                 isMenuOpen={isOpen}
                 isAboutOpen={currentMenu === 1}
-                setCurrentMenu={setCurrentMenu}
             />
 
             <Partners
                 isMenuOpen={isOpen}
                 isPartnersOpen={currentMenu === 2}
-                setCurrentMenu={setCurrentMenu}
             />
         </motion.nav>
     )
