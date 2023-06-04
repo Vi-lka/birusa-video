@@ -1,6 +1,12 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 
+type Props = {
+  isOpen: boolean,
+  toggle: () => void,
+  animate: string
+}
+
 const Path = (props: any) => (
   <motion.path
     fill="transparent"
@@ -12,20 +18,20 @@ const Path = (props: any) => (
 );
 
 const animation = {
-  show: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        y: { delay: 0.04 }
-      }
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      y: { delay: 0.04 }
+    }
   },
-  hide: { 
-      opacity: 0, 
-      y: "-200%",
+  hide: {
+    opacity: 0,
+    y: "-200%",
   },
 }
 
-export const MenuToggle = ({ isOpen, toggle, animate }: { isOpen: boolean, toggle: () => void, animate: string }) => (
+export const MenuToggle = ({ isOpen, toggle, animate }: Props) => (
   <motion.button
     className="
       toggle-menu-button
@@ -54,7 +60,7 @@ export const MenuToggle = ({ isOpen, toggle, animate }: { isOpen: boolean, toggl
       bg-white 
       shadow-[0_0_6px_rgba(0,79,117,1)]
       rounded-xl 
-      z-[200]
+      z-[201]
     "
     whileHover={window.innerWidth > 1024 ? {
       backgroundColor: 'rgb(0 131 173)',

@@ -5,6 +5,10 @@ import Icons from './Icons'
 import { MenuToggle } from './MenuToggle'
 import useDebounce from '@/utils/use-demounce'
 import { useDimensions } from '@/utils/use-dimensions'
+import MapMain from './pagesComponents/MapMain'
+import About from './pagesComponents/About'
+import Partners from './pagesComponents/Partners'
+import GoBackMenu from './GoBackMenu'
 
 type Props = {
     play: boolean,
@@ -32,7 +36,9 @@ const sidebar = {
     }
 };
 
-export default function Menu({ play, loading, ended } : Props) {
+export default function Menu({ play, loading, ended }: Props) {
+
+    const [currentMenu, setCurrentMenu] = React.useState<number>()
 
     const [isOpen, toggleOpen] = useCycle(false, true);
 
@@ -41,7 +47,7 @@ export default function Menu({ play, loading, ended } : Props) {
 
     const debouncedIsOpen = useDebounce(isOpen, 300);
 
-  return (
+    return (
         <motion.nav
             className='z-[200]'
             // style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
@@ -50,14 +56,41 @@ export default function Menu({ play, loading, ended } : Props) {
             custom={height}
             ref={containerRef}
         >
-        
+
             <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue z-[200]" variants={sidebar} />
-            <Navigation isOpen={debouncedIsOpen} />
+            <Navigation isOpen={debouncedIsOpen} setCurrentMenu={setCurrentMenu} />
             <Icons />
-            <MenuToggle 
+            <MenuToggle
                 isOpen={isOpen}
-                toggle={() => toggleOpen()}  
+                toggle={() => {
+                    toggleOpen()
+                    setCurrentMenu(undefined)
+                }}
                 animate={ended ? 'show' : (play ? (loading ? 'show' : 'hide') : 'show')}
+            />
+
+            <GoBackMenu
+                isMenuOpen={isOpen}
+                currentMenu={currentMenu}
+                setCurrentMenu={setCurrentMenu}
+            />
+
+            <MapMain
+                isMenuOpen={isOpen}
+                isMapOpen={currentMenu === 0}
+                setCurrentMenu={setCurrentMenu}
+            />
+
+            <About
+                isMenuOpen={isOpen}
+                isAboutOpen={currentMenu === 1}
+                setCurrentMenu={setCurrentMenu}
+            />
+
+            <Partners
+                isMenuOpen={isOpen}
+                isPartnersOpen={currentMenu === 2}
+                setCurrentMenu={setCurrentMenu}
             />
         </motion.nav>
     )
