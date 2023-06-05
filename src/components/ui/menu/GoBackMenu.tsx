@@ -1,3 +1,4 @@
+import { useStore } from '@/utils/Store'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { FullScreenHandle } from 'react-full-screen'
@@ -5,25 +6,28 @@ import { MdOutlineArrowBackIosNew } from 'react-icons/md'
 
 type Props = {
     isMenuOpen: boolean,
-    currentMenu: number | undefined,
-    setCurrentMenu: React.Dispatch<React.SetStateAction<number | undefined>>
+    onClick: () => void,
+    zIndex: string | undefined,
 }
 
 const animation = {
     show: {
         opacity: 1,
-        x: 0,
+        y: 0,
     },
     hide: {
         opacity: 0,
-        x: "200%",
+        y: "200%",
         transition: {
-            x: { delay: 0.04 }
+            y: { delay: 0.04 }
         }
     },
 }
 
-export default function GoBackMenu({ isMenuOpen, currentMenu, setCurrentMenu }: Props) {
+export default function GoBackMenu({ isMenuOpen, onClick, zIndex }: Props) {
+
+    const { currentMenu } = useStore()
+    
     return (
         <motion.div className="
             absolute       
@@ -37,10 +41,9 @@ export default function GoBackMenu({ isMenuOpen, currentMenu, setCurrentMenu }: 
             lg:mt-[184px] 
             mt-[115px] 
             mr-[3%]
-            z-[220]
         "
             variants={animation}
-            style={{display: (isMenuOpen && (currentMenu !== undefined) ? 'flex' : 'none')}}
+            style={{display: (isMenuOpen && (currentMenu !== undefined) ? 'flex' : 'none'), zIndex: zIndex }}
             animate={(isMenuOpen && (currentMenu !== undefined) ? 'show' : 'hide')}
         >
             <motion.button
@@ -71,7 +74,7 @@ export default function GoBackMenu({ isMenuOpen, currentMenu, setCurrentMenu }: 
                     boxShadow: '0 0 8px rgba(0 79 117)',
                     transition: { duration: 0.15 },
                 }}
-                onClick={() => setCurrentMenu(undefined)}
+                onClick={onClick}
             >
                 <MdOutlineArrowBackIosNew className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' />
             </motion.button>

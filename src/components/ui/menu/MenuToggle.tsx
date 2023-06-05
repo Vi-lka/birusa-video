@@ -60,7 +60,7 @@ export const MenuToggle = ({ isOpen, toggle, animate }: Props) => (
       bg-white 
       shadow-[0_0_6px_rgba(0,79,117,1)]
       rounded-xl 
-      z-[220]
+      z-[300]
     "
     whileHover={window.innerWidth > 1024 ? {
       backgroundColor: 'rgb(0 131 173)',

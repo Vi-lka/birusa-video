@@ -1,16 +1,9 @@
+import { useStore } from '@/utils/Store'
 import { CONTENT, globals } from '@/utils/content'
 import { setCookie } from 'cookies-next'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { isMobile } from 'react-device-detect'
-
-type Props = {
-    currentVideo: number | undefined | null,
-    currentPerson: number | undefined | null,
-    ended: boolean
-    setEnded: React.Dispatch<React.SetStateAction<boolean>>,
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>,
-}
 
 const variants = {
     open: { 
@@ -26,7 +19,17 @@ const variants = {
     },
 }
 
-export default function ButtonsVar({ currentVideo, currentPerson, ended, setEnded, setLoading }: Props) {
+export default function ButtonsVar() {
+
+    const { 
+        currentPerson, 
+        setCurrentPerson, 
+        currentVideo,
+        setCurrentVideo,
+        ended, 
+        setEnded, 
+        setLoading 
+    } = useStore()
 
     let buttons = [] as {
         name: string,
@@ -37,22 +40,7 @@ export default function ButtonsVar({ currentVideo, currentPerson, ended, setEnde
         if (element.id === currentVideo) {
             buttons = element.buttons
         }
-    });
-
-    function handleClick(index: number) {
-        globals.click = true
-
-        setEnded(false)
-        setLoading(true)
-
-        globals.currentVideo = index
-        addCookieProgress(index)
-
-        if (currentVideo === 0) {
-            globals.currentPerson = index
-            addCookiePerson(index)
-        }
-    }
+    })
 
     const addCookieProgress = (progress: number) => {
         setCookie('current-progress', progress.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
@@ -60,6 +48,21 @@ export default function ButtonsVar({ currentVideo, currentPerson, ended, setEnde
 
     const addCookiePerson = (person: number) => {
         setCookie('current-person', person.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
+    }
+
+    function handleClick(index: number) {
+        globals.click = true
+
+        setEnded(false)
+        setLoading(true)
+
+        setCurrentVideo(index)
+        addCookieProgress(index)
+
+        if (currentVideo === 0) {
+            setCurrentPerson(index)
+            addCookiePerson(index)
+        }
     }
 
     const personColor = (current: number) => {

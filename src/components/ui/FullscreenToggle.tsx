@@ -1,12 +1,10 @@
+import { useStore } from '@/utils/Store'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { FullScreenHandle } from 'react-full-screen'
 import { BiExitFullscreen, BiFullscreen } from 'react-icons/bi'
 
 type Props = {
-  play: boolean,
-  loading: boolean,
-  ended: boolean,
   fullscreen: boolean,
   handleFullScreen: FullScreenHandle
 }
@@ -25,7 +23,14 @@ const animation = {
   },
 }
 
-export default function FullscreenToggle({ play, loading, ended, fullscreen, handleFullScreen }: Props) {
+export default function FullscreenToggle({ fullscreen, handleFullScreen }: Props) {
+
+  const {
+    play,
+    ended, 
+    loading, 
+} = useStore()
+
   return (
     <motion.div className="
             absolute       
@@ -40,7 +45,7 @@ export default function FullscreenToggle({ play, loading, ended, fullscreen, han
             lg:mt-[110px] 
             mt-[65px] 
             mr-[3%]
-            z-[220]
+            z-[300]
         "
       variants={animation}
       animate={ended ? 'show' : (play ? (loading ? 'show' : 'hide') : 'show')}

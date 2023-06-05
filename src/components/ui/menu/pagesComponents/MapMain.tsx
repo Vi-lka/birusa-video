@@ -1,18 +1,16 @@
-import { motion } from 'framer-motion'
+import { Cycle, motion } from 'framer-motion'
 import React from 'react'
-
-type Props = {
-    isMenuOpen: boolean,
-    isMapOpen: boolean,
-    setCurrentMenu: React.Dispatch<React.SetStateAction<number | undefined>>
-}
+import MapMainNavigation from './MapMainNavigation'
+import GoBackMenu from '../GoBackMenu'
+import MapMainFlow from './MapMainFlow'
+import { useStore } from '@/utils/Store'
 
 const animation = {
     show: {
         opacity: 1,
         y: 0,
         transition: {
-            y: { stiffness: 1000, velocity: -100 }
+            y: { stiffness: 1000 }
         }
     },
     hide: {
@@ -24,15 +22,24 @@ const animation = {
     },
 }
 
-export default function MapMain({ isMenuOpen, isMapOpen, setCurrentMenu }: Props) {
+const mapIds = [0, 1, 2];
+
+export default function MapMain({ isMenuOpen, toggleOpen }: { isMenuOpen: boolean, toggleOpen: Cycle }) {
+
+    const { currentMenu } = useStore()
+
     return (
         <motion.div
-            className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[200]'
+            className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[230]'
             // style={{ display: (isMenuOpen && isMapOpen) ? 'flex' : 'none' }}
             variants={animation}
-            animate={(isMenuOpen && isMapOpen) ? 'show' : 'hide'}
+            animate={(isMenuOpen && (currentMenu === 0)) ? 'show' : 'hide'}
         >
-            <h1>Map</h1>
+
+            <MapMainNavigation />
+
+            <MapMainFlow toggleOpen={toggleOpen} />
+
         </motion.div>
     )
 }

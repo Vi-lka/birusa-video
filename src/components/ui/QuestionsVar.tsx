@@ -1,12 +1,7 @@
+import { useStore } from '@/utils/Store';
 import { CONTENT } from '@/utils/content';
 import { motion } from 'framer-motion';
 import React from 'react'
-
-type Props = {
-    currentVideo: number | undefined | null,
-    currentPerson: number | undefined | null,
-    ended: boolean
-}
 
 const variants = {
     open: {
@@ -22,7 +17,13 @@ const variants = {
     },
 }
 
-export default function QuestionsVar({ currentVideo, currentPerson, ended }: Props) {
+export default function QuestionsVar() {
+
+    const {
+        currentVideo,
+        //
+        ended, 
+    } = useStore()
 
     let question = ''
 

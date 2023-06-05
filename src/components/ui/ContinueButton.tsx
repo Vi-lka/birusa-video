@@ -1,11 +1,7 @@
+import { useStore } from '@/utils/Store'
 import { globals } from '@/utils/content'
 import { motion } from 'framer-motion'
 import React from 'react'
-
-type Props = {
-    play: boolean,
-    setPlay: React.Dispatch<React.SetStateAction<boolean>>,
-}
 
 const variants = {
     show: { 
@@ -21,7 +17,13 @@ const variants = {
     },
 }
 
-export default function ContinueButton({ play, setPlay } : Props) {
+export default function ContinueButton() {
+
+    const {
+        play,
+        setPlay,
+    } = useStore()
+
   return (
     <motion.div 
         className="absolute bottom-[45%] left-0 w-full flex justify-center" 

@@ -7,22 +7,22 @@ import { FullScreenHandle } from 'react-full-screen'
 import Image from 'next/image';
 import Loading from './loading'
 import ReactPlayer from 'react-player'
+import { useStore } from '@/utils/Store'
 
-type Props = {
-  setPlay: React.Dispatch<React.SetStateAction<boolean>>,
-  setPlayStart: React.Dispatch<React.SetStateAction<boolean>>,
-  playStart: boolean,
-  handleFullScreen: FullScreenHandle,
-}
+export default function StartScreen({ handleFullScreen }: { handleFullScreen: FullScreenHandle }) {
 
-export default function StartScreen({ setPlay, setPlayStart, playStart, handleFullScreen }: Props) {
+  const { 
+    setPlay,
+    playFromStart,
+    setPlayFromStart,
+} = useStore()
 
   const [videoStart, setVideoStart] = React.useState<boolean>(false);
 
   return (
     <>
 
-      <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playStart ? 'none' : 'flex' }}>
+      <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen bg-white flex-col justify-center items-center z-[100]" style={{ display: playFromStart ? 'none' : 'flex' }}>
         <motion.p
           className='main-text h-fit font-MNExpanded font-extrabold uppercase text-center antialiased md:subpixel-antialiased text-white px-4 py-[14px] lg:px-7 lg:py-4 2xl:px-12 2xl:py-6 rounded-full z-50'
         >
@@ -45,7 +45,7 @@ export default function StartScreen({ setPlay, setPlayStart, playStart, handleFu
           }}
           onClick={() => {
             setPlay(true)
-            setPlayStart(true)
+            setPlayFromStart(true)
             globals.click = true
             handleFullScreen.enter
           }}

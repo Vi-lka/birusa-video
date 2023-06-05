@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import Image from 'next/image'
+import { useStore } from '@/utils/Store'
 
 const variants = {
     show: {
@@ -11,7 +12,10 @@ const variants = {
     },
 }
 
-export default function BackgroundPause({ play, ended }: { play: boolean, ended: boolean }) {
+export default function BackgroundPause() {
+
+    const { play, ended } = useStore()
+
     return (
         <>
             <motion.div

@@ -1,7 +1,5 @@
 export const globals: Globals = {
     click: false,
-    currentVideo: 0,
-    currentPerson: 0,
 }
 
 export const PATHS = [

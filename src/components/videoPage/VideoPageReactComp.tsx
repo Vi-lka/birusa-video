@@ -14,33 +14,42 @@ import FullscreenToggle from '../ui/FullscreenToggle';
 import ContinueButton from '../ui/ContinueButton';
 import BackgroundPause from '../ui/BackgroundPause';
 import QuestionsVar from '../ui/QuestionsVar';
+import { useStore } from '@/utils/Store';
 
 export default function VideoPageReactComp() {
+
+    const {
+        play,
+        setPlay,
+        setPlayFromStart,
+        // 
+        currentPerson, 
+        setCurrentPerson, 
+        currentVideo,
+        setCurrentVideo,
+        //
+        ended, 
+        setEnded, 
+        loading, 
+        setLoading,
+    } = useStore()
 
     const handleFullScreen = useFullScreenHandle();
 
     const [fullscreen, setFullscreen] = React.useState<boolean>(false);
-
-    const [loading, setLoading] = React.useState<boolean>(true);
-
-    const [ended, setEnded] = React.useState<boolean>(false);
-
-    const [playStart, setPlayStart] = React.useState(false);
-
-    const [play, setPlay] = React.useState(false);
 
     const addCookie = (current: number) => {
         setCookie('current-progress', current.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
     }
 
     React.useEffect(() => {
-        hasCookie('current-progress') && (globals.currentVideo = Number(getCookie('current-progress')))
-        hasCookie('current-person') && (globals.currentPerson = Number(getCookie('current-person')))
+        hasCookie('current-progress') && (setCurrentVideo(Number(getCookie('current-progress'))))
+        hasCookie('current-person') && (setCurrentPerson(Number(getCookie('current-person'))))
         globals.click && setPlay(true)
     }, [])
 
-    console.log("Video: " + globals.currentVideo)
-    console.log("Person: " + globals.currentPerson)
+    console.log("Video: " + currentVideo)
+    console.log("Person: " + currentPerson)
 
     const reportChange = useCallback((state: any) => {
         setFullscreen(state)
@@ -51,27 +60,16 @@ export default function VideoPageReactComp() {
             <FullScreen className='custom-fullscreens' handle={handleFullScreen} onChange={reportChange}>
                 {loading ? <Loading /> : null}
 
-                <IconMain
-                    ended={ended}
-                    playStart={playStart}
-                    currentVideo={globals.currentVideo}
-                    play={play}
-                    loading={loading}
-                />
+                <IconMain />
 
                 {
-                    globals.currentVideo === 0 && (
-                        <StartScreen
-                            setPlay={setPlay}
-                            setPlayStart={setPlayStart}
-                            playStart={playStart}
-                            handleFullScreen={handleFullScreen}
-                        />
+                    currentVideo === 0 && (
+                        <StartScreen handleFullScreen={handleFullScreen} />
                     )
                 }
 
                 {CONTENT.map(element => (
-                    element.id === globals.currentVideo ? (
+                    element.id === currentVideo ? (
                         <div key={element.id} className="relative w-screen h-screen flex flex-col items-center justify-between">
                             <div
                                 className='w-fit h-fit'
@@ -109,50 +107,27 @@ export default function VideoPageReactComp() {
                     ) : null
                 ))}
 
-                <QuestionsVar 
-                    currentVideo={globals.currentVideo}
-                    currentPerson={globals.currentPerson}
-                    ended={ended}
-                />
+                <QuestionsVar />
 
-                <ButtonsVar
-                    currentVideo={globals.currentVideo}
-                    currentPerson={globals.currentPerson}
-                    ended={ended}
-                    setEnded={setEnded}
-                    setLoading={setLoading}
-                />
+                <ButtonsVar />
 
-                <ContinueButton 
-                    play={play} 
-                    setPlay={setPlay}
-                />
+                <ContinueButton />
 
-                <BackgroundPause play={play} ended={ended} />
+                <BackgroundPause />
 
-                <Menu 
-                    play={play} 
-                    loading={loading}
-                    ended={ended}             
-                />
+                <Menu />
 
-                <FullscreenToggle 
-                    play={play}
-                    loading={loading}
-                    ended={ended} 
-                    fullscreen={fullscreen} 
-                    handleFullScreen={handleFullScreen}                
-                />
+                <FullscreenToggle fullscreen={fullscreen} handleFullScreen={handleFullScreen} />
 
                 <div className="absolute top-16 left-5 w-fit flex justify-center">
                     <button
-                        className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-50'
+                        className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-[1000]'
                         onClick={() => {
                             setPlay(false)
-                            setPlayStart(false)
+                            setPlayFromStart(false)
                             globals.click = false
                             setEnded(false)
-                            globals.currentVideo = 0
+                            setCurrentVideo(0)
                             addCookie(0)
                         }}
                     >

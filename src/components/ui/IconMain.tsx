@@ -1,13 +1,6 @@
+import { useStore } from '@/utils/Store'
 import { motion } from 'framer-motion'
 import React from 'react'
-
-type Props = {
-    ended: boolean,
-    playStart: boolean,
-    currentVideo: number | null | undefined,
-    play: boolean,
-    loading: boolean
-}
 
 const variants = {
     show: { 
@@ -23,7 +16,18 @@ const variants = {
     },
 }
 
-export default function IconMain({ ended, playStart, currentVideo, play, loading } : Props) {
+export default function IconMain() {
+
+    const {
+        play,
+        playFromStart,
+        // 
+        currentVideo,
+        //
+        ended, 
+        loading, 
+    } = useStore()
+
   return (
     <motion.div 
         className="
@@ -35,9 +39,9 @@ export default function IconMain({ ended, playStart, currentVideo, play, loading
             lg:mt-10 
             mt-4  
             ml-[3%] 
-            z-[210]
+            z-[300]
         " 
-        style={{ display: (playStart || currentVideo! > 0) ? 'flex' : 'none' }}
+        style={{ display: (playFromStart || currentVideo! > 0) ? 'flex' : 'none' }}
         animate={ended ? 'show' : (play ? (loading ? 'show' : 'hide') : 'show')}
         variants={variants}
     >

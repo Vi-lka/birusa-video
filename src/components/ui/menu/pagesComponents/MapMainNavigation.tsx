@@ -1,25 +1,25 @@
-import * as React from "react";
-import { motion } from "framer-motion";
-import { useStore } from "@/utils/Store";
+import { useStore } from '@/utils/Store';
+import { motion } from 'framer-motion'
+import React from 'react'
 
-const variants = {
-  open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
-  },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 }
-  }
+const variantsUl = {
+    show: {
+      transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+    },
+    hide: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 }
+    }
 };
 
 const variantsLi = {
-  open: {
+  show: {
     y: 0,
     opacity: 1,
     transition: {
       y: { stiffness: 1000, velocity: -100 }
     }
   },
-  closed: {
+  hide: {
     y: 50,
     opacity: 0,
     transition: {
@@ -28,17 +28,19 @@ const variantsLi = {
   }
 };
 
-const itemIds = [0, 1, 2];
-const titles = ["Карта", "О Проекте", "Партнёры"];
+const personIds = [0, 1, 2]
+const persons = ["Поля", "Ян", "Ника"]
+const colors = ["#80c41c", "#4a017d", "#f41e6b"];
 
-export default function Navigation({ isOpen } : { isOpen: boolean }) {
+export default function MapMainNavigation() {
 
-  const { setCurrentMenu } = useStore()
+    const { currentMap, setCurrentMap } = useStore()
 
   return (
     <motion.ul
       className="
         absolute 
+        flex
         flex-col 
         justify-evenly
         w-screen 
@@ -50,12 +52,12 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
         h-[80vh] 
         md:h-[65vh]
         md:justify-evenly 
-        z-[210]
+        z-[230]
       "
-      style={{ display: isOpen ? 'flex' : 'none' }}
-      variants={variants}
+      style={{ display: currentMap === undefined ? 'flex' : 'none' }}
+      variants={variantsUl}
     >
-      {itemIds.map(i => (
+      {personIds.map(i => (
         <motion.li
           key={i}
           className="
@@ -69,7 +71,7 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
               lg:py-3
               py-3 
               cursor-pointer
-              z-[210]
+              z-[230]
             "
           variants={variantsLi}
           whileHover={{
@@ -80,7 +82,7 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
             scale: 0.9,
           }}
           onClick={() => {
-            setCurrentMenu(i)
+            setCurrentMap(i)
           }}
         >
           <div className="w-fit">
@@ -94,11 +96,11 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
                   lg:text-3xl 
                   sm:text-[16px]
                   text-xl
-                  text-white
                   cursor-pointer
                 "
+                style={{ color: colors[i] }}
             >
-              {titles[i]}
+              {persons[i]}
             </p>
           </div>
         </motion.li>
