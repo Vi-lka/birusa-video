@@ -49,7 +49,7 @@ export default function Menu({ play, loading, ended }: Props) {
 
     return (
         <motion.nav
-            className='z-[200]'
+            className='z-[200] overflow-hidden'
             // style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
             initial={false}
             animate={isOpen ? "open" : "closed"}

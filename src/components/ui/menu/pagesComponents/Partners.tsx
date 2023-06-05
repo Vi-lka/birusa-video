@@ -27,7 +27,7 @@ export default function Partners({ isMenuOpen, isPartnersOpen }: Props) {
     return (
         <motion.div
             className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[200]'
-            // style={{ display: (isMenuOpen && isMapOpen) ? 'flex' : 'none' }}
+            // style={{ display: (isMenuOpen && isPartnersOpen) ? 'flex' : 'none' }}
             variants={animation}
             animate={(isMenuOpen && isPartnersOpen) ? 'show' : 'hide'}
         >

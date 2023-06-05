@@ -29,7 +29,6 @@ export default function GoBackMenu({ isMenuOpen, currentMenu, setCurrentMenu }: 
             absolute       
             top-0 
             right-0 
-            flex
             justify-center
             lg:w-[60px] 
             lg:h-[60px]
@@ -38,9 +37,10 @@ export default function GoBackMenu({ isMenuOpen, currentMenu, setCurrentMenu }: 
             lg:mt-[184px] 
             mt-[115px] 
             mr-[3%]
-            z-[201]
+            z-[220]
         "
             variants={animation}
+            style={{display: (isMenuOpen && (currentMenu !== undefined) ? 'flex' : 'none')}}
             animate={(isMenuOpen && (currentMenu !== undefined) ? 'show' : 'hide')}
         >
             <motion.button

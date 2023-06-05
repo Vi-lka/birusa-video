@@ -40,7 +40,7 @@ export default function FullscreenToggle({ play, loading, ended, fullscreen, han
             lg:mt-[110px] 
             mt-[65px] 
             mr-[3%]
-            z-[201]
+            z-[220]
         "
       variants={animation}
       animate={ended ? 'show' : (play ? (loading ? 'show' : 'hide') : 'show')}

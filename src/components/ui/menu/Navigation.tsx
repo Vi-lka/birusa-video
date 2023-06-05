@@ -50,7 +50,7 @@ export const Navigation = ({ isOpen, setCurrentMenu }: Props) => (
       h-[80vh] 
       md:h-[65vh]
       md:justify-evenly 
-      z-[200]
+      z-[210]
     "
     style={{ display: isOpen ? 'flex' : 'none' }}
     variants={variants}
@@ -69,7 +69,7 @@ export const Navigation = ({ isOpen, setCurrentMenu }: Props) => (
             lg:py-3
             py-3 
             cursor-pointer
-            z-[200]
+            z-[210]
           "
         variants={variantsLi}
         whileHover={{

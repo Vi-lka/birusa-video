@@ -48,7 +48,7 @@ export default function VideoPageReactComp() {
 
     return (
         <>
-            <FullScreen handle={handleFullScreen} onChange={reportChange}>
+            <FullScreen className='custom-fullscreens' handle={handleFullScreen} onChange={reportChange}>
                 {loading ? <Loading /> : null}
 
                 <IconMain

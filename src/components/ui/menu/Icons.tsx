@@ -22,7 +22,7 @@ const variantsLogos = {
 export default function Icons() {
   return (
     <motion.div 
-    className=" 
+      className=" 
         absolute 
         bottom-0 
         left-0 
@@ -34,7 +34,7 @@ export default function Icons() {
         justify-between 
         items-end
         z-[201]
-    "
+      "
     variants={variantsLogos}
 >
     <motion.div className="w-fit h-fit ml-[3%]">

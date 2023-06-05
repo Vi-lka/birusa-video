@@ -37,6 +37,12 @@ body {
   overflow: hidden;
 }
 
+.custom-fullscreens {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .bg-video {
   position: absolute;
   top: 0;
