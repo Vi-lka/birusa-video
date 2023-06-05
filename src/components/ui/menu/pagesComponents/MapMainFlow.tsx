@@ -3,6 +3,7 @@ import { globals } from '@/utils/content'
 import { setCookie } from 'cookies-next'
 import { Cycle, motion } from 'framer-motion'
 import React from 'react'
+import PolyaFlow from './PolyaFlow'
 
 export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
 
@@ -36,10 +37,12 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
     }
     
     function handleClick(index: number) {
+        console.log(index)
+
         globals.click = true
 
         setEnded(false)
-        setLoading(true)
+        setPlay(true)
 
         setCurrentMenu(undefined)
         setCurrentMap(undefined)
@@ -50,14 +53,17 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         addCookieProgress(index)
 
         if (currentVideo === 0) {
+            setPlayFromStart(true)
             setCurrentPerson(index)
             addCookiePerson(index)
+        } else {
+            setLoading(true)
         }
     }
 
   return (
-    <motion.div className='map-container w-screen h-screen z-[201]'>
-        {currentMap}
+    <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 0 ? 'block' : 'none' }}>
+        <PolyaFlow handleClick={handleClick} />
     </motion.div>
   )
 }

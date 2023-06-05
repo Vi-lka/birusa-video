@@ -6,6 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --birusa-pink: #f41e6b;
+  --birusa-violet: #4a017d;
+  --birusa-green: #80c41c;
   --birusa-blue: #0083ad;
   --birusa-blue-dark: #004f75;
   --birusa-blue-light: #4ac1e0;
@@ -35,6 +38,55 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  padding-bottom: calc(100% * 1.41421356237);
+  width: calc(100% * 1.41421356237);
+  /* background: conic-gradient(
+    from -160deg at 50% 50%,
+    #e92a67 0deg,
+    #a853ba 120deg,
+    #2a8af6 240deg,
+    #e92a67 360deg
+  ); */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+  z-index: 0;
+}
+
+.react-flow__edge {
+  cursor: default !important;
+}
+
+.react-flow__edge-text {
+  font-family: var(--font-MNWide) !important;
+  font-weight: 400 !important;
+}
+
+.react-flow__node-custom .wrapper.selected::before {
+  content: '';
+  animation: spinner 4s linear infinite;
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -1;
+}
+
+@keyframes spinner {
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+.react-flow__handle.source {
+  right: -7px;
+}
+
+.react-flow__handle.target {
+  left: -7px;
 }
 
 .custom-fullscreens {

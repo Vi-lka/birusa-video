@@ -1,4 +1,5 @@
 export const globals: Globals = {
+    // to prevent... I forgot what...)))(((
     click: false,
 }
 
