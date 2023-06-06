@@ -86,6 +86,43 @@ export const CONTENT: ContentType[] = [
             }
         ]
     },
+    {
+        id: 111,
+        name: 'Окликнуть студентку',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Жми быстрее!!!',
+                indexUrl: 113,
+            },
+        ]
+    },
+    {
+        id: 112,
+        name: 'Окликнуть студентку',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Жми быстрее!!!',
+                indexUrl: 113,
+            },
+        ]
+    },
+    {
+        id: 113,
+        name: 'Что делать?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Промолчать',
+                indexUrl: 1131,
+            },
+            {
+                name: 'Ответить',
+                indexUrl: 1132,
+            },
+        ]
+    },
 
     // ============================ ЯН ============================ 
     {
