@@ -79,7 +79,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
             height={'100%'}
             playing={true}
             muted={true}
-            url={"../video/bg-video-start.webm"}
+            url={"../video/bg-video-start.mp4"}
             controls={false}
             playsinline
             stopOnUnmount={true}

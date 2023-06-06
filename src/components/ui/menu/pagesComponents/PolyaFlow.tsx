@@ -9,7 +9,7 @@ const nodeTypes = {
     custom: CustomNode,
 };
 
-export default function PolyaFlow({ handleClick } : { handleClick: (index: number) => void}) {
+export default function PolyaFlow({ handleClick } : { handleClick: (index: number, indexPer: number) => void}) {
     
     const [nodes, setNodes, onNodesChange] = useNodesState([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState([]);

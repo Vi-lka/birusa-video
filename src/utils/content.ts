@@ -1,6 +1,16 @@
+import { setCookie } from "cookies-next";
+
 export const globals: Globals = {
     // to prevent... I forgot what...)))(((
     click: false,
+}
+
+export const addCookieProgress = (progress: number) => {
+    setCookie('current-progress', progress.toString(), { maxAge: 30, secure: true, path: '/', sameSite: true });
+}
+
+export const addCookiePerson = (person: number) => {
+    setCookie('current-person', person.toString(), { maxAge: 30, secure: true, path: '/', sameSite: true });
 }
 
 export const PATHS = [
@@ -13,7 +23,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 0,
         name: 'Выбери персонажа',
-        filename: 'start.webm',
+        filename: 'start.mp4',
         buttons: [
             {
                 name: 'Поля',
@@ -34,7 +44,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1,
         name: 'Куда поедем?',
-        filename: 'polya.webm',
+        filename: 'polya.mp4',
         buttons: [
             {
                 name: 'В университет',
@@ -49,7 +59,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 11,
         name: 'Как дела?',
-        filename: 'polya.webm',
+        filename: 'polya.mp4',
         buttons: [
             {
                 name: 'Сказать правду',
@@ -64,7 +74,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 12,
         name: 'Что сделать?',
-        filename: 'polya.webm',
+        filename: 'polya.mp4',
         buttons: [
             {
                 name: 'Поехать на ленты',
@@ -81,7 +91,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 2,
         name: 'А што вы делаете в моем холодильнике???',
-        filename: 'yan.webm',
+        filename: 'yan.mp4',
         buttons: [
             {
                 name: 'Ника',
@@ -98,7 +108,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 3,
         name: 'Что бормочешь когда дрочешь?',
-        filename: 'nika.webm',
+        filename: 'nika.mp4',
         buttons: [
             {
                 name: 'Поля',

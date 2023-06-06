@@ -9,7 +9,7 @@ export type CustomNodeData = {
     target: Position;
     source: Position;
     personId: number;
-    onClick: (index: number) => void;
+    onClick: (index: number, indexPer: number) => void;
 }
 
 function CustomNode({ data }: NodeProps<CustomNodeData>) {
@@ -49,7 +49,7 @@ function CustomNode({ data }: NodeProps<CustomNodeData>) {
     <>
     <div 
         className={`wrapper flex selected before:bg-[conic-gradient(var(--tw-gradient-stops))] p-[4px] relative overflow-hidden w-fit h-fit rounded-full cursor-pointer ` + (currentVideo === data.idTo ? gradient : '')} 
-        onClick={() => {data.onClick(data.idTo)}}
+        onClick={() => {data.onClick(data.idTo, data.personId)}}
     >
         <div className="w-fit h-fit py-4 px-6 border-0 rounded-full" style={{ background: color }}>
             <h4 className="title-button text-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">

@@ -1,6 +1,5 @@
 import { useStore } from '@/utils/Store'
-import { globals } from '@/utils/content'
-import { setCookie } from 'cookies-next'
+import { addCookiePerson, addCookieProgress, globals } from '@/utils/content'
 import { Cycle, motion } from 'framer-motion'
 import React from 'react'
 import PolyaFlow from './PolyaFlow'
@@ -27,16 +26,8 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         currentMap, 
         setCurrentMap 
     } = useStore()
-
-    const addCookieProgress = (progress: number) => {
-        setCookie('current-progress', progress.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
-    }
-
-    const addCookiePerson = (person: number) => {
-        setCookie('current-person', person.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
-    }
     
-    function handleClick(index: number) {
+    function handleClick(index: number, indexPer: number) {
         console.log(index)
 
         globals.click = true
@@ -52,10 +43,11 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         setCurrentVideo(index)
         addCookieProgress(index)
 
-        if (currentVideo === 0) {
+        setCurrentPerson(indexPer)
+        addCookiePerson(indexPer)
+
+        if (index === 0) {
             setPlayFromStart(true)
-            setCurrentPerson(index)
-            addCookiePerson(index)
         } else {
             setLoading(true)
         }

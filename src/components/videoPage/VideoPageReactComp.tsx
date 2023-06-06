@@ -2,9 +2,9 @@
 
 import React, { Suspense, useCallback } from 'react'
 import Loading from '@/components/ui/loading'
-import { CONTENT, globals } from '@/utils/content';
+import { CONTENT, addCookieProgress, globals } from '@/utils/content';
 import ReactPlayer from 'react-player';
-import { getCookie, hasCookie, setCookie } from 'cookies-next';
+import { getCookie, hasCookie } from 'cookies-next';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import StartScreen from '../ui/StartScreen';
 import ButtonsVar from '../ui/ButtonsVar';
@@ -37,10 +37,6 @@ export default function VideoPageReactComp() {
     const handleFullScreen = useFullScreenHandle();
 
     const [fullscreen, setFullscreen] = React.useState<boolean>(false);
-
-    const addCookie = (current: number) => {
-        setCookie('current-progress', current.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
-    }
 
     React.useEffect(() => {
         hasCookie('current-progress') && (setCurrentVideo(Number(getCookie('current-progress'))))
@@ -128,7 +124,7 @@ export default function VideoPageReactComp() {
                             globals.click = false
                             setEnded(false)
                             setCurrentVideo(0)
-                            addCookie(0)
+                            addCookieProgress(0)
                         }}
                     >
                         {"Back to Start (Debug)"}

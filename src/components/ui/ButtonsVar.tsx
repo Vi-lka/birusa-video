@@ -1,6 +1,5 @@
 import { useStore } from '@/utils/Store'
-import { CONTENT, globals } from '@/utils/content'
-import { setCookie } from 'cookies-next'
+import { CONTENT, addCookiePerson, addCookieProgress, globals } from '@/utils/content'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { isMobile } from 'react-device-detect'
@@ -41,15 +40,7 @@ export default function ButtonsVar() {
             buttons = element.buttons
         }
     })
-
-    const addCookieProgress = (progress: number) => {
-        setCookie('current-progress', progress.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
-    }
-
-    const addCookiePerson = (person: number) => {
-        setCookie('current-person', person.toString(), { maxAge: 60 * 60 * 72, secure: true, path: '/', sameSite: true });
-    }
-
+    
     function handleClick(index: number) {
         globals.click = true
 
