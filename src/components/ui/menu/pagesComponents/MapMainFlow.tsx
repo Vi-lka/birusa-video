@@ -11,22 +11,22 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         setPlay,
         setPlayFromStart,
         // 
-        currentPerson, 
-        setCurrentPerson, 
+        currentPerson,
+        setCurrentPerson,
         currentVideo,
         setCurrentVideo,
         //
-        ended, 
-        setEnded, 
-        loading, 
-        setLoading, 
+        ended,
+        setEnded,
+        loading,
+        setLoading,
         // 
         setCurrentMenu,
         // 
-        currentMap, 
-        setCurrentMap 
+        currentMap,
+        setCurrentMap
     } = useStore()
-    
+
     function handleClick(index: number, indexPer: number) {
         console.log(index)
 
@@ -46,16 +46,16 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         setCurrentPerson(indexPer)
         addCookiePerson(indexPer)
 
-        if (index === 0) {
+        if ((index === currentVideo) || (index === 0)) {
             setPlayFromStart(true)
         } else {
             setLoading(true)
         }
     }
 
-  return (
-    <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 0 ? 'block' : 'none' }}>
-        <PolyaFlow handleClick={handleClick} />
-    </motion.div>
-  )
+    return (
+        <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 0 ? 'block' : 'none' }}>
+            <PolyaFlow handleClick={handleClick} />
+        </motion.div>
+    )
 }

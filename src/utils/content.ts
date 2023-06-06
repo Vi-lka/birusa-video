@@ -72,21 +72,6 @@ export const CONTENT: ContentType[] = [
         ]
     },
     {
-        id: 12,
-        name: 'Что сделать?',
-        filename: 'polya.mp4',
-        buttons: [
-            {
-                name: 'Поехать на ленты',
-                indexUrl: 121,
-            },
-            {
-                name: 'Побыть с папой',
-                indexUrl: 122,
-            }
-        ]
-    },
-    {
         id: 111,
         name: 'Окликнуть студентку',
         filename: 'polya.mp4',
@@ -123,6 +108,188 @@ export const CONTENT: ContentType[] = [
             },
         ]
     },
+    {
+        id: 1131,
+        name: 'Что дальше?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Вдохновиться Бирюсой',
+                indexUrl: 131,
+            },
+            {
+                name: 'Проявить себя',
+                indexUrl: 132,
+            },
+        ]
+    },
+    {
+        id: 1132,
+        name: 'Что дальше?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Вдохновиться Бирюсой',
+                indexUrl: 131,
+            },
+            {
+                name: 'Проявить себя',
+                indexUrl: 131,
+            },
+        ]
+    },
+    {
+        id: 12,
+        name: 'Что сделать?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Поехать на ленты',
+                indexUrl: 121,
+            },
+            {
+                name: 'Побыть с папой',
+                indexUrl: 122,
+            }
+        ]
+    },
+    {
+        id: 121,
+        name: 'Окликнуть студентку',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Жми быстрее!!!',
+                indexUrl: 123,
+            },
+        ]
+    },
+    {
+        id: 122,
+        name: 'Окликнуть студентку',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Жми быстрее!!!',
+                indexUrl: 123,
+            },
+        ]
+    },
+    {
+        id: 123,
+        name: 'Что делать?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Промолчать',
+                indexUrl: 1231,
+            },
+            {
+                name: 'Ответить',
+                indexUrl: 1232,
+            },
+        ]
+    },
+    {
+        id: 1231,
+        name: 'Что дальше?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Вдохновиться Бирюсой',
+                indexUrl: 131,
+            },
+            {
+                name: 'Проявить себя',
+                indexUrl: 132,
+            },
+        ]
+    },
+    {
+        id: 1232,
+        name: 'Что дальше?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Вдохновиться Бирюсой',
+                indexUrl: 131,
+            },
+            {
+                name: 'Проявить себя',
+                indexUrl: 132,
+            },
+        ]
+    },
+    {
+        id: 131,
+        name: 'Как ответить?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Ждут друзья',
+                indexUrl: 1311,
+            },
+            {
+                name: 'Нужно домой',
+                indexUrl: 1321,
+            },
+        ]
+    },
+    {
+        id: 132,
+        name: 'Как ответить?',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Ждут друзья',
+                indexUrl: 1311,
+            },
+            {
+                name: 'Нужно домой',
+                indexUrl: 1321,
+            },
+        ]
+    },
+    {
+        id: 1311,
+        name: '',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Нажми, чтобы отправить заявку',
+                indexUrl: 14,
+            },
+        ]
+    },
+    {
+        id: 1321,
+        name: 'Нажми, чтобы отправить',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Отправить заявку',
+                indexUrl: 14,
+            },
+        ]
+    },
+    {
+        id: 14,
+        name: 'Поехать на Бирюсу',
+        filename: 'polya.mp4',
+        buttons: [
+            {
+                name: 'Погнали!',
+                indexUrl: 15,
+            },
+        ]
+    },
+    {
+        id: 15,
+        name: 'Хочу на Бирюсу',
+        filename: 'polya.mp4',
+        buttons: []
+    },
+
 
     // ============================ ЯН ============================ 
     {
