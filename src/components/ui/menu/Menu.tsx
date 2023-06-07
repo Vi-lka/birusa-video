@@ -56,9 +56,9 @@ export default function Menu() {
     return (
         <motion.nav
             className='z-[200] overflow-hidden'
-            // style={{ display: play ? (loading ? 'flex' : 'none') : 'flex' }}
+            style={{ display: loading ? 'none' : 'flex'}}
             initial={false}
-            animate={isOpen ? "open" : "closed"}
+            animate={(isOpen && !loading) ? "open" : "closed"}
             custom={height}
             ref={containerRef}
         >

@@ -2,8 +2,8 @@ import './globals.css'
 import localFont from 'next/font/local'
 
 export const metadata = {
-  title: 'Birusa',
-  description: 'Some video)))',
+  title: 'Место силы – Сибирь. Бирюса',
+  description: 'Интерактивный фильм с тремя историями о молодых ребятах и образовательном форуме «ТИМ» Бирюса',
 }
 
 const MullerNextTrial = localFont({

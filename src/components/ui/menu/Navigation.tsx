@@ -41,8 +41,10 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
         absolute 
         flex-col 
         justify-evenly
-        w-screen 
+        w-fit 
         left-0 
+        right-0
+        mx-auto
         top-[10%]
         sm:top-[6vh]
         md:top-[25vh] 

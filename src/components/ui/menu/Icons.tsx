@@ -38,7 +38,7 @@ export default function Icons() {
     variants={variantsLogos}
 >
     <motion.div className="w-fit h-fit ml-[3%]">
-        <a href="https://timbiryusa.ru/" target="_blank" className="w-fit h-fit">
+        <a href="https://timbiryusa.ru/" target="_blank" className="w-fit h-fit z-[211]">
             <Image
                 className="
                 w-[150px]
@@ -54,7 +54,7 @@ export default function Icons() {
         </a>
     </motion.div>
     <motion.div className="w-fit h-fit mr-[3%] flex">
-        <a href="https://vk.com/biryusa_tim" target="_blank" className="w-fit h-fit">
+        <a href="https://vk.com/biryusa_tim" target="_blank" className="w-fit h-fit z-[211]">
             <Image
                 className="
                 w-[40px]
@@ -70,7 +70,7 @@ export default function Icons() {
                 alt="Бирюса TIM"
             />
         </a>
-        <a href="https://t.me/biryusa_tim" target="_blank" className="w-fit h-fit">
+        <a href="https://t.me/biryusa_tim" target="_blank" className="w-fit h-fit z-[211]">
             <Image
                 className="
                 w-[37px]

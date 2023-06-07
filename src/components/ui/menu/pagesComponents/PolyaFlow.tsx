@@ -2,7 +2,7 @@ import React from 'react';
 import ReactFlow, { useReactFlow, Position, useNodesState, useEdgesState, Background, MiniMap, ReactFlowProvider, Node } from 'reactflow';
 
 import 'reactflow/dist/style.css';
-import CustomNode, { CustomNodeData } from './CustomNode';
+import CustomNode from './CustomNode';
 import { useStore } from '@/utils/Store';
 
 const nodeTypes = {
@@ -689,6 +689,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 label: ''
             },
         ])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentVideo])
 
 

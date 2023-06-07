@@ -34,7 +34,8 @@ const colors = ["#80c41c", "#4a017d", "#f41e6b"];
 
 export default function MapMainNavigation() {
 
-    const { currentMap, setCurrentMap } = useStore()
+    const { loading, currentMap, setCurrentMap } = useStore()
+    console.log(loading)
 
   return (
     <motion.ul
@@ -54,7 +55,7 @@ export default function MapMainNavigation() {
         md:justify-evenly 
         z-[230]
       "
-      style={{ display: currentMap === undefined ? 'flex' : 'none' }}
+      style={{ display: (currentMap === undefined) ? 'flex' : 'none' }}
       variants={variantsUl}
     >
       {personIds.map(i => (

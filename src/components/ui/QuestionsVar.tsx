@@ -2,7 +2,6 @@ import { useStore } from '@/utils/Store';
 import { CONTENT } from '@/utils/content';
 import { motion } from 'framer-motion';
 import React from 'react'
-import Image from 'next/image';
 
 const variants = {
     open: {

@@ -25,7 +25,7 @@ export default function Partners({ isMenuOpen }: { isMenuOpen: boolean }) {
 
     return (
         <motion.div
-            className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[200]'
+            className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[230]'
             // style={{ display: (isMenuOpen && isPartnersOpen) ? 'flex' : 'none' }}
             variants={animation}
             animate={(isMenuOpen && (currentMenu === 2)) ? 'show' : 'hide'}
