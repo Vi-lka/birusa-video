@@ -99,7 +99,7 @@ export const CONTENT: ContentType[] = [
         filename: 'polya.mp4',
         buttons: [
             {
-                name: 'Промолчать',
+                name: ' ',
                 indexUrl: 1131,
             },
             {
@@ -252,11 +252,11 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 1311,
-        name: '',
+        name: 'Нажми, чтобы отправить',
         filename: 'polya.mp4',
         buttons: [
             {
-                name: 'Нажми, чтобы отправить заявку',
+                name: 'Отправить заявку',
                 indexUrl: 14,
             },
         ]

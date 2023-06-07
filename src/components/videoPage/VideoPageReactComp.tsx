@@ -78,6 +78,7 @@ export default function VideoPageReactComp() {
                                     }
                                 }}
                             >
+                                <h1 className='font-MNWide text-red-600 text-9xl absolute z-[10000]'>{element.id}</h1>
                                 <Suspense fallback={<Loading />}>
                                     <ReactPlayer
                                         style={{ zIndex: 100 }}
@@ -115,7 +116,7 @@ export default function VideoPageReactComp() {
 
                 <FullscreenToggle fullscreen={fullscreen} handleFullScreen={handleFullScreen} />
 
-                <div className="absolute top-16 left-5 w-fit flex justify-center">
+                {/* <div className="absolute top-16 left-5 w-fit flex justify-center">
                     <button
                         className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-[1000]'
                         onClick={() => {
@@ -129,7 +130,7 @@ export default function VideoPageReactComp() {
                     >
                         {"Back to Start (Debug)"}
                     </button>
-                </div>
+                </div> */}
 
                 
             </FullScreen>

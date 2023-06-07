@@ -9,7 +9,7 @@ export type CustomNodeData = {
     target: Position;
     source: Position;
     personId: number;
-    onClick: (index: number, indexPer: number) => void;
+    onClick: (index: number, indexPer: number) => void | undefined;
 }
 
 function CustomNode({ data }: NodeProps<CustomNodeData>) {
@@ -48,16 +48,17 @@ function CustomNode({ data }: NodeProps<CustomNodeData>) {
     return (
         <>
             <div
-                className={`wrapper flex selected before:bg-[conic-gradient(var(--tw-gradient-stops))] p-[4px] relative overflow-hidden w-fit h-fit rounded-full cursor-pointer ` + (currentVideo === data.idTo ? gradient : '')}
-                onClick={() => { data.onClick(data.idTo, data.personId) }}
+                className={`wrapper flex selected before:bg-[conic-gradient(var(--tw-gradient-stops))] p-[4px] relative overflow-hidden w-fit h-fit rounded-full ` + (currentVideo === data.idTo ? gradient : '')}
+                style={{ cursor: (data.onClick !== undefined) ? 'pointer' : 'auto' }}
+                onClick={() => { (data.onClick !== undefined) && data.onClick(data.idTo, data.personId) }}
             >
                 <div className="w-fit h-fit py-4 px-6 border-0 rounded-full" style={{ background: color }}>
                     <h4 className="title-button text-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
                         {data.title}
                     </h4>
-                    <h4 className="title-button absolute text-black font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
+                    {/* <h4 className="title-button absolute text-black font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
                         {data.idTo}
-                    </h4>
+                    </h4> */}
                 </div>
                 <Handle type="target" position={data.target} style={{ background: color }} />
                 <Handle type="source" position={data.source} style={{ background: color }} />

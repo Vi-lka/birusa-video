@@ -14,14 +14,14 @@ const variants = {
 
 export default function BackgroundPause() {
 
-    const { play, ended } = useStore()
+    const { play, ended, currentVideo } = useStore()
 
     return (
         <>
             <motion.div
                 className='w-screen h-screen absolute top-0 left-0 z-[11]'
-                style={{ display: (play ? 'none' : 'block') }}
-                animate={(play ? 'hide' : 'show')}
+                style={{ display: ((currentVideo === 15) && ended) ? 'block' : (play ? 'none' : 'block') }}
+                animate={((currentVideo === 15) && ended) ? 'show' : (play ? 'hide' : 'show')}
                 variants={variants}
             >
                 <Image
