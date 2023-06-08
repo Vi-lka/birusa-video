@@ -3,6 +3,8 @@ import { addCookiePerson, addCookieProgress, globals } from '@/utils/content'
 import { Cycle, motion } from 'framer-motion'
 import React from 'react'
 import PolyaFlow from './PolyaFlow'
+import YanFlow from './YanFlow'
+import NikaFlow from './NikaFlow'
 
 export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
 
@@ -54,8 +56,26 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
     }
 
     return (
-        <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 0 ? 'block' : 'none' }}>
-            <PolyaFlow handleClick={handleClick} />
-        </motion.div>
+        <>
+            {
+                currentMap === 0 ? 
+                    <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 0 ? 'block' : 'none' }}>
+                        <PolyaFlow handleClick={handleClick} />
+                    </motion.div>
+                :
+                    currentMap === 1 ? 
+                        <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 1 ? 'block' : 'none' }}>
+                            <YanFlow handleClick={handleClick} />
+                        </motion.div>
+                    :
+                        currentMap === 2 ? 
+                            <motion.div className='map-container w-screen h-screen z-[250]' style={{ display: currentMap === 2 ? 'block' : 'none' }}>
+                                <NikaFlow handleClick={handleClick} />
+                            </motion.div>
+                        :
+                        null
+            }
+
+        </>
     )
 }

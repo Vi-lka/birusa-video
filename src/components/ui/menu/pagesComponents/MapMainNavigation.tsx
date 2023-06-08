@@ -35,7 +35,6 @@ const colors = ["#80c41c", "#4a017d", "#f41e6b"];
 export default function MapMainNavigation() {
 
     const { loading, currentMap, setCurrentMap } = useStore()
-    console.log(loading)
 
   return (
     <motion.ul

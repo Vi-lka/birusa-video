@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactFlow, { useReactFlow, Position, useNodesState, useEdgesState, Background, MiniMap, ReactFlowProvider, Node } from 'reactflow';
+import ReactFlow, { useReactFlow, Position, useNodesState, useEdgesState, MiniMap, ReactFlowProvider } from 'reactflow';
 
 import 'reactflow/dist/style.css';
 import CustomNode from './CustomNode';
@@ -709,7 +709,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 fitView
                 fitViewOptions={{ padding: 0.3 }}
             >
-                <Background color="#80c41c" gap={12} />
+                {/* <Background color="#80c41c" gap={12} /> */}
                 <MiniMap nodeStrokeWidth={3} zoomable pannable />
             </ReactFlow>
         )

@@ -38,13 +38,13 @@ export default function QuestionsVar() {
             className='absolute w-screen h-fit text-center flex items-center justify-center p-1 z-30'
             style={{
                 display: ended ? 'flex' : 'none',
-                bottom: (currentVideo === 15) ? '90%' : '45%',
+                bottom: ((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? '90%' : '45%',
             }}
             animate={ended ? "open" : "closed"}
             variants={variants}
         >
             {
-                (currentVideo === 15) ? 
+                ((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? 
                 <div className="start-screen-cont-main absolute top-0 left-0 w-screen h-screen flex flex-col justify-center items-center z-[100]">
                         <motion.p
                           className='main-text h-fit font-MNExpanded font-extrabold uppercase text-center antialiased md:subpixel-antialiased text-white px-4 py-[14px] lg:px-7 lg:py-4 2xl:px-12 2xl:py-6 rounded-full z-50'

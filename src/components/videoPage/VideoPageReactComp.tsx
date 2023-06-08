@@ -44,8 +44,8 @@ export default function VideoPageReactComp() {
         globals.click && setPlay(true)
     }, [])
 
-    console.log("Video: " + currentVideo)
-    console.log("Person: " + currentPerson)
+    // console.log("Video: " + currentVideo)
+    // console.log("Person: " + currentPerson)
 
     const reportChange = useCallback((state: any) => {
         setFullscreen(state)
@@ -78,7 +78,7 @@ export default function VideoPageReactComp() {
                                     }
                                 }}
                             >
-                                <h1 className='font-MNWide text-red-600 text-9xl absolute z-[10000]'>{element.id}</h1>
+                                {/* <h1 className='font-MNWide text-red-600 text-9xl absolute z-[10000]'>{element.id}</h1> */}
                                 <Suspense fallback={<Loading />}>
                                     <ReactPlayer
                                         style={{ zIndex: 100 }}
