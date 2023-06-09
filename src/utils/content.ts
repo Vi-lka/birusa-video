@@ -295,7 +295,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 2,
         name: 'Что сделать?',
-        filename: '2.mp4',
+        filename: 'yan.mp4',
         buttons: [
             {
                 name: 'Передать задачу коллеге',
