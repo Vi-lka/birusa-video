@@ -57,7 +57,7 @@ export default function Menu() {
     return (
         <motion.nav
             className='z-[200] overflow-hidden'
-            style={{ display: loading ? 'none' : 'flex'}}
+            // style={{ display: loading ? 'none' : 'flex'}}
             initial={false}
             animate={(isOpen && !loading) ? "open" : "closed"}
             custom={height}
@@ -80,9 +80,11 @@ export default function Menu() {
             <MenuToggle
                 isOpen={isOpen}
                 toggle={() => {
-                    toggleOpen()
-                    setCurrentMenu(undefined)
-                    setCurrentMap(undefined)
+                    if (!loading) {
+                        toggleOpen()
+                        setCurrentMenu(undefined)
+                        setCurrentMap(undefined)
+                    }
                 }}
                 animate={ended ? 'show' : (play ? (loading ? 'show' : 'hide') : 'show')}
             />
@@ -100,11 +102,11 @@ export default function Menu() {
                 zIndex={'300'}
             />
 
-            <MapMain isMenuOpen={isOpen} toggleOpen={toggleOpen} />
+            <MapMain isMenuOpen={debouncedIsOpen} toggleOpen={toggleOpen} />
 
-            <About isMenuOpen={isOpen} />
+            <About isMenuOpen={debouncedIsOpen} />
 
-            <Partners isMenuOpen={isOpen} />
+            <Partners isMenuOpen={debouncedIsOpen} />
         </motion.nav>
     )
 }

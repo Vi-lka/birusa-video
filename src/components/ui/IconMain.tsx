@@ -72,7 +72,7 @@ export default function IconMain({ toggle } : { toggle: () => void }) {
             ml-[3%] 
             z-[300]
         " 
-        style={{ display: (playFromStart || currentVideo! > 0) ? 'flex' : 'none' }}
+        style={{ display: loading ? 'flex' : ((playFromStart || currentVideo! > 0) ? 'flex' : 'none') }}
         animate={ended ? (((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? 'hide' : 'show') : (play ? (loading ? 'show' : 'hide') : 'show')}
         variants={variants}
     >

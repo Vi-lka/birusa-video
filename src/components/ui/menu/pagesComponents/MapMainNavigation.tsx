@@ -36,8 +36,9 @@ export default function MapMainNavigation() {
 
     const { currentMap, setCurrentMap } = useStore()
 
-    const anyWindow = window as any
+    console.log(currentMap)
 
+    const anyWindow = window as any
 
   return (
     <motion.ul

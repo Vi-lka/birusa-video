@@ -27,7 +27,7 @@ export default function About({ isMenuOpen }: { isMenuOpen: boolean }) {
     return (
         <motion.div
             className='absolute bottom-0 left-0 w-screen h-screen flex justify-center items-end bg-white z-[230]'
-            // style={{ display: (isMenuOpen && isAboutOpen) ? 'flex' : 'none' }}
+            style={{ display: isMenuOpen ? 'flex' : 'none' }}
             variants={animation}
             animate={(isMenuOpen && (currentMenu === 1)) ? 'show' : 'hide'}
         >

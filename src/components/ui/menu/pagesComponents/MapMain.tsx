@@ -31,7 +31,7 @@ export default function MapMain({ isMenuOpen, toggleOpen }: { isMenuOpen: boolea
     return (
         <motion.div
             className='absolute bottom-0 left-0 w-screen h-screen bg-white z-[230]'
-            // style={{ display: (isMenuOpen && isMapOpen) ? 'flex' : 'none' }}
+            style={{ display: isMenuOpen ? 'flex' : 'none' }}
             variants={animation}
             animate={(isMenuOpen && (currentMenu === 0)) ? 'show' : 'hide'}
         >
