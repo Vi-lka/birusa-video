@@ -56,23 +56,27 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
           Начать
         </motion.button>
 
+        <Suspense fallback={<Loading />}>
+          <Image
+            className='object-cover z-[49]'
+            fill={true}
+            src={'../imgs/background.svg'}
+            priority={true}
+            alt="Бирюса TIM"
+          />
+        </Suspense>
 
-        <Image
-          className='object-cover z-[49]'
-          fill={true}
-          src={'../imgs/background.svg'}
-          priority={true}
-          alt="Бирюса TIM"
-        />
 
-        <Image
-          className='object-cover z-[9]'
-          style={{ display: videoStart ? 'none' : 'block' }}
-          fill={true}
-          src={'../imgs/bg-img-start.png'}
-          priority={true}
-          alt="Бирюса TIM"
-        />
+        <Suspense fallback={<Loading />}>
+          <Image
+            className='object-cover z-[9]'
+            style={{ display: videoStart ? 'none' : 'block' }}
+            fill={true}
+            src={'../imgs/bg-img-start.png'}
+            priority={true}
+            alt="Бирюса TIM"
+          />
+        </Suspense>
 
         <Suspense fallback={<Loading />}>
           <ReactPlayer
