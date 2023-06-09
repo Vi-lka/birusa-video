@@ -321,7 +321,7 @@ export const CONTENT: ContentType[] = [
                 indexUrl: 24,
             },
             {
-                name: 'Отдых',
+                name: 'Взять отпуск',
                 indexUrl: 25,
             }
         ]
@@ -340,7 +340,7 @@ export const CONTENT: ContentType[] = [
                 indexUrl: 24,
             },
             {
-                name: 'Отдых',
+                name: 'Взять отпуск',
                 indexUrl: 25,
             }
         ]
@@ -373,22 +373,22 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 2331,
-        name: 'Нажми, чтобы поехать',
+        name: 'Нажми, чтобы встретиться',
         filename: 'yan.mp4',
         buttons: [
             {
-                name: 'Поехать на пляж',
+                name: 'Встретиться с ребятами',
                 indexUrl: 234,
             }
         ]
     },
     {
         id: 2332,
-        name: 'Нажми, чтобы поехать',
+        name: 'Нажми, чтобы встретиться',
         filename: 'yan.mp4',
         buttons: [
             {
-                name: 'Поехать на пляж',
+                name: 'Встретиться с ребятами',
                 indexUrl: 234,
             }
         ]
@@ -517,33 +517,33 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 2531,
-        name: 'Нажми, чтобы поехать',
+        name: 'Нажми, чтобы встретиться',
         filename: 'yan.mp4',
         buttons: [
             {
-                name: 'Поехать на пляж',
+                name: 'Встретиться с ребятами',
                 indexUrl: 254,
             }
         ]
     },
     {
         id: 2532,
-        name: 'Нажми, чтобы поехать',
+        name: 'Нажми, чтобы встретиться',
         filename: 'yan.mp4',
         buttons: [
             {
-                name: 'Поехать на пляж',
+                name: 'Встретиться с ребятами',
                 indexUrl: 254,
             }
         ]
     },
     {
         id: 254,
-        name: 'Нажми, чтобы написать',
+        name: 'Нажми, чтобы поехать',
         filename: 'yan.mp4',
         buttons: [
             {
-                name: 'Написать заявление на отпуск',
+                name: 'Поехать на работу',
                 indexUrl: 255,
             }
         ]

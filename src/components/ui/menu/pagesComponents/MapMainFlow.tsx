@@ -10,18 +10,14 @@ import handleMetrika from '@/utils/metrika'
 export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
 
     const {
-        play,
         setPlay,
         setPlayFromStart,
         // 
-        currentPerson,
         setCurrentPerson,
         currentVideo,
         setCurrentVideo,
         //
-        ended,
         setEnded,
-        loading,
         setLoading,
         // 
         setCurrentMenu,

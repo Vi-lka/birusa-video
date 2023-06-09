@@ -1,7 +1,6 @@
 import { useStore } from '@/utils/Store'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { FullScreenHandle } from 'react-full-screen'
 import { MdOutlineArrowBackIosNew } from 'react-icons/md'
 
 type Props = {

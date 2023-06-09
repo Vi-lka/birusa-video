@@ -42,6 +42,7 @@ function CustomNode({ data }: NodeProps<CustomNodeData>) {
                 setGradient(`from-birusa-blue via-birusa-blue-semilight to-stone-100`)
                 break;
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 

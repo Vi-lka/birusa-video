@@ -51,8 +51,6 @@ export default function Menu() {
 
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
-    
-    // const [openedMap, setOpenedMap] = React.useState<number>()
 
     return (
         <motion.nav

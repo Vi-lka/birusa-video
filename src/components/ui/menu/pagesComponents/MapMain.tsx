@@ -1,7 +1,6 @@
 import { Cycle, motion } from 'framer-motion'
 import React from 'react'
 import MapMainNavigation from './MapMainNavigation'
-import GoBackMenu from '../GoBackMenu'
 import MapMainFlow from './MapMainFlow'
 import { useStore } from '@/utils/Store'
 

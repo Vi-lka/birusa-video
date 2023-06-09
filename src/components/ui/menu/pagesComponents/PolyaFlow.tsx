@@ -709,7 +709,6 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 fitView
                 fitViewOptions={{ padding: 0.3 }}
             >
-                {/* <Background color="#80c41c" gap={12} /> */}
                 <MiniMap nodeStrokeWidth={3} zoomable pannable />
             </ReactFlow>
         )

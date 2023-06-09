@@ -2,13 +2,12 @@
 
 import React, { Suspense, useCallback } from 'react'
 import Loading from '@/components/ui/loading'
-import { CONTENT, addCookieProgress, globals } from '@/utils/content';
+import { CONTENT, globals } from '@/utils/content';
 import ReactPlayer from 'react-player';
 import { getCookie, hasCookie } from 'cookies-next';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import StartScreen from '../ui/StartScreen';
 import ButtonsVar from '../ui/ButtonsVar';
-import IconMain from '../ui/IconMain';
 import Menu from '../ui/menu/Menu';
 import FullscreenToggle from '../ui/FullscreenToggle';
 import ContinueButton from '../ui/ContinueButton';
@@ -21,9 +20,7 @@ export default function VideoPageReactComp() {
     const {
         play,
         setPlay,
-        setPlayFromStart,
         // 
-        currentPerson, 
         setCurrentPerson, 
         currentVideo,
         setCurrentVideo,
@@ -42,10 +39,8 @@ export default function VideoPageReactComp() {
         hasCookie('current-progress') && (setCurrentVideo(Number(getCookie('current-progress'))))
         hasCookie('current-person') && (setCurrentPerson(Number(getCookie('current-person'))))
         globals.click && setPlay(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    // console.log("Video: " + currentVideo)
-    // console.log("Person: " + currentPerson)
 
     const reportChange = useCallback((state: any) => {
         setFullscreen(state)
@@ -114,23 +109,6 @@ export default function VideoPageReactComp() {
 
                 <FullscreenToggle fullscreen={fullscreen} handleFullScreen={handleFullScreen} />
 
-                {/* <div className="absolute top-16 left-5 w-fit flex justify-center">
-                    <button
-                        className='w-fit h-fit text-xl text-teal-300 bg-zinc-800 p-2 z-[1000]'
-                        onClick={() => {
-                            setPlay(false)
-                            setPlayFromStart(false)
-                            globals.click = false
-                            setEnded(false)
-                            setCurrentVideo(0)
-                            addCookieProgress(0)
-                        }}
-                    >
-                        {"Back to Start (Debug)"}
-                    </button>
-                </div> */}
-
-                
             </FullScreen>
         </>
     )
