@@ -67,7 +67,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
         </Suspense>
 
 
-        <Suspense fallback={<Loading />}>
+        {/* <Suspense fallback={<Loading />}>
           <Image
             className='object-cover z-[9]'
             style={{ display: videoStart ? 'none' : 'block' }}
@@ -76,7 +76,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
             priority={true}
             alt="Бирюса TIM"
           />
-        </Suspense>
+        </Suspense> */}
 
         <Suspense fallback={<Loading />}>
           <ReactPlayer
