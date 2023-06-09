@@ -86,6 +86,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
             playsinline
             stopOnUnmount={true}
             loop={true}
+            preload={'auto'}
             fallback={
               <Image
                 className='object-cover z-[10]'
