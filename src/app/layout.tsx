@@ -76,7 +76,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${MullerNextTrial.variable} ${MullerNextWideTrial.variable} ${MullerNextExpandedTrial.variable}`}>{children}</body>
+      <body className={`${MullerNextTrial.variable} ${MullerNextWideTrial.variable} ${MullerNextExpandedTrial.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }

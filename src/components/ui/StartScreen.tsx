@@ -19,7 +19,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
 
   const [videoStart, setVideoStart] = React.useState<boolean>(false);
 
-  console.log(videoStart)
+  const anyWindow = window as any
 
   return (
     <>
@@ -50,6 +50,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
             setPlayFromStart(true)
             globals.click = true
             handleFullScreen.enter
+            anyWindow.ym('reachGoal','start_0')
           }}
           onClickCapture={handleFullScreen.enter}
         >
