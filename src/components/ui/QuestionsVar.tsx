@@ -33,6 +33,8 @@ export default function QuestionsVar() {
         }
     });
 
+  const anyWindow = window as any
+
     return (
         <motion.div
             className='absolute w-screen h-fit text-center flex items-center justify-center p-1 z-30'
@@ -68,6 +70,18 @@ export default function QuestionsVar() {
                           }}
                           href="https://vk.com/biryusa_tim" 
                           target="_blank"
+                          onClick={() => {
+                            if (currentVideo === 15) {
+                                anyWindow.ym(93903526,'reachGoal','polya_final_birusa_tim')
+
+                              } else if (currentVideo === 26) {
+                                anyWindow.ym(93903526,'reachGoal','yan_final_birusa_tim')
+
+                              } else if (currentVideo === 36) {
+                                anyWindow.ym(93903526,'reachGoal','nika_final_birusa_tim')
+
+                              }
+                          }}
                         >
                           {question}
                         </motion.a>

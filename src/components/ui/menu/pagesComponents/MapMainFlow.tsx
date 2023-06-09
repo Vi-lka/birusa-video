@@ -5,6 +5,7 @@ import React from 'react'
 import PolyaFlow from './PolyaFlow'
 import YanFlow from './YanFlow'
 import NikaFlow from './NikaFlow'
+import handleMetrika from '@/utils/metrika'
 
 export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
 
@@ -52,6 +53,8 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         } else {
             setLoading(true)
         }
+
+        handleMetrika(index)
     }
 
     return (

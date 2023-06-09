@@ -34,7 +34,10 @@ const colors = ["#80c41c", "#4a017d", "#f41e6b"];
 
 export default function MapMainNavigation() {
 
-    const { loading, currentMap, setCurrentMap } = useStore()
+    const { currentMap, setCurrentMap } = useStore()
+
+    const anyWindow = window as any
+
 
   return (
     <motion.ul
@@ -83,6 +86,13 @@ export default function MapMainNavigation() {
           }}
           onClick={() => {
             setCurrentMap(i)
+            if (i === 0) {
+              anyWindow.ym(93903526,'reachGoal','polya_map_open')
+            } else if (i === 1) {
+              anyWindow.ym(93903526,'reachGoal','yan_map_open')
+            } else if (i === 2) {
+              anyWindow.ym(93903526,'reachGoal','nika_map_open')
+            }
           }}
         >
           <div className="w-fit">

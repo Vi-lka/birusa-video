@@ -35,6 +35,8 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
 
   const { setCurrentMenu } = useStore()
 
+  const anyWindow = window as any
+
   return (
     <motion.ul
       className="
@@ -83,6 +85,16 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
           }}
           onClick={() => {
             setCurrentMenu(i)
+            if (i === 0) {
+              anyWindow.ym(93903526,'reachGoal','maps_open')
+
+            } else if (i === 1) {
+              anyWindow.ym(93903526,'reachGoal','about_open')
+
+            } else if (i === 2) {
+              anyWindow.ym(93903526,'reachGoal','partners_open')
+              
+            }
           }}
         >
           <div className="w-fit">

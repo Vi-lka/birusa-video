@@ -26,17 +26,17 @@ export const CONTENT: ContentType[] = [
         filename: 'start.mp4',
         buttons: [
             {
-                name: 'Поля',
-                indexUrl: 1,
-            },
-            {
                 name: 'Ян',
                 indexUrl: 2,
             },
             {
                 name: 'Ника',
                 indexUrl: 3,
-            }
+            },
+            {
+                name: 'Поля',
+                indexUrl: 1,
+            },
         ]
     },
 

@@ -1,5 +1,6 @@
 import { useStore } from '@/utils/Store'
 import { CONTENT, addCookiePerson, addCookieProgress, globals } from '@/utils/content'
+import handleMetrika from '@/utils/metrika'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { isMobile } from 'react-device-detect'
@@ -59,6 +60,8 @@ export default function ButtonsVar() {
         } else {
             setLoading(true)
         }
+
+        handleMetrika(index)
     }
 
     const personColor = (current: number) => {

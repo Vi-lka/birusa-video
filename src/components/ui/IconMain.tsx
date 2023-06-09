@@ -35,6 +35,8 @@ export default function IconMain({ toggle } : { toggle: () => void }) {
         setLoading
     } = useStore()
 
+    const anyWindow = window as any
+
     function handleClick(index: number, indexPer: number) {
 
         globals.click = true
@@ -53,6 +55,8 @@ export default function IconMain({ toggle } : { toggle: () => void }) {
         } else {
             setLoading(true)
         }
+
+        anyWindow.ym(93903526,'reachGoal','go_to_start_0')
     }
 
   return (
