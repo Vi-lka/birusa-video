@@ -35,6 +35,6 @@ yarn-error.log*
 next-env.d.ts
 
 # content and video
-# /src/utils/
+/src/utils/
 /public/video/
 
