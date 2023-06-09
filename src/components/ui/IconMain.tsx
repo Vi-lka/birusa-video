@@ -1,4 +1,5 @@
 import { useStore } from '@/utils/Store'
+import { addCookiePerson, addCookieProgress, globals } from '@/utils/content'
 import { motion } from 'framer-motion'
 import React from 'react'
 
@@ -16,17 +17,43 @@ const variants = {
     },
 }
 
-export default function IconMain() {
+export default function IconMain({ toggle } : { toggle: () => void }) {
 
     const {
         play,
+        setPlay,
         playFromStart,
+        setPlayFromStart,
         // 
         currentVideo,
+        setCurrentVideo,
+        setCurrentPerson,
         //
         ended, 
+        setEnded,
         loading, 
+        setLoading
     } = useStore()
+
+    function handleClick(index: number, indexPer: number) {
+
+        globals.click = true
+
+        setEnded(false)
+        setPlay(false)
+
+        setCurrentVideo(index)
+        addCookieProgress(index)
+
+        setCurrentPerson(indexPer)
+        addCookiePerson(indexPer)
+
+        if ((index === currentVideo) || (index === 0)) {
+            setPlayFromStart(false)
+        } else {
+            setLoading(true)
+        }
+    }
 
   return (
     <motion.div 
@@ -45,7 +72,11 @@ export default function IconMain() {
         animate={ended ? (((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? 'hide' : 'show') : (play ? (loading ? 'show' : 'hide') : 'show')}
         variants={variants}
     >
-        <div className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white bg-birusa-blue-semilight px-4 py-[14px] lg:px-7 lg:py-4 rounded-full'>
+        <div 
+            className='main-title w-fit h-fit font-MNExpanded font-[800] antialiased md:subpixel-antialiased text-center uppercase text-white bg-birusa-blue-semilight px-4 py-[14px] lg:px-7 lg:py-4 rounded-full cursor-pointer'
+            onClick={toggle}
+            onClickCapture={() => {handleClick(0, 0)}}
+        >
             Место силы – Сибирь. Бирюса
         </div>
     </motion.div>

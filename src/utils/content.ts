@@ -347,39 +347,13 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 23,
-        name: 'Как отреагировать?',
+        name: 'Нажми, чтобы отправиться',
         filename: 'yan.mp4',
         buttons: [
             {
-                name: 'Поговорить',
-                indexUrl: 231,
+                name: 'Отправиться домой',
+                indexUrl: 233,
             },
-            {
-                name: 'Промолчать',
-                indexUrl: 232,
-            }
-        ]
-    },
-    {
-        id: 231,
-        name: 'Нажми, чтобы отправиться',
-        filename: 'yan.mp4',
-        buttons: [
-            {
-                name: 'Отправиться домой',
-                indexUrl: 233,
-            }
-        ]
-    },
-    {
-        id: 232,
-        name: 'Нажми, чтобы отправиться',
-        filename: 'yan.mp4',
-        buttons: [
-            {
-                name: 'Отправиться домой',
-                indexUrl: 233,
-            }
         ]
     },
     {
@@ -458,32 +432,6 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 24,
-        name: 'Как отреагировать?',
-        filename: 'yan.mp4',
-        buttons: [
-            {
-                name: 'Поговорить',
-                indexUrl: 241,
-            },
-            {
-                name: 'Промолчать',
-                indexUrl: 242,
-            }
-        ]
-    },
-    {
-        id: 241,
-        name: 'Нажми, чтобы отправиться',
-        filename: 'yan.mp4',
-        buttons: [
-            {
-                name: 'Отправиться домой',
-                indexUrl: 243,
-            }
-        ]
-    },
-    {
-        id: 242,
         name: 'Нажми, чтобы отправиться',
         filename: 'yan.mp4',
         buttons: [
@@ -543,32 +491,6 @@ export const CONTENT: ContentType[] = [
     },
     {
         id: 25,
-        name: 'Как отреагировать?',
-        filename: 'yan.mp4',
-        buttons: [
-            {
-                name: 'Поговорить',
-                indexUrl: 251,
-            },
-            {
-                name: 'Промолчать',
-                indexUrl: 252,
-            }
-        ]
-    },
-    {
-        id: 251,
-        name: 'Нажми, чтобы отправиться',
-        filename: 'yan.mp4',
-        buttons: [
-            {
-                name: 'Отправиться домой',
-                indexUrl: 253,
-            }
-        ]
-    },
-    {
-        id: 252,
         name: 'Нажми, чтобы отправиться',
         filename: 'yan.mp4',
         buttons: [

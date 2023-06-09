@@ -10,6 +10,7 @@ import Partners from './pagesComponents/Partners'
 import GoBackMenu from './GoBackMenu'
 import { useStore } from '@/utils/Store'
 import Navigation from './Navigation'
+import IconMain from '../IconMain'
 
 const sidebar = {
     open: (height = window.innerWidth) => ({
@@ -62,6 +63,16 @@ export default function Menu() {
             custom={height}
             ref={containerRef}
         >
+
+            <IconMain
+                toggle={() => {
+                    if (isOpen) {
+                        toggleOpen()
+                    }
+                    setCurrentMenu(undefined)
+                    setCurrentMap(undefined)
+                }}
+            />
 
             <motion.div className="background-clip absolute top-0 bottom-0 right-0 w-screen bg-birusa-blue z-[200]" variants={sidebar} />
             <Navigation isOpen={debouncedIsOpen} />

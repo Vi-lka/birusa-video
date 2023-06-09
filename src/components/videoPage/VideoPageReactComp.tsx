@@ -56,8 +56,6 @@ export default function VideoPageReactComp() {
             <FullScreen className='custom-fullscreens' handle={handleFullScreen} onChange={reportChange}>
                 {loading ? <Loading /> : null}
 
-                <IconMain />
-
                 {
                     currentVideo === 0 && (
                         <StartScreen handleFullScreen={handleFullScreen} />

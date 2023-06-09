@@ -168,7 +168,7 @@ export default function About({ isMenuOpen }: { isMenuOpen: boolean }) {
                             <b>Коллеги</b> 
                             <br/> 
                             <a href='https://vk.com/amachaev' target="_blank" className='underline'>Тёма Махаев</a>,<br/>
-                            Соня Чиндекова
+                            <a href='https://vk.com/chindofya' target="_blank" className='underline'>Соня Чиндекова</a>
                         </p>
                         <p className='mb-6'>
                             <b>Банда</b> 
@@ -248,7 +248,7 @@ export default function About({ isMenuOpen }: { isMenuOpen: boolean }) {
                             <a href='https://vk.com/privetcheloveche' target="_blank" className='underline'>Диме Кафтасьеву</a> за экстренно прекрасные кадры
                         </p>
                         <p className='mb-6'>
-                            <a href='https://vk.com/id126029146' target="_blank" className='underline'>Витале Комарову</a> за прекрасный свет
+                            <a href='https://vk.com/id126029146' target="_blank" className='underline'>Витале Комарову</a> за связь с <a href='https://vk.com/kamenka' target="_blank" className='underline'>«Каменкой»</a>
                         </p>
                         <p className='mb-6'>
                             <a href='https://vk.com/larin__pavel' target="_blank" className='underline'>Паше Ларину</a>, Евгении Попечец

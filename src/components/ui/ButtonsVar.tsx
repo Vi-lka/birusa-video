@@ -27,6 +27,7 @@ export default function ButtonsVar() {
         setCurrentVideo,
         ended, 
         setEnded, 
+        setPlayFromStart,
         setLoading 
     } = useStore()
 
@@ -50,9 +51,13 @@ export default function ButtonsVar() {
         setCurrentVideo(index)
         addCookieProgress(index)
 
-        if (currentVideo === 0) {
-            setCurrentPerson(index)
-            addCookiePerson(index)
+        setCurrentPerson(Number(index.toString()[0]))
+        addCookiePerson(Number(index.toString()[0]))
+
+        if ((index === currentVideo) || (index === 0)) {
+            setPlayFromStart(true)
+        } else {
+            setLoading(true)
         }
     }
 

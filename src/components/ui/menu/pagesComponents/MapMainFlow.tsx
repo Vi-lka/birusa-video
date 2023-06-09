@@ -30,7 +30,6 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
     } = useStore()
 
     function handleClick(index: number, indexPer: number) {
-        console.log(index)
 
         globals.click = true
 

@@ -19,6 +19,8 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
 
   const [videoStart, setVideoStart] = React.useState<boolean>(false);
 
+  console.log(videoStart)
+
   return (
     <>
 
@@ -67,7 +69,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
           className='object-cover z-[9]'
           style={{ display: videoStart ? 'none' : 'block' }}
           fill={true}
-          src={'../imgs/bg-img-start.jpg'}
+          src={'../imgs/bg-img-start.png'}
           priority={true}
           alt="Бирюса TIM"
         />
@@ -88,7 +90,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
               <Image
                 className='object-cover z-[10]'
                 fill={true}
-                src={'../imgs/bg-img-start.jpg'}
+                src={'../imgs/bg-img-start.png'}
                 priority={true}
                 alt="Бирюса TIM"
               />

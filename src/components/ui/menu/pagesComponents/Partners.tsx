@@ -128,7 +128,7 @@ export default function Partners({ isMenuOpen }: { isMenuOpen: boolean }) {
                                 alt="«Форум»"
                             />
                         </div>
-                        <p className='lg:mb-32 mb-24'>
+                        <p className='lg:mb-64 mb-32'>
                             Центр молодёжных инициатив «Форум»
                         </p>
                     </div>
@@ -198,12 +198,12 @@ export default function Partners({ isMenuOpen }: { isMenuOpen: boolean }) {
                             Фестиваль <a href='https://vk.com/studvesnakrsk' target="_blank" className='underline'>«Российская студенческая весна»</a> Красноярский край
                         </p>
 
-                        <div className='2xl:w-[500px] 2xl:h-[100px] xl:w-[400px] xl:h-[70px] w-[250px] h-[50px] relative mx-auto text-left'>
+                        <div className='2xl:w-[500px] 2xl:h-[130px] xl:w-[400px] xl:h-[100px] w-[250px] h-[70px] relative mx-auto text-left'>
                             <a href='https://vk.com/kamenka' target="_blank" className='absolute w-full h-full'>
                                 <Image
                                     className='object-contain'
                                     fill={true}
-                                    src={'../imgs/partners/studvesna.png'}
+                                    src={'../imgs/partners/kamenka.png'}
 
                                     alt="«Каменка»"
                                 />
@@ -211,6 +211,51 @@ export default function Partners({ isMenuOpen }: { isMenuOpen: boolean }) {
                         </div>
                         <p className='lg:mb-32 mb-24'>
                             Арт-резиденция <a href='https://vk.com/kamenka' target="_blank" className='underline'>«Каменка»</a>
+                        </p>
+
+                        <div className='2xl:w-[500px] 2xl:h-[250px] xl:w-[400px] xl:h-[180px] w-[250px] h-[110px] relative mx-auto text-left'>
+                            <a href='https://vk.com/deloreandonuts' target="_blank" className='absolute w-full h-full'>
+                                <Image
+                                    className='object-contain'
+                                    fill={true}
+                                    src={'../imgs/partners/delorean.png'}
+
+                                    alt="«Delorean»"
+                                />
+                            </a>
+                        </div>
+                        <p className='lg:mb-32 mb-24'>
+                            Кофейня <a href='https://vk.com/deloreandonuts' target="_blank" className='underline'>«Delorean»</a>
+                        </p>
+                        
+                        <div className='2xl:w-[500px] 2xl:h-[270px] xl:w-[400px] xl:h-[220px] w-[250px] h-[140px] relative mx-auto text-left'>
+                            <a href='https://krascompass.ru/' target="_blank" className='absolute w-full h-full'>
+                                <Image
+                                    className='object-contain'
+                                    fill={true}
+                                    src={'../imgs/partners/krascompass.png'}
+
+                                    alt="«КомпаС»"
+                                />
+                            </a>
+                        </div>
+                        <p className='lg:mb-32 mb-24'>
+                            Центр товаров для туризма <a href='https://krascompass.ru/' target="_blank" className='underline'>«КомпаС»</a>
+                        </p>
+
+                        <div className='2xl:w-[500px] 2xl:h-[190px] xl:w-[400px] xl:h-[150px] w-[250px] h-[100px] relative mx-auto text-left'>
+                            <a href='http://www.hovel24.ru/ru/' target="_blank" className='absolute w-full h-full'>
+                                <Image
+                                    className='object-contain'
+                                    fill={true}
+                                    src={'../imgs/partners/hovel24.png'}
+
+                                    alt="Hovel Hostel"
+                                />
+                            </a>
+                        </div>
+                        <p className='lg:mb-32 mb-24'>
+                            Хостел <a href='http://www.hovel24.ru/ru/' target="_blank" className='underline'>Hovel Hostel</a>
                         </p>
                     </div>
                 </div>
