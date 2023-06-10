@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { FullScreenHandle } from 'react-full-screen'
 import { BiExitFullscreen, BiFullscreen } from 'react-icons/bi'
+import useSound from 'use-sound'
 
 type Props = {
   fullscreen: boolean,
@@ -29,7 +30,17 @@ export default function FullscreenToggle({ fullscreen, handleFullScreen }: Props
     play,
     ended, 
     loading, 
-} = useStore()
+  } = useStore()
+
+  const [playOn] = useSound(
+    '../audio/click-on.mp3',
+    { volume: 0.9, interrupt: true, playbackRate: 3.5 }
+  )
+  const [playOff] = useSound(
+    '../audio/click-off.mp3',
+    { volume: 0.9, interrupt: true, playbackRate: 2.5 }
+  )
+
 
   return (
     <motion.div className="
@@ -78,7 +89,8 @@ export default function FullscreenToggle({ fullscreen, handleFullScreen }: Props
           boxShadow: '0 0 8px rgba(0 79 117)',
           transition: { duration: 0.15 },
         }}
-        onClick={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
+        onClick={() => {fullscreen ? playOff() : playOn()}}
+        onClickCapture={fullscreen ? handleFullScreen.exit : handleFullScreen.enter}
       >
         {fullscreen ? <BiExitFullscreen className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' /> : <BiFullscreen className='w-[25px] h-[25px] lg:w-[35px] lg:h-[35px]' />}
       </motion.button>

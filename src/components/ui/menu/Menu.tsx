@@ -11,6 +11,7 @@ import GoBackMenu from './GoBackMenu'
 import { useStore } from '@/utils/Store'
 import Navigation from './Navigation'
 import IconMain from '../IconMain'
+import useSound from 'use-sound'
 
 const sidebar = {
     open: (height = window.innerWidth) => ({
@@ -52,6 +53,20 @@ export default function Menu() {
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
 
+
+    const [playOn] = useSound(
+        '../audio/click-on.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 3.5 }
+    )
+    const [playOff] = useSound(
+        '../audio/click-off.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 2.5 }
+    )
+    const [playClick] = useSound(
+        '../audio/click-main.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 2 }
+    )
+
     return (
         <motion.nav
             className='z-[200] overflow-hidden'
@@ -69,6 +84,7 @@ export default function Menu() {
                     }
                     setCurrentMenu(undefined)
                     setCurrentMap(undefined)
+                    playClick()
                 }}
             />
 
@@ -82,6 +98,7 @@ export default function Menu() {
                         toggleOpen()
                         setCurrentMenu(undefined)
                         setCurrentMap(undefined)
+                        isOpen ? playOff() : playOn()
                     }
                 }}
                 animate={ended ? 'show' : (play ? (loading ? 'show' : 'hide') : 'show')}
@@ -96,6 +113,7 @@ export default function Menu() {
                         setCurrentMap(undefined)
                         setCurrentMenu(undefined)
                     }
+                    playClick()
                 }}
                 zIndex={'300'}
             />

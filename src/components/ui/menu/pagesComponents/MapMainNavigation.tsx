@@ -1,6 +1,7 @@
 import { useStore } from '@/utils/Store';
 import { motion } from 'framer-motion'
 import React from 'react'
+import useSound from 'use-sound';
 
 const variantsUl = {
     show: {
@@ -39,6 +40,11 @@ export default function MapMainNavigation() {
     console.log(currentMap)
 
     const anyWindow = window as any
+
+    const [playClick] = useSound(
+      '../audio/click-main.mp3',
+      { volume: 0.9, interrupt: true, playbackRate: 3 }
+    )
 
   return (
     <motion.ul
@@ -87,6 +93,7 @@ export default function MapMainNavigation() {
           }}
           onClick={() => {
             setCurrentMap(i)
+            playClick()
             // if (i === 0) {
             //   anyWindow.ym(93903526,'reachGoal','polya_map_open')
             // } else if (i === 1) {

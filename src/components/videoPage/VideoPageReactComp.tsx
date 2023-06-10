@@ -14,6 +14,7 @@ import ContinueButton from '../ui/ContinueButton';
 import BackgroundPause from '../ui/BackgroundPause';
 import QuestionsVar from '../ui/QuestionsVar';
 import { useStore } from '@/utils/Store';
+import useSound from 'use-sound';
 
 export default function VideoPageReactComp() {
 
@@ -46,6 +47,11 @@ export default function VideoPageReactComp() {
         setFullscreen(state)
     }, [])
 
+    const [playOff] = useSound(
+        '../audio/click-off.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 2.5 }
+    )
+
     return (
         <>
             <FullScreen className='custom-fullscreens' handle={handleFullScreen} onChange={reportChange}>
@@ -70,6 +76,9 @@ export default function VideoPageReactComp() {
                                         globals.click = !play
                                     }
                                 }}
+                                onMouseDown={() => {
+                                    playOff()
+                                 }}
                             >
                                 {/* <h1 className='font-MNWide text-red-600 text-9xl absolute z-[10000]'>{element.id}</h1> */}
                                 <Suspense fallback={<Loading />}>
@@ -79,7 +88,7 @@ export default function VideoPageReactComp() {
                                         height={'100vh'}
                                         playing={play}
                                         url={"../video/" + element.filename}
-                                        controls={true}
+                                        controls={false}
                                         playsinline
                                         stopOnUnmount={true}
                                         loop={false}

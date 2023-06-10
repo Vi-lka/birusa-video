@@ -1,6 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { useStore } from "@/utils/Store";
+import useSound from "use-sound";
 
 const variants = {
   open: {
@@ -36,6 +37,11 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
   const { setCurrentMenu } = useStore()
 
   const anyWindow = window as any
+
+  const [playClick] = useSound(
+    '../audio/click-main.mp3',
+    { volume: 0.9, interrupt: true, playbackRate: 3 }
+  )
 
   return (
     <motion.ul
@@ -85,16 +91,17 @@ export default function Navigation({ isOpen } : { isOpen: boolean }) {
           }}
           onClick={() => {
             setCurrentMenu(i)
-            if (i === 0) {
-              anyWindow.ym(93903526,'reachGoal','maps_open')
+            playClick()
+            // if (i === 0) {
+            //   anyWindow.ym(93903526,'reachGoal','maps_open')
 
-            } else if (i === 1) {
-              anyWindow.ym(93903526,'reachGoal','about_open')
+            // } else if (i === 1) {
+            //   anyWindow.ym(93903526,'reachGoal','about_open')
 
-            } else if (i === 2) {
-              anyWindow.ym(93903526,'reachGoal','partners_open')
+            // } else if (i === 2) {
+            //   anyWindow.ym(93903526,'reachGoal','partners_open')
               
-            }
+            // }
           }}
         >
           <div className="w-fit">

@@ -2,6 +2,7 @@ import { useStore } from '@/utils/Store'
 import { globals } from '@/utils/content'
 import { motion } from 'framer-motion'
 import React from 'react'
+import useSound from 'use-sound'
 
 const variants = {
     show: { 
@@ -24,6 +25,11 @@ export default function ContinueButton() {
         setPlay,
     } = useStore()
 
+    const [playOn] = useSound(
+        '../audio/click-on.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 3.5 }
+    )
+
   return (
     <motion.div 
         className="absolute bottom-[45%] left-0 w-full flex justify-center" 
@@ -44,6 +50,9 @@ export default function ContinueButton() {
             onClick={() => {
                 globals.click = !play
                 setPlay(!play)
+            }}
+            onMouseDown={() => {
+               playOn()
             }}
         >
             Продолжить

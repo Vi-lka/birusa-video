@@ -4,6 +4,7 @@ import handleMetrika from '@/utils/metrika'
 import { motion } from 'framer-motion'
 import React from 'react'
 import { isMobile } from 'react-device-detect'
+import useSound from 'use-sound'
 
 const variants = {
     open: { 
@@ -42,6 +43,11 @@ export default function ButtonsVar() {
             buttons = element.buttons
         }
     })
+
+    const [playClick] = useSound(
+        '../audio/click-main.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 3 }
+    )
     
     function handleClick(index: number) {
         globals.click = true
@@ -62,6 +68,7 @@ export default function ButtonsVar() {
         }
 
         handleMetrika(index)
+        playClick()
     }
 
     const personColor = (current: number) => {
@@ -97,7 +104,7 @@ export default function ButtonsVar() {
                 break;
         }
     }
-    
+   
   return (
     <div className="buttons-var absolute lg:bottom-[15vh] md:bottom-[15vh] sm:bottom-[12vh] bottom-[4vh] left-0 flex w-full justify-evenly">
     {

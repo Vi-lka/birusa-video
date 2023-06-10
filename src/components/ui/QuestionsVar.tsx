@@ -2,6 +2,7 @@ import { useStore } from '@/utils/Store';
 import { CONTENT } from '@/utils/content';
 import { motion } from 'framer-motion';
 import React from 'react'
+import useSound from 'use-sound';
 
 const variants = {
     open: {
@@ -34,6 +35,11 @@ export default function QuestionsVar() {
     });
 
   const anyWindow = window as any
+
+  const [playClick] = useSound(
+    '../audio/click-main.mp3',
+    { volume: 0.9, interrupt: true, playbackRate: 3 }
+  )
 
     return (
         <motion.div
@@ -81,6 +87,7 @@ export default function QuestionsVar() {
                             //     anyWindow.ym(93903526,'reachGoal','nika_final_birusa_tim')
 
                             //   }
+                            playClick()
                           }}
                         >
                           {question}

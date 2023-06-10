@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 
 export const metadata = {
   title: 'Место силы – Сибирь. Бирюса',
-  description: 'Интерактивный фильм с тремя историями о молодых ребятах и образовательном форуме «ТИМ» Бирюса',
+  description: 'Интерактивный фильм. Три истории о молодых ребятах и образовательном форуме «ТИМ «Бирюса»',
 }
 
 const MullerNextTrial = localFont({

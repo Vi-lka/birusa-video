@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Loading from './loading'
 import ReactPlayer from 'react-player'
 import { useStore } from '@/utils/Store'
+import useSound from 'use-sound'
 
 export default function StartScreen({ handleFullScreen }: { handleFullScreen: FullScreenHandle }) {
 
@@ -18,6 +19,11 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
 } = useStore()
 
   const [videoStart, setVideoStart] = React.useState<boolean>(false);
+
+  const [playAudio] = useSound(
+    '../audio/start-play.mp3',
+    { volume: 0.7, interrupt: true }
+  );
 
   const anyWindow = window as any
 
@@ -46,12 +52,15 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
             transition: { duration: 0.15 },
           }}
           onClick={() => {
-            setPlay(true)
-            setPlayFromStart(true)
-            globals.click = true
-            handleFullScreen.enter
-            // anyWindow.ym(93903526,'reachGoal','start_0')
+            setTimeout(() => {
+              setPlay(true)
+              setPlayFromStart(true)
+              globals.click = true
+              handleFullScreen.enter
+              // anyWindow.ym(93903526,'reachGoal','start_0')
+            }, 200)
           }}
+          onMouseDown={() => playAudio()}
           onClickCapture={handleFullScreen.enter}
         >
           Начать

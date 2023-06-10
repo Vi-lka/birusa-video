@@ -2,6 +2,7 @@ import { useStore } from '@/utils/Store';
 import { hasCookie } from 'cookies-next';
 import React, { useEffect } from 'react'
 import { Handle, NodeProps, Position } from 'reactflow'
+import useSound from 'use-sound';
 
 export type CustomNodeData = {
     idTo: number;
@@ -45,21 +46,29 @@ function CustomNode({ data }: NodeProps<CustomNodeData>) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    const [playClick] = useSound(
+        '../audio/click-main.mp3',
+        { volume: 0.9, interrupt: true, playbackRate: 3 }
+    )
+
 
     return (
         <>
             <div
                 className={`wrapper flex selected before:bg-[conic-gradient(var(--tw-gradient-stops))] p-[4px] relative overflow-hidden w-fit h-fit rounded-full ` + (currentVideo === data.idTo ? gradient : '')}
                 style={{ cursor: (data.onClick !== undefined) ? 'pointer' : 'auto' }}
-                onClick={() => { (data.onClick !== undefined) && data.onClick(data.idTo, data.personId) }}
+                onClick={() => { 
+                    (data.onClick !== undefined) && data.onClick(data.idTo, data.personId)
+                    playClick()
+                }}
             >
                 <div className="w-fit h-fit py-4 px-6 border-0 rounded-full" style={{ background: color }}>
                     <h4 className="title-button text-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
                         {data.title}
                     </h4>
-                    <h4 className="title-button absolute text-black bg-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
+                    {/* <h4 className="title-button absolute text-black bg-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
                         {data.idTo}
-                    </h4>
+                    </h4> */}
                 </div>
                 <Handle type="target" position={data.target} style={{ background: color }} />
                 <Handle type="source" position={data.source} style={{ background: color }} />

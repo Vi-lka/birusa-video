@@ -11,7 +11,7 @@ function Page() {
 
     return (
         <>
-          <Script
+          {/* <Script
             id="yandex-metrika"
             dangerouslySetInnerHTML={{
               __html: `
@@ -28,7 +28,7 @@ function Page() {
                  });
               `,
             }}
-          />
+          /> */}
           <Suspense fallback={<Loading />}>
             <SuspenseVideoPageReactComp />
           </Suspense>
