@@ -99,7 +99,7 @@ export const CONTENT: ContentType[] = [
         filename: '113.mp4',
         buttons: [
             {
-                name: ' ',
+                name: 'Промолчать',
                 indexUrl: 1131,
             },
             {
@@ -123,7 +123,7 @@ export const CONTENT: ContentType[] = [
         id: 1132,
         name: 'Что дальше?',
         filename: '1132.mp4',
-        buttons: [ 
+        buttons: [
             {
                 name: 'Проявить себя',
                 indexUrl: 131,
@@ -153,7 +153,7 @@ export const CONTENT: ContentType[] = [
             {
                 name: 'Поехать в универ',
                 indexUrl: 123,
-            },
+            }
         ]
     },
     {
@@ -164,7 +164,7 @@ export const CONTENT: ContentType[] = [
             {
                 name: 'Поехать в универ ',
                 indexUrl: 123,
-            },
+            }
         ]
     },
     {
@@ -197,7 +197,7 @@ export const CONTENT: ContentType[] = [
         id: 1232,
         name: 'Что дальше?',
         filename: '1232.mp4',
-        buttons: [ 
+        buttons: [
             {
                 name: 'Проявить себя',
                 indexUrl: 132,

@@ -23,13 +23,13 @@ export default function VideoPageReactComp() {
         play,
         setPlay,
         // 
-        setCurrentPerson, 
+        setCurrentPerson,
         currentVideo,
         setCurrentVideo,
         //
-        ended, 
-        setEnded, 
-        loading, 
+        ended,
+        setEnded,
+        loading,
         setLoading,
         //
         final,
@@ -45,7 +45,7 @@ export default function VideoPageReactComp() {
         hasCookie('current-person') && (setCurrentPerson(Number(getCookie('current-person'))))
         globals.click && setPlay(true)
         setFinal(false)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const reportChange = useCallback((state: any) => {
@@ -83,7 +83,7 @@ export default function VideoPageReactComp() {
                                 }}
                                 onMouseDown={() => {
                                     playOff()
-                                 }}
+                                }}
                             >
                                 {/* <h1 className='font-MNWide text-red-600 text-9xl absolute z-[10000]'>{element.id}</h1> */}
                                 <Suspense fallback={<Loading />}>
@@ -93,7 +93,7 @@ export default function VideoPageReactComp() {
                                         height={'100vh'}
                                         playing={play}
                                         url={"../video/" + element.filename}
-                                        controls={false}
+                                        controls={true}
                                         playsinline
                                         stopOnUnmount={true}
                                         loop={false}
