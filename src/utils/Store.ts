@@ -21,4 +21,7 @@ export const useStore = create<StoreType>((set) => ({
     // 
     currentMap: undefined,
     setCurrentMap: (map: number | undefined) => set(() => ({ currentMap: map })),
+    //
+    final: false,
+    setFinal: (value: boolean) => set(() => ({ final: value })),
 }))

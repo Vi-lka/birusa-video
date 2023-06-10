@@ -23,7 +23,9 @@ export default function QuestionsVar() {
     const {
         currentVideo,
         //
-        ended, 
+        ended,
+        // 
+        final,
     } = useStore()
 
     let question = ''
@@ -38,17 +40,17 @@ export default function QuestionsVar() {
 
   const [playClick] = useSound(
     '../audio/click-main.mp3',
-    { volume: 0.9, interrupt: true, playbackRate: 3 }
+    { volume: 0.2, interrupt: true, playbackRate: 3 }
   )
 
     return (
         <motion.div
             className='absolute w-screen h-fit text-center flex items-center justify-center p-1 z-30'
             style={{
-                display: ended ? 'flex' : 'none',
+                display: ((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? (final ? 'flex' : 'none') : (ended ? 'flex' : 'none'),
                 bottom: ((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? '90%' : '45%',
             }}
-            animate={ended ? "open" : "closed"}
+            animate={((currentVideo === 15) || (currentVideo === 26) || (currentVideo === 36)) ? (final ? 'open' : 'closed') : (ended ? "open" : "closed")}
             variants={variants}
         >
             {

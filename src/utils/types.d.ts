@@ -33,4 +33,7 @@ interface StoreType {
     // 
     currentMap: number | undefined,
     setCurrentMap: (map: number | undefined) => void
+    //
+    final: boolean;
+    setFinal: (value: boolean) => void;
 }

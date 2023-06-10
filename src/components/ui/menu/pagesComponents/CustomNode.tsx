@@ -48,7 +48,7 @@ function CustomNode({ data }: NodeProps<CustomNodeData>) {
 
     const [playClick] = useSound(
         '../audio/click-main.mp3',
-        { volume: 0.7, interrupt: true, playbackRate: 3 }
+        { volume: 0.2, interrupt: true, playbackRate: 3 }
     )
 
 

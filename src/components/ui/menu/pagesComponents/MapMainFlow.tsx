@@ -23,7 +23,8 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         setCurrentMenu,
         // 
         currentMap,
-        setCurrentMap
+        setCurrentMap,
+        setFinal
     } = useStore()
 
     function handleClick(index: number, indexPer: number) {
@@ -51,6 +52,7 @@ export default function MapMainFlow({ toggleOpen }: { toggleOpen: Cycle }) {
         }
 
         handleMetrika(index)
+        setFinal(false)
     }
 
     return (

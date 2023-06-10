@@ -22,11 +22,11 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
 
   const [playOn] = useSound(
     '../audio/click-on.mp3',
-    { volume: 0.6, playbackRate: 2.5 }
+    { volume: 0.2, playbackRate: 2.5 }
   )
   const [playAudio] = useSound(
     '../audio/start-play.mp3',
-    { volume: 0.5 }
+    { volume: 0.3 }
   );
 
   const anyWindow = window as any

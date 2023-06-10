@@ -15,6 +15,7 @@ import BackgroundPause from '../ui/BackgroundPause';
 import QuestionsVar from '../ui/QuestionsVar';
 import { useStore } from '@/utils/Store';
 import useSound from 'use-sound';
+import { OnProgressProps } from 'react-player/base';
 
 export default function VideoPageReactComp() {
 
@@ -30,6 +31,9 @@ export default function VideoPageReactComp() {
         setEnded, 
         loading, 
         setLoading,
+        //
+        final,
+        setFinal,
     } = useStore()
 
     const handleFullScreen = useFullScreenHandle();
@@ -40,6 +44,7 @@ export default function VideoPageReactComp() {
         hasCookie('current-progress') && (setCurrentVideo(Number(getCookie('current-progress'))))
         hasCookie('current-person') && (setCurrentPerson(Number(getCookie('current-person'))))
         globals.click && setPlay(true)
+        setFinal(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -49,7 +54,7 @@ export default function VideoPageReactComp() {
 
     const [playOff] = useSound(
         '../audio/click-off.mp3',
-        { volume: 0.7, interrupt: true, playbackRate: 2 }
+        { volume: 0.2, interrupt: true, playbackRate: 2 }
     )
 
     return (
@@ -88,7 +93,7 @@ export default function VideoPageReactComp() {
                                         height={'100vh'}
                                         playing={play}
                                         url={"../video/" + element.filename}
-                                        controls={false}
+                                        controls={true}
                                         playsinline
                                         stopOnUnmount={true}
                                         loop={false}
@@ -98,6 +103,20 @@ export default function VideoPageReactComp() {
                                         }}
                                         onEnded={() => {
                                             setEnded(true)
+                                        }}
+                                        onProgress={(state: OnProgressProps) => {
+                                            if (((currentVideo === 15)) && (state.played > 0.85) && (final === false)) {
+                                                setFinal(true)
+                                                console.log("FINAL POLYA!)")
+                                            }
+                                            if (((currentVideo === 26)) && (state.played > 0.6215) && (final === false)) {
+                                                setFinal(true)
+                                                console.log("FINAL YAN!)")
+                                            }
+                                            if (((currentVideo === 36)) && (state.played > 0.6215) && (final === false)) {
+                                                setFinal(true)
+                                                console.log("FINAL NIKA!)")
+                                            }
                                         }}
                                     />
                                 </Suspense>

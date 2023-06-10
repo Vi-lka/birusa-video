@@ -27,7 +27,7 @@ export default function ContinueButton() {
 
     const [playOn] = useSound(
         '../audio/click-on.mp3',
-        { volume: 0.7, interrupt: true, playbackRate: 2.5 }
+        { volume: 0.2, interrupt: true, playbackRate: 2.5 }
     )
 
   return (

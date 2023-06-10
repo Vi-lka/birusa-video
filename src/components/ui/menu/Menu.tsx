@@ -56,15 +56,15 @@ export default function Menu() {
 
     const [playOn] = useSound(
         '../audio/click-on.mp3',
-        { volume: 0.7, interrupt: true, playbackRate: 2.5 }
+        { volume: 0.2, interrupt: true, playbackRate: 2.5 }
     )
     const [playOff] = useSound(
         '../audio/click-off.mp3',
-        { volume: 0.7, interrupt: true, playbackRate: 2 }
+        { volume: 0.2, interrupt: true, playbackRate: 2 }
     )
     const [playClick] = useSound(
         '../audio/click-main.mp3',
-        { volume: 0.7, interrupt: true, playbackRate: 2 }
+        { volume: 0.2, interrupt: true, playbackRate: 2 }
     )
 
     return (

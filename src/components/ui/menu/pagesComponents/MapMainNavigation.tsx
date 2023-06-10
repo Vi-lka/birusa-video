@@ -37,13 +37,11 @@ export default function MapMainNavigation() {
 
     const { currentMap, setCurrentMap } = useStore()
 
-    console.log(currentMap)
-
     const anyWindow = window as any
 
     const [playClick] = useSound(
       '../audio/click-main.mp3',
-      { volume: 0.7, interrupt: true, playbackRate: 2.5 }
+      { volume: 0.2, interrupt: true, playbackRate: 2.5 }
     )
 
   return (

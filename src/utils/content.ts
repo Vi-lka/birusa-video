@@ -44,7 +44,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1,
         name: 'Куда поедем?',
-        filename: 'polya.mp4',
+        filename: '1.mp4',
         buttons: [
             {
                 name: 'В университет',
@@ -59,7 +59,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 11,
         name: 'Как дела?',
-        filename: 'polya.mp4',
+        filename: '11.mp4',
         buttons: [
             {
                 name: 'Сказать правду',
@@ -74,7 +74,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 111,
         name: 'Нажми, чтобы поехать',
-        filename: 'polya.mp4',
+        filename: '111.mp4',
         buttons: [
             {
                 name: 'Поехать в универ',
@@ -85,7 +85,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 112,
         name: 'Нажми, чтобы поехать',
-        filename: 'polya.mp4',
+        filename: '112.mp4',
         buttons: [
             {
                 name: 'Поехать в универ',
@@ -96,7 +96,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 113,
         name: 'Что делать?',
-        filename: 'polya.mp4',
+        filename: '113.mp4',
         buttons: [
             {
                 name: ' ',
@@ -111,7 +111,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1131,
         name: 'Что дальше?',
-        filename: 'polya.mp4',
+        filename: '1131.mp4',
         buttons: [
             {
                 name: 'Вдохновиться Бирюсой',
@@ -122,7 +122,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1132,
         name: 'Что дальше?',
-        filename: 'polya.mp4',
+        filename: '1132.mp4',
         buttons: [ 
             {
                 name: 'Проявить себя',
@@ -133,7 +133,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 12,
         name: 'Что сделать?',
-        filename: 'polya.mp4',
+        filename: '12.mp4',
         buttons: [
             {
                 name: 'Поехать на ленты',
@@ -148,7 +148,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 121,
         name: 'Нажми, чтобы поехать',
-        filename: 'polya.mp4',
+        filename: '121.mp4',
         buttons: [
             {
                 name: 'Поехать в универ',
@@ -159,7 +159,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 122,
         name: 'Нажми, чтобы поехать',
-        filename: 'polya.mp4',
+        filename: '122.mp4',
         buttons: [
             {
                 name: 'Поехать в универ ',
@@ -170,7 +170,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 123,
         name: 'Что делать?',
-        filename: 'polya.mp4',
+        filename: '123.mp4',
         buttons: [
             {
                 name: 'Промолчать',
@@ -185,7 +185,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1231,
         name: 'Что дальше?',
-        filename: 'polya.mp4',
+        filename: '1231.mp4',
         buttons: [
             {
                 name: 'Вдохновиться Бирюсой',
@@ -196,7 +196,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1232,
         name: 'Что дальше?',
-        filename: 'polya.mp4',
+        filename: '1232.mp4',
         buttons: [ 
             {
                 name: 'Проявить себя',
@@ -207,7 +207,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 131,
         name: 'Как ответить?',
-        filename: 'polya.mp4',
+        filename: '131.mp4',
         buttons: [
             {
                 name: 'Ждут друзья',
@@ -222,7 +222,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 132,
         name: 'Как ответить?',
-        filename: 'polya.mp4',
+        filename: '132.mp4',
         buttons: [
             {
                 name: 'Ждут друзья',
@@ -237,7 +237,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1311,
         name: 'Нажми, чтобы отправить',
-        filename: 'polya.mp4',
+        filename: '1311.mp4',
         buttons: [
             {
                 name: 'Отправить заявку',
@@ -248,7 +248,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 1321,
         name: 'Нажми, чтобы отправить',
-        filename: 'polya.mp4',
+        filename: '1321.mp4',
         buttons: [
             {
                 name: 'Отправить заявку',
@@ -259,7 +259,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 15,
         name: 'Хочу на Бирюсу',
-        filename: 'polya.mp4',
+        filename: '15.mp4',
         buttons: []
     },
 
@@ -535,7 +535,7 @@ export const CONTENT: ContentType[] = [
     {
         id: 26,
         name: 'Хочу на Бирюсу',
-        filename: 'yan.mp4',
+        filename: '26.mp4',
         buttons: []
     },
 

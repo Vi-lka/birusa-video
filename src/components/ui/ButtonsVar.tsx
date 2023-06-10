@@ -30,7 +30,8 @@ export default function ButtonsVar() {
         ended, 
         setEnded, 
         setPlayFromStart,
-        setLoading 
+        setLoading,
+        setFinal
     } = useStore()
 
     let buttons = [] as {
@@ -46,7 +47,7 @@ export default function ButtonsVar() {
 
     const [playClick] = useSound(
         '../audio/click-main.mp3',
-        { volume: 0.9, interrupt: true, playbackRate: 3 }
+        { volume: 0.2, interrupt: true, playbackRate: 3 }
     )
     
     function handleClick(index: number) {
@@ -69,6 +70,7 @@ export default function ButtonsVar() {
 
         handleMetrika(index)
         playClick()
+        setFinal(false)
     }
 
     const personColor = (current: number) => {
