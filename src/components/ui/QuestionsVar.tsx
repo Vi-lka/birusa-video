@@ -71,16 +71,16 @@ export default function QuestionsVar() {
                           href="https://vk.com/biryusa_tim" 
                           target="_blank"
                           onClick={() => {
-                            if (currentVideo === 15) {
-                                anyWindow.ym(93903526,'reachGoal','polya_final_birusa_tim')
+                            // if (currentVideo === 15) {
+                            //     anyWindow.ym(93903526,'reachGoal','polya_final_birusa_tim')
 
-                              } else if (currentVideo === 26) {
-                                anyWindow.ym(93903526,'reachGoal','yan_final_birusa_tim')
+                            //   } else if (currentVideo === 26) {
+                            //     anyWindow.ym(93903526,'reachGoal','yan_final_birusa_tim')
 
-                              } else if (currentVideo === 36) {
-                                anyWindow.ym(93903526,'reachGoal','nika_final_birusa_tim')
+                            //   } else if (currentVideo === 36) {
+                            //     anyWindow.ym(93903526,'reachGoal','nika_final_birusa_tim')
 
-                              }
+                            //   }
                           }}
                         >
                           {question}

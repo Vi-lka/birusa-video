@@ -87,13 +87,13 @@ export default function MapMainNavigation() {
           }}
           onClick={() => {
             setCurrentMap(i)
-            if (i === 0) {
-              anyWindow.ym(93903526,'reachGoal','polya_map_open')
-            } else if (i === 1) {
-              anyWindow.ym(93903526,'reachGoal','yan_map_open')
-            } else if (i === 2) {
-              anyWindow.ym(93903526,'reachGoal','nika_map_open')
-            }
+            // if (i === 0) {
+            //   anyWindow.ym(93903526,'reachGoal','polya_map_open')
+            // } else if (i === 1) {
+            //   anyWindow.ym(93903526,'reachGoal','yan_map_open')
+            // } else if (i === 2) {
+            //   anyWindow.ym(93903526,'reachGoal','nika_map_open')
+            // }
           }}
         >
           <div className="w-fit">

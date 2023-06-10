@@ -79,7 +79,7 @@ export default function VideoPageReactComp() {
                                         height={'100vh'}
                                         playing={play}
                                         url={"../video/" + element.filename}
-                                        controls={false}
+                                        controls={true}
                                         playsinline
                                         stopOnUnmount={true}
                                         loop={false}

@@ -57,9 +57,9 @@ function CustomNode({ data }: NodeProps<CustomNodeData>) {
                     <h4 className="title-button text-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
                         {data.title}
                     </h4>
-                    {/* <h4 className="title-button absolute text-black bg-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
+                    <h4 className="title-button absolute text-black bg-white font-MNWide font-[400] text-lg antialiased md:subpixel-antialiased">
                         {data.idTo}
-                    </h4> */}
+                    </h4>
                 </div>
                 <Handle type="target" position={data.target} style={{ background: color }} />
                 <Handle type="source" position={data.source} style={{ background: color }} />

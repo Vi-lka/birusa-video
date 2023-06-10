@@ -72,7 +72,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 780, y: -50 },
+                position: { x: 765, y: -50 },
                 className: 'custom-node',
             },
             {
@@ -86,7 +86,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 815, y: -150 },
+                position: { x: 805, y: -150 },
                 className: 'custom-node',
             },
             {
@@ -94,7 +94,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 type: 'custom',
                 data: {
                     idTo: 113,
-                    title: 'Окликнуть студентку',
+                    title: 'Поехать в универ',
                     target: Position.Left,
                     source: Position.Right,
                     personId: 1,
@@ -114,21 +114,21 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 1400, y: -50 },
+                position: { x: 1400, y: -150 },
                 className: 'custom-node',
             },
             {
-                id: '1132',
+                id: '1231',
                 type: 'custom',
                 data: {
-                    idTo: 1132,
-                    title: 'Ответить',
+                    idTo: 1231,
+                    title: 'Промолчать',
                     target: Position.Left,
                     source: Position.Right,
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 1430, y: -150 },
+                position: { x: 1400, y: -50 },
                 className: 'custom-node',
             },
             {
@@ -178,7 +178,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 type: 'custom',
                 data: {
                     idTo: 123,
-                    title: 'Окликнуть студентку',
+                    title: 'Поехать в универ',
                     target: Position.Left,
                     source: Position.Right,
                     personId: 1,
@@ -188,17 +188,17 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 className: 'custom-node',
             },
             {
-                id: '1231',
+                id: '1132',
                 type: 'custom',
                 data: {
-                    idTo: 1231,
-                    title: 'Промолчать',
+                    idTo: 1132,
+                    title: 'Ответить',
                     target: Position.Left,
                     source: Position.Right,
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 1400, y: 50 },
+                position: { x: 1415, y: 50 },
                 className: 'custom-node',
             },
             {
@@ -212,19 +212,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 1430, y: 150 },
-                className: 'custom-node',
-            },
-            {
-                id: '1310-p',
-                type: 'custom',
-                data: {
-                    title: '~',
-                    target: Position.Left,
-                    source: Position.Right,
-                    personId: 1,
-                },
-                position: { x: 1630, y: 2 },
+                position: { x: 1415, y: 150 },
                 className: 'custom-node',
             },
             {
@@ -238,7 +226,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 1740, y: 50 },
+                position: { x: 1670, y: -50 },
                 className: 'custom-node',
             },
             {
@@ -252,11 +240,11 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 1780, y: -50 },
+                position: { x: 1715, y: 50 },
                 className: 'custom-node',
             },
             {
-                id: '1311-2-p',
+                id: '133-p',
                 type: 'custom',
                 data: {
                     title: '~',
@@ -264,7 +252,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     source: Position.Right,
                     personId: 1,
                 },
-                position: { x: 2065, y: 2 },
+                position: { x: 2030, y: 2 },
                 className: 'custom-node',
             },
             {
@@ -278,7 +266,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 2170, y: -50 },
+                position: { x: 2150, y: -50 },
                 className: 'custom-node',
             },
             {
@@ -292,21 +280,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     personId: 1,
                     onClick: handleClick,
                 },
-                position: { x: 2170, y: 50 },
-                className: 'custom-node',
-            },
-            {
-                id: '14',
-                type: 'custom',
-                data: {
-                    idTo: 14,
-                    title: 'Отправить заявку',
-                    target: Position.Left,
-                    source: Position.Right,
-                    personId: 1,
-                    onClick: handleClick,
-                },
-                position: { x: 2410, y: 0 },
+                position: { x: 2145, y: 50 },
                 className: 'custom-node',
             },
             {
@@ -319,7 +293,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     source: Position.Right,
                     personId: 1,
                 },
-                position: { x: 2700, y: 250 },
+                position: { x: 2430, y: 150 },
                 className: 'custom-node',
             },
             {
@@ -332,7 +306,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     source: Position.Right,
                     personId: 1,
                 },
-                position: { x: 2700, y: 150 },
+                position: { x: 2430, y: 50 },
                 className: 'custom-node',
             },
             {
@@ -345,7 +319,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     source: Position.Right,
                     personId: 1,
                 },
-                position: { x: 2700, y: 50 },
+                position: { x: 2430, y: -50 },
                 className: 'custom-node',
             },
             {
@@ -358,33 +332,7 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                     source: Position.Right,
                     personId: 1,
                 },
-                position: { x: 2700, y: -50 },
-                className: 'custom-node',
-            },
-            {
-                id: '15-5',
-                type: 'custom',
-                data: {
-                    idTo: 15,
-                    title: 'Конец. . .?',
-                    target: Position.Left,
-                    source: Position.Right,
-                    personId: 1,
-                },
-                position: { x: 2700, y: -150 },
-                className: 'custom-node',
-            },
-            {
-                id: '15-6',
-                type: 'custom',
-                data: {
-                    idTo: 15,
-                    title: 'Конец. . .?',
-                    target: Position.Left,
-                    source: Position.Right,
-                    personId: 1,
-                },
-                position: { x: 2700, y: -250 },
+                position: { x: 2430, y: -150 },
                 className: 'custom-node',
             },
         ])
@@ -462,22 +410,21 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
-            
             {
-                id: 'polya-e1131-1310-p',
+                id: 'polya-e1131-131',
                 source: '1131',
                 type: 'default',
-                target: '1310-p',
+                target: '131',
                 animated: (currentVideo === 1131),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e1132-1310-p',
-                source: '1132',
+                id: 'polya-e1231-131',
+                source: '1231',
                 type: 'default',
-                target: '1310-p',
-                animated: (currentVideo === 1132),
+                target: '131',
+                animated: (currentVideo === 1231),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
@@ -545,62 +492,44 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 label: ''
             },
             {
-                id: 'polya-e1231-1310-p',
-                source: '1231',
-                type: 'default',
-                target: '1310-p',
-                animated: (currentVideo === 1231),
-                style: { stroke: '#80c41c', strokeWidth: 2 },
-                label: ''
-            },
-            {
-                id: 'polya-e1232-1310-p',
+                id: 'polya-e1232-132',
                 source: '1232',
                 type: 'default',
-                target: '1310-p',
+                target: '132',
                 animated: (currentVideo === 1232),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e1310-p-132',
-                source: '1310-p',
+                id: 'polya-e1132-132',
+                source: '1132',
                 type: 'default',
                 target: '132',
-                animated: ((currentVideo === 1132) || (currentVideo === 1131) || (currentVideo === 1231) || (currentVideo === 1232)),
+                animated: (currentVideo === 1132),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e1310-p-131',
-                source: '1310-p',
-                type: 'default',
-                target: '131',
-                animated: ((currentVideo === 1132) || (currentVideo === 1131) || (currentVideo === 1231) || (currentVideo === 1232)),
-                style: { stroke: '#80c41c', strokeWidth: 2 },
-                label: ''
-            },
-            {
-                id: 'polya-e131-1311-2-p',
+                id: 'polya-e131-133-p',
                 source: '131',
                 type: 'default',
-                target: '1311-2-p',
+                target: '133-p',
                 animated: (currentVideo === 131),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e132-1311-2-p',
+                id: 'polya-e132-133-p',
                 source: '132',
                 type: 'default',
-                target: '1311-2-p',
+                target: '133-p',
                 animated: (currentVideo === 132),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e1311-2-p-1311',
-                source: '1311-2-p',
+                id: 'polya-e133-p-1311',
+                source: '133-p',
                 type: 'default',
                 target: '1311',
                 animated: ((currentVideo === 131) || (currentVideo === 132)),
@@ -608,8 +537,8 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 label: ''
             },
             {
-                id: 'polya-e1311-2-p-1321',
-                source: '1311-2-p',
+                id: 'polya-e133-p-1321',
+                source: '133-p',
                 type: 'default',
                 target: '1321',
                 animated: ((currentVideo === 131) || (currentVideo === 132)),
@@ -617,74 +546,38 @@ export default function PolyaFlow({ handleClick }: { handleClick: (index: number
                 label: ''
             },
             {
-                id: 'polya-e1311-14',
-                source: '1311',
-                type: 'default',
-                target: '14',
-                animated: (currentVideo === 1311),
-                style: { stroke: '#80c41c', strokeWidth: 2 },
-                label: ''
-            },
-            {
-                id: 'polya-e1321-14',
+                id: 'polya-e1321-15-1',
                 source: '1321',
                 type: 'default',
-                target: '14',
+                target: '15-1',
                 animated: (currentVideo === 1321),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e14-15-1',
-                source: '14',
-                type: 'default',
-                target: '15-1',
-                animated: (currentVideo === 14),
-                style: { stroke: '#80c41c', strokeWidth: 2 },
-                label: ''
-            },
-            {
-                id: 'polya-e14-15-2',
-                source: '14',
+                id: 'polya-e1321-15-2',
+                source: '1321',
                 type: 'default',
                 target: '15-2',
-                animated: (currentVideo === 14),
+                animated: (currentVideo === 1321),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e14-15-3',
-                source: '14',
+                id: 'polya-e1311-15-3',
+                source: '1311',
                 type: 'default',
                 target: '15-3',
-                animated: (currentVideo === 14),
+                animated: (currentVideo === 1311),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },
             {
-                id: 'polya-e14-15-4',
-                source: '14',
+                id: 'polya-e-15-4',
+                source: '1311',
                 type: 'default',
                 target: '15-4',
-                animated: (currentVideo === 14),
-                style: { stroke: '#80c41c', strokeWidth: 2 },
-                label: ''
-            },
-            {
-                id: 'polya-e14-15-5',
-                source: '14',
-                type: 'default',
-                target: '15-5',
-                animated: (currentVideo === 14),
-                style: { stroke: '#80c41c', strokeWidth: 2 },
-                label: ''
-            },
-            {
-                id: 'polya-e14-15-6',
-                source: '14',
-                type: 'default',
-                target: '15-6',
-                animated: (currentVideo === 14),
+                animated: (currentVideo === 1311),
                 style: { stroke: '#80c41c', strokeWidth: 2 },
                 label: ''
             },

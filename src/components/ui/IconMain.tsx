@@ -56,7 +56,7 @@ export default function IconMain({ toggle } : { toggle: () => void }) {
             setLoading(true)
         }
 
-        anyWindow.ym(93903526,'reachGoal','go_to_start_0')
+        // anyWindow.ym(93903526,'reachGoal','go_to_start_0')
     }
 
   return (

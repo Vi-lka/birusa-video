@@ -50,7 +50,7 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
             setPlayFromStart(true)
             globals.click = true
             handleFullScreen.enter
-            anyWindow.ym(93903526,'reachGoal','start_0')
+            // anyWindow.ym(93903526,'reachGoal','start_0')
           }}
           onClickCapture={handleFullScreen.enter}
         >
