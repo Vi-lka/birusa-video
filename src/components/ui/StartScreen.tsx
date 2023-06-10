@@ -20,9 +20,13 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
 
   const [videoStart, setVideoStart] = React.useState<boolean>(false);
 
+  const [playOn] = useSound(
+    '../audio/click-on.mp3',
+    { volume: 0.6, playbackRate: 2.5 }
+  )
   const [playAudio] = useSound(
     '../audio/start-play.mp3',
-    { volume: 0.7, interrupt: true }
+    { volume: 0.5 }
   );
 
   const anyWindow = window as any
@@ -60,7 +64,10 @@ export default function StartScreen({ handleFullScreen }: { handleFullScreen: Fu
               // anyWindow.ym(93903526,'reachGoal','start_0')
             }, 200)
           }}
-          onMouseDown={() => playAudio()}
+          onMouseDown={() => {
+            playAudio()
+            playOn()
+          }}
           onClickCapture={handleFullScreen.enter}
         >
           Начать

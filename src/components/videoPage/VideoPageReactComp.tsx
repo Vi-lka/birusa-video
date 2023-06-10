@@ -49,7 +49,7 @@ export default function VideoPageReactComp() {
 
     const [playOff] = useSound(
         '../audio/click-off.mp3',
-        { volume: 0.9, interrupt: true, playbackRate: 2.5 }
+        { volume: 0.7, interrupt: true, playbackRate: 2 }
     )
 
     return (
